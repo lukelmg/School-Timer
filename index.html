@@ -1,33 +1,77 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
-    <meta content="utf-8" http-equiv="encoding">
-    <title>SchoolTimer</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-  </head>
-  <body onload="">
-    <div id="timers">
-      <div class="timer">
-        <h2>
-          1st Period
-        </h2>
-        <table>
-          <tr>
-            <th>Starts</th>
-            <th>Ends</th>
-          </tr>
-          <tr>
-            <td>00:34:12</td>
-            <td>00:51:12</td>
-          </tr>
-        </table>
+
+<head>
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+  <meta content="utf-8" http-equiv="encoding">
+  <title>School Timer</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+
+<body onload="">
+  <div class="sidebar right">
+    <div class="sidebarSquare" id="progress">
+      <h3> School Day Progress </h3>
+    </div>
+    <div class="sidebarSquare" id="year">
+      <h3> Weeks Until <br> Summer Break</h3>
+    </div>
+    <div class="sidebarRectangle" id="time">
+      <h3> Current Time </h3>
+      <h4 id="currentTime">00:00:00 PM</h4>
+      <h3> Current Date </h3>
+      <h4 id="currentDay">Sunday</h4>
+      <h4 id="currentDate">00/00/0000</h4>
+    </div>
+  </div>
+  <div class="sidebar left">
+    <div class="sidebarRectangle" id="time">
+      <h3> Schedule </h3>
+      <div id="radioDiv">
+        <center>
+          <div class="singleRadio">
+            <div class="radioTooltip">Normal Schedule</div>
+            <h5>A</h5>
+            <div class="radioOuter">
+              <div class="radioInner"></div>
+            </div>
+          </div>
+          <div class="singleRadio">
+            <h5>E</h5>
+            <div class="radioOuter">
+              <div class="radioInner"></div>
+            </div>
+          </div>
+          <div class="singleRadio">
+            <h5>C</h5>
+            <div class="radioOuter">
+              <div class="radioInner"></div>
+            </div>
+          </div>
+          <div class="singleRadio">
+            <h5>D</h5>
+            <div class="radioOuter">
+              <div class="radioInner"></div>
+            </div>
+          </div>
+        </center>
       </div>
     </div>
-    <div id="time" style="color:white">
+    <div class="sidebarSquare" id="cycle">
+      <h3> Cycle Day <br> (Beta)</h3>
+      <h6 id="cycleDayOutput">5</h6>
     </div>
-    <div id="sidebar"></div>
-  </body>
+    <div class="sidebarSquare" id="year">
+      <h3> Settings </h3>
+      <center>
+        <button>Color Picker</button>
+        <button>More Stats</button>
+      </center>
+    </div>
+  </div>
+  <div id="timers"></div>
+</body>
+
 </html>
 <script src="script.js"></script>

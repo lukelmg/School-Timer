@@ -1,26 +1,12 @@
-/* CSS files add styling rules to your content */
+html, body {margin: 0; height: 100%; overflow: hidden}
 
 body {
   font-family: "Open Sans", sans-serif;
-  margin: 1%;
+  margin: 0.85%;
   background-color: #17181c;
   /* background: linear-gradient(270deg, #354965, #26272F); */
   background-size: 400% 400%;
   animation: AnimationName 0s ease infinite;
-}
-
-h1 {
-  color: white;
-  background-color: #E94A35;
-  font-weight: 800;
-  padding: 1%;
-  display: inline-block;
-  margin-top: 0px;
-  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
-  right:1%;
-  width:98%;
-  font-size:150%;
-  height:100%;
 }
 
 #firstContainer {
@@ -28,11 +14,14 @@ h1 {
   background-color: #E94A35;
   position: relative;
   text-align: center;
+  float:right;
+  width:30%;
+  display:none;
 }
 
 #schoolTitle {
   font-weight: 800;
-  font-size:140%;
+  font-size:350%;
   vertical-align: center;
   text-align: center;
 
@@ -45,51 +34,61 @@ h1 {
 
 h2 {
   margin: 0;
-  font-size: 40px;
+  font-size: 300%;
   font-family: "Open Sans", sans-serif;
   display:inline-block;
   vertical-align: middle;
   margin-right: 30px;
-  color:gray;
 }
 
 table {
-  color: #8a8a8a;
-  margin: 0;
-  text-align: left;
   display:inline-block;
-  vertical-align: middle;
 }
 
 tr,
-td {
-  padding-right: 30px;
-  font-size: 25px;
-  margin-top: 0;
-  display:block;
+td
+ {
+   
 }
 
 td {
   display:inline-block;
+  background-color:red;
+  table-layout: fixed;
 }
 
 th {
-  padding-right: 100%;
+  font-size: 100%;
+  background-color:blue;
+  table-layout: fixed;
+  margin:10px;
+}
+
+.thatLabelThing {
+  font-weight:500;
+}
+
+.thatEndThing {
+  margin-left: 18%;
 }
 
 .timer {
   font-family: "Open Sans Condensed", sans-serif;
-  font-size: 40px;
   font-weight: 10;
   background-color: #232326;
   display: inline-block;
   padding: 10px;
   box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
   vertical-align: middle;
-  width: 500px;
   padding-right:0px;
   margin-bottom:25px;
   margin-right:25px;
+  color:#bfbfbf;
+  box-sizing: border-box;
+  width:36%;
+  text-align:center;
+  padding-right:0;
+  padding-left:15px;
 }
 
 @keyframes AnimationName {
@@ -109,4 +108,138 @@ input {
   font-size: 30px;
   margin-top: 40px;
   width: 90%;
+}
+
+.sidebar {
+  float:right;
+  margin-left: 1%;
+}
+
+:root {
+  --thatHeight: 22.71vh;
+}
+
+.sidebarSquare {
+  box-sizing: border-box;
+  background-color: #232326;
+  height: var(--thatHeight);
+  width: var(--thatHeight);
+  margin-bottom:2vh;
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+}
+
+.sidebarRectangle {
+  box-sizing: border-box;
+  background-color: #232326;
+  height: calc(var(--thatHeight) * 2 + 2vh);
+  width: var(--thatHeight);
+  margin-bottom:2vh;
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+}
+
+
+h3 {
+  margin: 0;
+  color:#bfbfbf;
+  text-align:center;
+  font-size:230%;
+  padding-top: 5%;
+}
+
+h4 {
+  color:#bfbfbf;
+  text-align:center;
+  font-size: 150%;
+  font-weight: 400;
+}
+
+#currentTime {
+  margin-bottom: 20%;
+}
+
+:root {
+  --radio: 6vh;
+}
+
+.radioDiv {
+  text-align:center;
+}
+
+h5 {
+  display:inline-block;
+  vertical-align:middle;
+  color:#bfbfbf;
+  font-size:250%;
+  margin:0;
+  padding:0;
+  margin-right: 5%;
+  font-weight:400;
+}
+
+
+.radioOuter {
+  height: var(--radio);
+  width: var(--radio);
+  background-color:gray;
+  border-radius:50%;
+  cursor:pointer;
+  display:inline-block;
+  vertical-align:middle;
+  position: relative;
+}
+
+.radioInner {
+  height: calc(var(--radio) / 2);
+  width: calc(var(--radio) / 2);
+  background-color:white;
+  border-radius:50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.singleRadio {
+  margin-top: 7%;
+  margin-bottom:18%;
+  position:relative;
+}
+
+.radioTooltip {
+  position:absolute;
+  background-color:white;
+  z-index:10;
+  vertical-align: middle;
+  top:15%;
+  left:-50%;
+  padding:5%;
+  display:none;
+}
+
+.radioOuter:focus + .radioTooltip {
+  display:block;
+}
+
+#cycleDayOutput {
+  color: #bfbfbf;
+  text-align:center;
+  font-size:500%;
+  margin:0;
+  margin-top:10%;
+  font-weight:400;
+}
+
+button {
+  padding: 10%;
+  margin: 4%;
+  cursor:pointer;
+  outline:none;
+  background-color:#3b3c3d;
+  border:none;
+  color:white;
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+}
+
+button:hover {
+  outline:none;
 }

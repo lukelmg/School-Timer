@@ -1,8 +1,10 @@
 var currentScheduleSelected = 'A';
 var numberOfPeriods = 9;
 
-var startTimesA = ['07:40', '08:30', '09:15', '10:00', '10:45', '11:30', '12:15', '13:00', '14:50'];
-var endTimesA =   ['08:24', '09:09', '09:54', '10:39', '11:24', '12:09', '12:54', '13:44', '15:30'];
+var scheduleArray = ['startTimesA', 'startTimesB', 'startTimesC', 'startTimesD']
+
+var startTimesA = ['' + '07:40', '08:30', '09:15', '10:00', '10:45', '11:30', '12:15', '13:00', '13:50'];
+var endTimesA =   ['' + '08:24', '09:09', '09:54', '10:39', '11:24', '12:09', '12:54', '13:44', '14:30'];
 
 var startTimesC = [];
 var endTimesC = [];
@@ -45,8 +47,6 @@ function create() {
 
       header.innerHTML = suffix(i) + ' Period';
 
-      var breakTest = document.createElement('br');
-
       var table = document.createElement('table');
 
       var row1 = document.createElement('tr');
@@ -55,7 +55,10 @@ function create() {
       var endLabel = document.createElement('th');
 
       startLabel.innerHTML = 'Start';
+      startLabel.className = 'thatLabelThing'
+
       endLabel.innerHTML = 'End';
+      endLabel.className = 'thatLabelThing thatEndThing'
 
       row1.appendChild(startLabel);
       row1.appendChild(endLabel);
@@ -66,54 +69,155 @@ function create() {
       var end = document.createElement('td');
 
       start.innerHTML = '00:54:31';
+      start.id = i-1 + 'start';
+
       end.innerHTML = '00:32:31';
+      end.id = i-1 + 'end';
 
       row2.appendChild(start);
       row2.appendChild(end);
 
       table.appendChild(row1);
-      table.appendChild(row2);
+  //    table.appendChild(row2);
 
       box.appendChild(header);
-      box.appendChild(breakTest);
+    //  box.appendChild(breakTest);
       box.appendChild(table);
 
       container.appendChild(box);
 
-      if (isOdd(i) == 1) {
         var theBreak = document.createElement('br');
         container.appendChild(theBreak);
-      }
 
-      $("#firstContainer").css("height", $("#secondContainer").height());
+
+      $("#firstContainer").css("height", $("#secondContainer").height() + 20);
     }
   }
 }
 
-(function() {
-  var start = new Date;
-  start.setHours(23, 0, 0); // 11pm
+var startTimes = [];
+var endTimes = [];
 
-  function pad(num) {
-    return ('0' + parseInt(num)).substr(-2);
+var startStatus = [];
+var endStatus = [];
+
+setSchedule();
+
+function setSchedule() {
+  switch (currentScheduleSelected) {
+  case 'A':
+    startTimes = startTimesA;
+    endTimes = endTimesA;
+    break;
+  case 'B':
+    startTimes = startTimesB;
+    endTimes = endTimesB;
+    break;
+  case 'C':
+     startTimes = startTimesC;
+     endTimes = endTimesC;
+    break;
+  case 'D':
+    startTimes = startTimesD;
+    endTimes = endTimesD;
   }
+}
+
+(function() {
+
+  var start = new Date;
 
   function tick() {
-    var now = new Date;
-    if (now > start) { // too late, go to tomorrow
-      start.setDate(start.getDate() + 1);
+
+    for (var i = 0; i < numberOfPeriods; i++) {
+      start.setHours(startTimes[i].substring(0, 2), startTimes[i].substring(3, 5), 0);
+
+      var now = new Date;
+      if (now > start) { // too late, go to tomorrow
+        start.setDate(start.getDate() + 1);
+      }
+
+      var remain = ((start - now) / 1000);
+      var hh = pad((remain / 60 / 60) % 60);
+      var mm = pad((remain / 60) % 60);
+      var ss = pad(remain % 60);
+
+      if (hh >= 24) {
+        hh = hh - 24;
+      }
+
+      if (hh < 10) {
+        hh = '0' + hh;
+      }
+
+      if (hh >= 10) {
+        document.getElementById(i + 'start').innerHTML = '------------';
+        startStatus[i] = true;
+      } else {
+        document.getElementById(i + 'start').innerHTML = hh + ':' + mm + ':' + ss;
+        startStatus[i] = false;
+      }
     }
-    var remain = ((start - now) / 1000);
-    var hh = pad((remain / 60 / 60) % 60);
-    var mm = pad((remain / 60) % 60);
-    var ss = pad(remain % 60);
-    document.getElementById('time').innerHTML = hh + ':' + mm + ':' + ss;
-    setTimeout(tick, 1000);
+    setTimeout(tick, 10);
+  }
+
+
+  function tick2() {
+
+    for (var i = 0; i < numberOfPeriods; i++) {
+      start.setHours(endTimes[i].substring(0, 2), endTimes[i].substring(3, 5), 0);
+
+      var now = new Date;
+      if (now > start) { // too late, go to tomorrow
+        start.setDate(start.getDate() + 1);
+      }
+
+      var remain = ((start - now) / 1000);
+      var hh = pad((remain / 60 / 60) % 60);
+      var mm = pad((remain / 60) % 60);
+      var ss = pad(remain % 60);
+
+      if (hh >=24) {
+        hh = hh - 24;
+      }
+
+      if (hh < 10) {
+        hh = '0' + hh;
+      }
+
+      if (hh >= 11) {
+        endStatus[i] = true;
+        document.getElementById(i + 'end').innerHTML = '------------';
+        if (startStatus[i+1] == true && i+1 != 0) {
+          var currentTimer = document.getElementsByClassName('timer');
+          currentTimer[i+1].style.color = '#575757';
+        } else {
+          var currentTimer = document.getElementsByClassName('timer');
+          currentTimer[i+1].style.color = '#bfbfbf';
+        }
+      } else {
+        endStatus[i] = false;
+        if (startStatus[i] == true) {
+          var currentTimer = document.getElementsByClassName('timer');
+          currentTimer[i+1].style.border = '3px solid #E94A35';
+        } else {
+          var currentTimer = document.getElementsByClassName('timer');
+          currentTimer[i+1].style.border = 'none';
+        }
+        document.getElementById(i + 'end').innerHTML = hh + ':' + mm + ':' + ss;
+      }
+    }
+    setTimeout(tick2, 10);
   }
 
   document.addEventListener('DOMContentLoaded', tick);
+  document.addEventListener('DOMContentLoaded', tick2);
 })();
 
+
+function pad(num) {
+  return ('0' + parseInt(num)).substr(-2);
+}
 
 
 function suffix(i) {
@@ -132,3 +236,22 @@ function suffix(i) {
 }
 
 function isOdd(num) { return num % 2;}
+
+(function(){
+    var d = new Date();
+    var n = d.toLocaleString([], { hour: '2-digit', minute: '2-digit', second: '2-digit'});
+    document.getElementById("currentTime").innerHTML = n;
+    setTimeout(arguments.callee, 10);
+
+    var today = new Date();
+    var dd = String(today.getDate()).padStart(2, '0');
+    var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    var yyyy = today.getFullYear();
+
+    today = mm + '/' + dd + '/' + yyyy;
+    document.getElementById('currentDate').innerHTML = today;
+
+    var testDate = new Date();
+    var days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+    document.getElementById('currentDay').innerHTML = days[testDate.getDay()];
+})();
