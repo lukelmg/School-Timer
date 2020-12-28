@@ -78,7 +78,7 @@ function create() {
       row2.appendChild(end);
 
       table.appendChild(row1);
-  //    table.appendChild(row2);
+      table.appendChild(row2);
 
       box.appendChild(header);
     //  box.appendChild(breakTest);
