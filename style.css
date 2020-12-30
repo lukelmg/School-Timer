@@ -2,7 +2,7 @@ html, body {margin: 0; height: 100%; overflow: hidden}
 
 body {
   font-family: "Open Sans", sans-serif;
-  background-color: #edebec;
+  background-color: #ededed;
   /* background: linear-gradient(270deg, #354965, #26272F); */
   background-size: 400% 400%;
   animation: AnimationName 0s ease infinite;
@@ -16,6 +16,27 @@ body {
   float:right;
   width:30%;
   display:none;
+}
+
+.timerknockoff {
+  box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8), 6px 6px 10px rgba(0, 0, 0, 0.2);
+  font-family: "Open Sans Condensed", sans-serif;
+  font-weight: 10;
+  background-color: transparent;
+  display: inline-block;
+  vertical-align: middle;
+  padding-right:0px;
+  color:#575757;
+  box-sizing: border-box;
+  width:35%;
+  text-align:center;
+  padding-right:0;
+  padding-left:15px;
+  margin-top:1%;
+  padding:0.84%;
+  margin-left:1%;
+  border-radius:10%/80%;
+
 }
 
 h6 {
@@ -46,7 +67,7 @@ h6 {
 
 h2 {
   margin: 0;
-  font-size: 300%;
+  font-size: 250%;
   font-family: "Open Sans", sans-serif;
   display:inline-block;
   vertical-align: middle;
@@ -86,8 +107,8 @@ th, td, tr
   text-align:center;
   padding-right:0;
   padding-left:15px;
-  margin-top:1.2%;
-  padding:0.75%;
+  margin-top:1%;
+  padding:0.84%;
   margin-left:1%;
   border-radius:10%/80%;
 
@@ -154,15 +175,16 @@ h3 {
   margin: 0;
   color:#575757;
   text-align:center;
-  font-size:230%;
+  font-size:250%;
   padding-top: 5%;
+  font-weight:400;
 }
 
 h4 {
   color:#575757;
   text-align:center;
   font-size: 150%;
-  font-weight: 400;
+  font-weight: 100;
 }
 
 #currentTime {
@@ -247,7 +269,6 @@ h5 {
 button {
   padding: 9.75%;
   margin: 0%;
-  margin-bottom:20px;
   cursor:pointer;
   outline:none;
   background-color:transparent;
@@ -255,10 +276,14 @@ button {
   color:#575757;
   box-shadow: -2px -6px 7px #212121, 6px 6px 10px #0f0f0f;
   box-shadow: -6px -6px 10px #212121,  6px 6px 10px rgba(0, 0, 0, 0.2);
-  border-radius: 50px;
+  border-radius: 20px;
   transition: 0.1s;
-  width:100%;
+  width:100px;
+  height:100px;
+  margin:5px;
   box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8), 6px 6px 10px rgba(0, 0, 0, 0.2);
+  display:inline-block;
+  vertical-align: middle;
 }
 
 button:hover {
@@ -298,4 +323,42 @@ button:hover {
 
 #weeksOutput {
   font-size:500%;
+}
+
+#timerHeader {
+  background-color: #E94A35;
+  color:white;
+  z-index: 10;
+  transition:0.5s;
+  display: block;
+  z-index: 5;
+  position: relative;
+}
+
+#timerHeader:hover {
+transform: translate(0px, -25px);
+    box-shadow:none;
+}
+
+#behind:hover ~ #timerHeader {
+  transform: translate(0px, -25px);
+}
+
+#behind {
+  position: absolute;
+  top:0px;
+  height:75px;
+  padding:0;
+}
+
+#behindText {
+  position: absolute;
+  bottom: 3px;
+  text-align:center;
+  margin:0;
+  padding:0;
+  font-size:10px;
+  color:gray;
+  left: 50%;
+  transform: translate(-50%, 00%);
 }
