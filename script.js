@@ -190,7 +190,7 @@ function setSchedule() {
         document.getElementById(i + 'end').innerHTML = '------------';
         if (startStatus[i+1] == true && i+1 != 0) {
           var currentTimer = document.getElementsByClassName('timer');
-          currentTimer[i+1].style.color = '#575757';
+          currentTimer[i+1].style.color = '#bfbfbf';
         } else {
           var currentTimer = document.getElementsByClassName('timer');
           currentTimer[i+1].style.color = '#bfbfbf';

@@ -2,14 +2,14 @@ html, body {margin: 0; height: 100%; overflow: hidden}
 
 body {
   font-family: "Open Sans", sans-serif;
-  background-color: #17181c;
+  background-color: #edebec;
   /* background: linear-gradient(270deg, #354965, #26272F); */
   background-size: 400% 400%;
   animation: AnimationName 0s ease infinite;
 }
 
 #firstContainer {
-  color: white;
+  color: #575757;
   background-color: #E94A35;
   position: relative;
   text-align: center;
@@ -21,7 +21,7 @@ body {
 h6 {
   text-align:center;
   margin:0;
-  color:white;
+  color:#575757;
   font-size:3vh;
   padding:5%;
 }
@@ -73,21 +73,24 @@ th, td, tr
 }
 
 .timer {
+  box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8), 6px 6px 10px rgba(0, 0, 0, 0.2);
   font-family: "Open Sans Condensed", sans-serif;
   font-weight: 10;
-  background-color: #232326;
+  background-color: transparent;
   display: inline-block;
-  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
   vertical-align: middle;
   padding-right:0px;
-  color:white;
+  color:#575757;
   box-sizing: border-box;
-  width:40%;
+  width:35%;
   text-align:center;
   padding-right:0;
   padding-left:15px;
-  margin-bottom:1%;
+  margin-top:1.2%;
   padding:0.75%;
+  margin-left:1%;
+  border-radius:10%/80%;
+
 }
 
 @keyframes AnimationName {
@@ -122,38 +125,41 @@ input {
 
 .sidebarSquare {
   box-sizing: border-box;
-  background-color: #232326;
+  background-color: #1c1c1f;
   height: var(--thatHeight);
   width: var(--thatHeight);
   margin-bottom:2vh;
   /*box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);*/
   box-shadow: -6px -6px 20px #0a0a0d, 6px 6px 10px #0f0f0f;
   border-radius:10%;
+  box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8), 6px 6px 10px rgba(0, 0, 0, 0.2);
+  background-color:transparent;
 }
 
 .sidebarRectangle {
   box-sizing: border-box;
-  background-color: #232326;
+  background-color: #1c1c1f;
   height: calc(var(--thatHeight) * 2 + 2vh);
   width: var(--thatHeight);
   margin-bottom:2vh;
 /*  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22); */
 box-shadow: -6px -6px 20px #0a0a0d, 6px 6px 10px #0f0f0f;
 border-radius:10%/5%;
+box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8), 6px 6px 10px rgba(0, 0, 0, 0.2);
+background-color:transparent;
 }
 
 
 h3 {
   margin: 0;
-  color:white;
+  color:#575757;
   text-align:center;
   font-size:230%;
   padding-top: 5%;
-  text-shadow: -6px -6px 10px #2b2b2b, 6px 6px 10px #0f0f0f;
 }
 
 h4 {
-  color:white;
+  color:#575757;
   text-align:center;
   font-size: 150%;
   font-weight: 400;
@@ -174,7 +180,7 @@ h4 {
 h5 {
   display:inline-block;
   vertical-align:middle;
-  color:white;
+  color:#575757;
   font-size:250%;
   margin:0;
   padding:0;
@@ -193,7 +199,8 @@ h5 {
   vertical-align:middle;
   position: relative;
 
-  box-shadow: -6px -6px 10px #2b2b2b, 6px 6px 10px #0f0f0f;
+  box-shadow: -6px -6px 10px #262626, 6px 6px 10px #0f0f0f;
+  box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8), 6px 6px 10px rgba(0, 0, 0, 0.2);
 }
 
 .radioInner {
@@ -215,7 +222,7 @@ h5 {
 
 .radioTooltip {
   position:absolute;
-  background-color:white;
+  background-color:#575757;
   z-index:10;
   vertical-align: middle;
   top:15%;
@@ -229,26 +236,29 @@ h5 {
 }
 
 #cycleDayOutput {
-  color: white;
+  color: #575757;
   text-align:center;
   font-size:500%;
   margin:0;
-  margin-top:10%;
+  margin-top:5%;
   font-weight:400;
 }
 
 button {
-  padding: 10%;
-  margin: 4%;
+  padding: 9.75%;
+  margin: 0%;
+  margin-bottom:20px;
   cursor:pointer;
   outline:none;
   background-color:transparent;
   border:none;
-  color:white;
-  box-shadow: -6px -6px 10px #2b2b2b, 6px 6px 10px #0f0f0f;
-  border-radius: 15%/40%;
+  color:#575757;
+  box-shadow: -2px -6px 7px #212121, 6px 6px 10px #0f0f0f;
+  box-shadow: -6px -6px 10px #212121,  6px 6px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 50px;
   transition: 0.1s;
-  width:80%;
+  width:100%;
+  box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8), 6px 6px 10px rgba(0, 0, 0, 0.2);
 }
 
 button:hover {
@@ -258,21 +268,34 @@ button:hover {
 }
 
 #progressOuter {
-  background-color:green;
+  background-color:transparent;
   margin-top:11%;
   width:70%;
   height:30%;
   left: 50%;
   position:absolute;
   transform: translate(-50%, 0%);
+  box-shadow: -6px -6px 10px #262626, 6px 6px 10px #0f0f0f;
+  z-index:10;
+  box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8), 6px 6px 10px rgba(0, 0, 0, 0.2);
 }
 
 #progressInner {
-  background-color: orange;
+  background-color: red;
   width:10%;
   height:100%;
+  z-index:-1;
 }
 
 #progress {
   position:relative;
+}
+
+#settingsDiv {
+  background-color:transparent;
+  box-shadow:none;
+}
+
+#weeksOutput {
+  font-size:500%;
 }
