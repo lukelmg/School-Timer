@@ -1,3 +1,9 @@
+:root {
+  --newHeight: 8.3vh;
+  --timerWidth: 75vh;
+}
+
+
 html, body {margin: 0; height: 100%; overflow: hidden}
 
 body {
@@ -28,14 +34,15 @@ body {
   padding-right:0px;
   color:#575757;
   box-sizing: border-box;
-  width:35%;
+  width:var(--timerWidth);
   text-align:center;
   padding-right:0;
   padding-left:15px;
   margin-top:1%;
   padding:0.84%;
-  margin-left:1%;
+  margin-left:2vh;
   border-radius:10%/80%;
+  height: var(--newHeight);
 
 }
 
@@ -45,6 +52,9 @@ h6 {
   color:#575757;
   font-size:3vh;
   padding:5%;
+  font-weight:100;
+  margin-bottom:0;
+  padding-bottom:0;
 }
 
 .weeks {
@@ -65,13 +75,21 @@ h6 {
   transform: translate(0%, -50%);
 }
 
+/* this is the good one for the period title with the suffix thing */
+
 h2 {
   margin: 0;
-  font-size: 250%;
+  font-size: 6vh;
+  font-family: 'Yantramanav', sans-serif;
   font-family: "Open Sans", sans-serif;
   display:inline-block;
   vertical-align: middle;
   margin-right: 30px;
+  
+  padding-bottom:0;
+  margin-bottom:0;
+  
+  font-weight:10;
 }
 
 table {
@@ -83,6 +101,7 @@ table {
 th, td, tr
  {
    padding-right: 40px;
+   font-size: 2.5vh;
 }
 
 .thatLabelThing {
@@ -96,22 +115,21 @@ th, td, tr
 .timer {
   box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8), 6px 6px 10px rgba(0, 0, 0, 0.2);
   font-family: "Open Sans Condensed", sans-serif;
-  font-weight: 10;
   background-color: transparent;
   display: inline-block;
-  vertical-align: middle;
-  padding-right:0px;
   color:#575757;
   box-sizing: border-box;
-  width:35%;
   text-align:center;
-  padding-right:0;
-  padding-left:15px;
-  margin-top:1%;
-  padding:0.84%;
-  margin-left:1%;
-  border-radius:10%/80%;
-
+  border-radius:7%/70%;
+  height: var(--newHeight);
+  
+  vertical-align:center;
+  vertical-align:middle;
+  
+  margin-top:2.5vh;
+  width: var(--timerWidth);
+  
+  margin-left: 2vh;
 }
 
 @keyframes AnimationName {
@@ -163,11 +181,11 @@ input {
   height: calc(var(--thatHeight) * 2 + 2vh);
   width: var(--thatHeight);
   margin-bottom:2vh;
-/*  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22); */
-box-shadow: -6px -6px 20px #0a0a0d, 6px 6px 10px #0f0f0f;
-border-radius:10%/5%;
-box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8), 6px 6px 10px rgba(0, 0, 0, 0.2);
-background-color:transparent;
+  /*  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22); */
+  box-shadow: -6px -6px 20px #0a0a0d, 6px 6px 10px #0f0f0f;
+  border-radius:10%/5%;
+  box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8), 6px 6px 10px rgba(0, 0, 0, 0.2);
+  background-color:transparent;
 }
 
 
@@ -175,9 +193,9 @@ h3 {
   margin: 0;
   color:#575757;
   text-align:center;
-  font-size:250%;
+  font-size:4.5vh;
   padding-top: 5%;
-  font-weight:400;
+  font-weight:100;
 }
 
 h4 {
@@ -188,7 +206,26 @@ h4 {
 }
 
 #currentTime {
-  margin-bottom: 20%;
+  margin-top:3.75vh;
+  margin-bottom: 5vh;
+  box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8), 6px 6px 10px rgba(0, 0, 0, 0.2);
+  font-size:3vh;
+  width:70%;
+  text-align:center;
+  border-radius:10px;
+  vertical-align:middle;
+  padding:5px;
+}
+
+#currentDateAndDay {
+  margin-top:3vh;
+  box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8), 6px 6px 10px rgba(0, 0, 0, 0.2);
+  font-size:3vh;
+  width:80%;
+  text-align:center;
+  border-radius:10px;
+  vertical-align:middle;
+  padding:5px;
 }
 
 :root {
@@ -203,10 +240,10 @@ h5 {
   display:inline-block;
   vertical-align:middle;
   color:#575757;
-  font-size:250%;
+  font-size:4vh;
   margin:0;
   padding:0;
-  margin-right: 5%;
+  margin-right: 2vh;
   font-weight:400;
 }
 
@@ -236,9 +273,13 @@ h5 {
   transform: translate(-50%, -50%);
 }
 
+#Ein, #Cin, #Din{
+  background-color:transparent;
+}
+
 .singleRadio {
-  margin-top: 7%;
-  margin-bottom:18%;
+  margin-top: 2.5vh;
+  margin-bottom:3.5vh;
   position:relative;
 }
 
@@ -260,10 +301,15 @@ h5 {
 #cycleDayOutput {
   color: #575757;
   text-align:center;
-  font-size:500%;
+  font-size:12vh;
   margin:0;
-  margin-top:5%;
+  margin-top:0;
+  padding-top:0;
   font-weight:400;
+}
+
+div {
+  transition: 0.1s;
 }
 
 button {
@@ -276,14 +322,22 @@ button {
   color:#575757;
   box-shadow: -2px -6px 7px #212121, 6px 6px 10px #0f0f0f;
   box-shadow: -6px -6px 10px #212121,  6px 6px 10px rgba(0, 0, 0, 0.2);
-  border-radius: 20px;
+  border-radius: 12px;
   transition: 0.1s;
-  width:100px;
-  height:100px;
-  margin:5px;
+  width: calc(var(--thatHeight) / 2.22);
+  height: calc(var(--thatHeight) / 2.22);
+  margin-left:0;
+  margin-right:1.35vh;
+  margin-bottom:calc(1.35vh * 1.5);
   box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8), 6px 6px 10px rgba(0, 0, 0, 0.2);
   display:inline-block;
   vertical-align: middle;
+  text-align:center;
+  font-size:2vh;
+}
+
+.rightButtons {
+  margin-right:0;
 }
 
 button:hover {
@@ -292,9 +346,9 @@ button:hover {
   transform: scale(1.03, 1.03);
 }
 
-#progressOuter {
+#progressOuter, #summerOuter {
   background-color:transparent;
-  margin-top:11%;
+  margin-top:1vh;
   width:70%;
   height:30%;
   left: 50%;
@@ -305,15 +359,24 @@ button:hover {
   box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8), 6px 6px 10px rgba(0, 0, 0, 0.2);
 }
 
-#progressInner {
+#progressInner, #summerInner {
   background-color: red;
   width:10%;
   height:100%;
   z-index:-1;
 }
 
-#progress {
+#progress, #year {
   position:relative;
+}
+
+#summerNumber, #dayProgressLabel {
+  position:absolute;
+  float:bottom;
+  bottom:5%;
+  
+  left: 50%;
+  transform: translate(-50%, 0%);
 }
 
 #settingsDiv {
@@ -323,6 +386,7 @@ button:hover {
 
 #weeksOutput {
   font-size:500%;
+  margin-top:0;
 }
 
 #timerHeader {
@@ -347,7 +411,7 @@ transform: translate(0px, -25px);
 #behind {
   position: absolute;
   top:0px;
-  height:75px;
+  height:var(--newHeight);
   padding:0;
 }
 
@@ -361,4 +425,9 @@ transform: translate(0px, -25px);
   color:gray;
   left: 50%;
   transform: translate(-50%, 00%);
+}
+
+
+.scheduleHeader {
+  padding-top:2vh;
 }
