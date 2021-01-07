@@ -205,33 +205,33 @@ function setSchedule() {
           currentTimer[i+1].style.border = 'none';
         }
         if (i == 8) {
-          
+
           var supposed = new Date().setHours(startTimes[0].substring(0, 2), startTimes[0].substring(3, 5), 0);
-          
+
           var nownow = new Date();
           var endSchool = new Date().setHours(endTimes[8].substring(0, 2), endTimes[8].substring(3, 5), 0);
           var diffMs = (endSchool - nownow);
-          
+
           var supposedVal = endSchool - supposed;
-  
+
           var percent = (((diffMs / supposedVal * 100)-100)*-1).toFixed(2);
-          
+
           if (percent == undefined || percent == '' || percent == null) {
             percent = 0;
           }
-          
+
           var schoolDayProgress = document.getElementById('progressInner');
           schoolDayProgress.style.width = percent + '%';
-          
+
           var schoolDayProgressLabel = document.getElementById('dayProgressLabel');
           schoolDayProgressLabel.innerHTML = percent + '%';
-  
+
         } else {
           document.getElementById(i + 'end').innerHTML = hh + ':' + mm + ':' + ss;
         }
       }
     }
-    
+
     setTimeout(tick2, 10);
   }
 
@@ -281,18 +281,30 @@ function isOdd(num) { return num % 2;}
     document.getElementById('currentDay').innerHTML = days[testDate.getDay()];
 })();
 
-(function foo() { 
+(function foo() {
   var today = new Date();
   var endSchool = new Date("2021-6-11");
   var diffMs = (endSchool - today); // milliseconds between now & Christmas
-  
+
   var percent = (((diffMs / 24192000000 * 100)-100)*-1).toFixed(2);
-  
+
   var yearProgress = document.getElementById('summerInner');
   yearProgress.style.width = percent + '%';
-  
+
   var yearNumber = document.getElementById('summerNumber');
   yearNumber.innerHTML = percent + '%';
 
   setTimeout(foo, 1000);
 })();
+
+
+
+function openColor() {
+  document.getElementById('colorDiv').style.display = 'block';
+  document.getElementById('everythingElse').style.filter = 'blur(2px)';
+}
+
+function closeColor() {
+  document.getElementById('colorDiv').style.display = 'none';
+  document.getElementById('everythingElse').style.filter = 'blur(0px)';
+}

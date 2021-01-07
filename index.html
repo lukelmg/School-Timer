@@ -6,98 +6,105 @@
   <meta content="utf-8" http-equiv="encoding">
   <title>School Timer</title>
   <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" type="text/css" href="popup.css">
   <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Yantramanav:wght@100&display=swap" rel="stylesheet">
 </head>
 
 <body onload="">
-  <div class="sidebar right">
-    <div class="sidebarSquare" id="progress">
-      <h6> School Day <br> Progress </h6>
-      <div id="progressOuter">
-        <div id="progressInner"></div>
-      </div>
-      <h6 id="dayProgressLabel"></h6>
-    </div>
-    <div class="sidebarSquare" id="year">
-      <h6> School Year<br> Progress </h6>
-      <div id="summerOuter">
-        <div id="summerInner"></div>
-      </div>
-      <h6 id="summerNumber">asdfasdf</h6>
-    </div>
-    <div class="sidebarSquare">
-      <center>
-        <h6> Current Time </h6>
-        <h6 id="currentTime">00:00:00 PM</h6>
-      </center>
-    </div>
-    <div class="sidebarSquare">
-      <center>
-        <h6> Current Date </h6>
-        <div id="currentDateAndDay">
-          <h6 id="currentDay">Sunday</h6>
-          <h6 id="currentDate">00/00/0000</h6>
-        </div>
-      </center>
-    </div>
+  <div class="popup" id="colorDiv">
+    <div class="x">&#215;</div>
+    <h1 class="popupheader">Color Picker</h1>
+    <hr>
+    <h1 class="popuplabel">Preset Themes</h1>
+    <select name="cars" id="cars">
+      <option value="default">Default</option>
+      <option value="dark">Dark</option>
+    </select>
+
+  </input>
   </div>
-  <div class="sidebar left">
-    <div class="sidebarRectangle" id="time">
-      <h6 class="scheduleHeader"> Schedule </h6>
-      <div id="radioDiv">
+  <div id="everythingElse">
+    <div class="sidebar right">
+      <div class="sidebarSquare" id="progress">
+        <h6> School Day <br> Progress </h6>
+        <div id="progressOuter">
+          <div id="progressInner"></div>
+        </div>
+        <h6 id="dayProgressLabel"></h6>
+      </div>
+      <div class="sidebarSquare" id="year">
+        <h6> School Year<br> Progress </h6>
+        <div id="summerOuter">
+          <div id="summerInner"></div>
+        </div>
+        <h6 id="summerNumber">asdfasdf</h6>
+      </div>
+      <div class="sidebarSquare">
         <center>
-          <div class="singleRadio">
-            <div class="radioTooltip">Normal Schedule</div>
-            <h5>A</h5>
-            <div class="radioOuter">
-              <div class="radioInner" id="Ain"></div>
-            </div>
-          </div>
-          <div class="singleRadio">
-            <h5>E</h5>
-            <div class="radioOuter">
-              <div class="radioInner" id="Ein"></div>
-            </div>
-          </div>
-          <div class="singleRadio">
-            <h5>C</h5>
-            <div class="radioOuter">
-              <div class="radioInner" id="Cin"></div>
-            </div>
-          </div>
-          <div class="singleRadio">
-            <h5>D</h5>
-            <div class="radioOuter">
-              <div class="radioInner" id="Din"></div>
-            </div>
+          <h6> Current Time </h6>
+          <h6 id="currentTime">00:00:00 PM</h6>
+        </center>
+      </div>
+      <div class="sidebarSquare">
+        <center>
+          <h6> Current Date </h6>
+          <div id="currentDateAndDay">
+            <h6 id="currentDay">Sunday</h6>
+            <h6 id="currentDate">00/00/0000</h6>
           </div>
         </center>
       </div>
     </div>
-    <div class="sidebarSquare" id="cycle">
-      <h6> Cycle Day <br> (Beta)</h6>
-      <h6 id="cycleDayOutput">5</h6>
+    <div class="sidebar left">
+      <div class="sidebarRectangle" id="time">
+        <h6 class="scheduleHeader"> Schedule </h6>
+        <div id="radioDiv">
+          <center>
+            <div class="singleRadio">
+              <div class="radioTooltip">Normal Schedule</div>
+              <h5>A</h5>
+              <div class="radioOuter">
+                <div class="radioInner" id="Ain"></div>
+              </div>
+            </div>
+            <div class="singleRadio">
+              <h5>E</h5>
+              <div class="radioOuter">
+                <div class="radioInner" id="Ein"></div>
+              </div>
+            </div>
+            <div class="singleRadio">
+              <h5>C</h5>
+              <div class="radioOuter">
+                <div class="radioInner" id="Cin"></div>
+              </div>
+            </div>
+            <div class="singleRadio">
+              <h5>D</h5>
+              <div class="radioOuter">
+                <div class="radioInner" id="Din"></div>
+              </div>
+            </div>
+          </center>
+        </div>
+      </div>
+      <div class="sidebarSquare" id="cycle">
+        <h6> Cycle Day <br> (Beta)</h6>
+        <h6 id="cycleDayOutput">5</h6>
+      </div>
+      <div class="sidebarSquare" id="settingsDiv">
+        <center>
+          <button>Sound Effects</button>
+          <button class="rightButtons" onclick="openColor();">Color Picker</button>
+          <button>More Stats</button>
+          <button class="rightButtons">More Stuff</button>
+        </center>
+      </div>
     </div>
-    <div class="sidebarSquare" id="settingsDiv">
-      <center>
-        <button>Sound Effects</button>
-        <button class="rightButtons">Color Picker</button>
-        <button>More Stats</button>
-        <button class="rightButtons">More Stuff</button>
-      </center>
-    </div>
+    <div id="timers"></div>
   </div>
-  <!--
-  <div class="timerknockoff" id="timerHeader">
-      <h2 id="schoolTimerTitle">School Timer</h2>
-  </div>
-  <div class="timerknockoff" id="behind">
-      <h2 id="behindText">Version 8.0 &#124; Made By Luke Gutman 2021</h2>
-  </div>
-  -->
-  <div id="timers"></div>
 </body>
 
 </html>
