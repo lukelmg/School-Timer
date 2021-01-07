@@ -18,11 +18,10 @@
     <h1 class="popupheader">Color Picker</h1>
     <hr>
     <h1 class="popuplabel">Preset Themes</h1>
-    <select name="cars" id="cars">
+    <select oninput="changeColors(this.value)" name="cars" id="cars">
       <option value="default">Default</option>
       <option value="dark">Dark</option>
     </select>
-
   </input>
   </div>
   <div id="everythingElse">
@@ -106,6 +105,6 @@
     <div id="timers"></div>
   </div>
 </body>
-
 </html>
 <script src="script.js"></script>
+<script src="color.js"></script>
