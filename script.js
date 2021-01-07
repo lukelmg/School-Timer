@@ -24,7 +24,6 @@ function create() {
 
     if (i == 0) {
       var box = document.createElement('div');
-      box.className = 'timer';
       box.id = 'firstContainer';
 
       var schoolTitle = document.createElement('div');
@@ -37,7 +36,7 @@ function create() {
     } else {
 
       var box = document.createElement('div');
-      box.className = 'timer';
+      box.className = 'timer  shadows';
 
       if (i == 1) {
         box.id = 'secondContainer'
@@ -187,10 +186,11 @@ function setSchedule() {
 
       if (hh >= 11) {
         endStatus[i] = true;
+        alert(endStatus);
         document.getElementById(i + 'end').innerHTML = '------------';
-        if (startStatus[i+1] == true && i+1 != 0) {
+        if (startStatus[i] == true && i+1 != 0) {
           var currentTimer = document.getElementsByClassName('timer');
-          currentTimer[i+1].style.color = '#bfbfbf';
+          currentTimer[i+1].style.color = 'blue'; //localStorage.getItem('customTimerTextActive');
           currentTimer[i+1].style.border = 'none';
         } else {
 
@@ -296,15 +296,3 @@ function isOdd(num) { return num % 2;}
 
   setTimeout(foo, 1000);
 })();
-
-
-
-function openColor() {
-  document.getElementById('colorDiv').style.display = 'block';
-  document.getElementById('everythingElse').style.filter = 'blur(2px)';
-}
-
-function closeColor() {
-  document.getElementById('colorDiv').style.display = 'none';
-  document.getElementById('everythingElse').style.filter = 'blur(0px)';
-}
