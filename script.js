@@ -188,7 +188,20 @@ function setSchedule() {
         document.getElementById(i + 'end').innerHTML = '------------';
         var currentTimer = document.getElementsByClassName('timer');
         currentTimer[i].style.color = localStorage.getItem('customTimerTextDeactive');
-        currentTimer[i].style.border = '7px solid transparent';
+        currentTimer[i].style.border = '0.5vh solid transparent';
+        if (i==8) {
+          var timerboxes = document.getElementsByClassName('timer');
+          for (var e = 0; e < timerboxes.length; e++) {
+            timerboxes[e].style.display = 'none';
+          }
+          document.getElementById('schoolOver').style.left = '50%';
+        } else {
+          document.getElementById('schoolOver').style.left = '-50%';
+          var timerboxes = document.getElementsByClassName('timer');
+          for (var e = 0; e < timerboxes.length; e++) {
+            timerboxes[e].style.display = 'inline-block';
+          }
+        }
       } else {
         if (startStatus[i] == true) {
           var currentTimer = document.getElementsByClassName('timer');
@@ -196,7 +209,6 @@ function setSchedule() {
           currentTimer[i].style.color = localStorage.getItem('customTimerTextActive');
         } else {
           var currentTimer = document.getElementsByClassName('timer');
-          currentTimer[i].style.border = '7px solid transparent';
           currentTimer[i].style.color = localStorage.getItem('customTimerTextActive');
         }
         document.getElementById(i + 'end').innerHTML = hh + ':' + mm + ':' + ss;

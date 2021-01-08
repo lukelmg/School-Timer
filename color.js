@@ -72,7 +72,7 @@ function setBackgrounds() {
 
   var popups = document.getElementsByClassName('popup');
   for (var i = 0; i < popups.length; i++) {
-    popups[i].style.backgroundColor = LightenColor(customBackground, 3);
+    popups[i].style.backgroundColor = customBackground
   }
 }
 
@@ -112,7 +112,9 @@ function setShadows() {
   var timers = document.getElementsByClassName('shadows');
   for (var i = 0; i < timers.length; i++) {
     timers[i].style.boxShadow = customLightShadowDim + customLightShadow + ', ' + customDarkShadowDim + customDarkShadow;
-  }
+}
+
+  document.getElementById('schoolOver').style.boxShadow = customLightShadowDim + customLightShadow + ', ' + customDarkShadowDim + customDarkShadow;
 }
 
 function setOtherTexts() {
@@ -143,11 +145,13 @@ function setOtherTexts() {
 function openColor() {
   document.getElementById('colorDiv').style.left = '50%';
   document.getElementById('everythingElse').style.filter = 'blur(2px)';
+  document.getElementById('schoolOver').style.filter = 'blur(2px)';
 }
 
 function closeColor() {
   document.getElementById('colorDiv').style.left = '-50%';
   document.getElementById('everythingElse').style.filter = 'blur(0px)';
+  document.getElementById('schoolOver').style.filter = 'blur(0px)';
 }
 
 

@@ -78,3 +78,22 @@ select {
 select:focus {
   outline:none;
 }
+
+
+#schoolOver {
+  top: 50%;
+  left: -50%;
+  transform: translate(-95%, -50%);
+  z-index: 100;
+  display:block;
+  height:90.5vh;
+  width:90vh;
+  font-size:12vh;
+  background-color:blue;
+  z-index:0;
+}
+
+#overtext {
+  padding:0;
+
+}
