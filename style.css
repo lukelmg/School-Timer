@@ -49,7 +49,7 @@ body {
 h6 {
   text-align:center;
   margin:0;
-  color:#575757;
+  color:blue;
   font-size:3vh;
   padding:5%;
   font-weight:100;
@@ -108,7 +108,7 @@ th, td, tr
   font-weight:500;
 }
 
-.thatEndThing {
+.thatEndThing {d
   margin-left: 18%;
 }
 
@@ -236,7 +236,7 @@ h4 {
   text-align:center;
 }
 
-h5 {
+.radioLabels {
   display:inline-block;
   vertical-align:middle;
   color:#575757;

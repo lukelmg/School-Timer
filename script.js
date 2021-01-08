@@ -187,7 +187,7 @@ function setSchedule() {
       if (hh >= 11) {
         document.getElementById(i + 'end').innerHTML = '------------';
         var currentTimer = document.getElementsByClassName('timer');
-        currentTimer[i].style.color = 'blue'; //localStorage.getItem('customTimerTextActive');
+        currentTimer[i].style.color = localStorage.getItem('customTimerTextDeactive');
         currentTimer[i].style.border = 'none';
       } else {
         if (startStatus[i] == true) {
@@ -196,6 +196,7 @@ function setSchedule() {
         } else {
           var currentTimer = document.getElementsByClassName('timer');
           currentTimer[i].style.border = 'none';
+          currentTimer[i].style.color = localStorage.getItem('customTimerTextActive');
         }
         document.getElementById(i + 'end').innerHTML = hh + ':' + mm + ':' + ss;
 
