@@ -193,6 +193,7 @@ function setSchedule() {
         if (startStatus[i] == true) {
           var currentTimer = document.getElementsByClassName('timer');
           currentTimer[i].style.border = '3px solid #E94A35';
+          currentTimer[i].style.color = localStorage.getItem('customTimerTextActive');
         } else {
           var currentTimer = document.getElementsByClassName('timer');
           currentTimer[i].style.border = 'none';

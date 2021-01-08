@@ -6,30 +6,44 @@ function changeColors (theme) {
     case 'default':
     customBackground = '#ededed';
 
-    customAccent = 'blue';
+    customAccent = '#C52233';
 
     customMainTexts = '#575757';
     customTimerTextActive = '#575757';
     customTimerTextDeactive = '#bfbfbf';
 
     customLightShadowDim = '-6px -6px 10px ';
-    customLightShadow = 'rgba(255, 255, 255, 0.8), ';
+    customLightShadow = 'rgba(255, 255, 255, 0.8)';
     customDarkShadowDim = '6px 6px 10px ';
     customDarkShadow = 'rgba(0,0,0,0.2)';
       break;
     case 'dark':
-    customBackground = '#0a0a0a';
+    customBackground = '#151517';
 
-    customAccent = 'green';
+    customAccent = '#C52233';
 
-    customMainTexts = '#575757'
+    customMainTexts = '#cfcfcf'
+    customTimerTextActive = '#cfcfcf';
+    customTimerTextDeactive = '#575757';
+
+    customLightShadowDim = '-6px -6px 10px ';
+    customLightShadow = LightenColor(customBackground, 4);
+    customDarkShadowDim = '6px 6px 10px ';
+    customDarkShadow = LightenColor(customBackground, -2);
+      break;
+    case 'eww':
+    customBackground = '#050064';
+
+    customAccent = '#feff33';
+
+    customMainTexts = '#ff2afc'
     customTimerTextActive = '#bfbfbf';
     customTimerTextDeactive = '#575757';
 
     customLightShadowDim = '-6px -6px 10px ';
-    customLightShadow = '#14141a, ';
+    customLightShadow = LightenColor(customBackground, 6);
     customDarkShadowDim = '6px 6px 10px ';
-    customDarkShadow = 'black';
+    customDarkShadow = LightenColor(customBackground, -6);
   }
 
   setBackgrounds();
@@ -44,7 +58,7 @@ function setBackgrounds() {
 
   var popups = document.getElementsByClassName('popup');
   for (var i = 0; i < popups.length; i++) {
-    popups[i].style.backgroundColor = LightenDarkenColor(customBackground, 10);
+    popups[i].style.backgroundColor = LightenColor(customBackground, 3);
   }
 }
 
@@ -75,7 +89,7 @@ function setAccent() {
 function setShadows() {
   var timers = document.getElementsByClassName('shadows');
   for (var i = 0; i < timers.length; i++) {
-    timers[i].style.boxShadow = customLightShadowDim + customLightShadow + customDarkShadowDim + customDarkShadow;
+    timers[i].style.boxShadow = customLightShadowDim + customLightShadow + ', ' + customDarkShadowDim + customDarkShadow;
   }
 }
 
@@ -117,32 +131,12 @@ function closeColor() {
 
 
 
-function LightenDarkenColor(col, amt) {
+var LightenColor = function(color, percent) {
+    var num = parseInt(color.replace("#",""), 16),
+		amt = Math.round(2.55 * percent),
+		R = (num >> 16) + amt,
+		B = (num >> 8 & 0x00FF) + amt,
+		G = (num & 0x0000FF) + amt;
 
-    var usePound = false;
-
-    if (col[0] == "#") {
-        col = col.slice(1);
-        usePound = true;
-    }
-
-    var num = parseInt(col,16);
-
-    var r = (num >> 16) + amt;
-
-    if (r > 255) r = 255;
-    else if  (r < 0) r = 0;
-
-    var b = ((num >> 8) & 0x00FF) + amt;
-
-    if (b > 255) b = 255;
-    else if  (b < 0) b = 0;
-
-    var g = (num & 0x0000FF) + amt;
-
-    if (g > 255) g = 255;
-    else if (g < 0) g = 0;
-
-    return (usePound?"#":"") + (g | (b << 8) | (r << 16)).toString(16);
-
-}
+		return '#' + (0x1000000 + (R<255?R<1?0:R:255)*0x10000 + (B<255?B<1?0:B:255)*0x100 + (G<255?G<1?0:G:255)).toString(16).slice(1);
+};
