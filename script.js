@@ -185,26 +185,19 @@ function setSchedule() {
       }
 
       if (hh >= 11) {
-        endStatus[i] = true;
-        alert(endStatus);
         document.getElementById(i + 'end').innerHTML = '------------';
-        if (startStatus[i] == true && i+1 != 0) {
-          var currentTimer = document.getElementsByClassName('timer');
-          currentTimer[i+1].style.color = 'blue'; //localStorage.getItem('customTimerTextActive');
-          currentTimer[i+1].style.border = 'none';
-        } else {
-
-        }
+        var currentTimer = document.getElementsByClassName('timer');
+        currentTimer[i].style.color = 'blue'; //localStorage.getItem('customTimerTextActive');
+        currentTimer[i].style.border = 'none';
       } else {
-        endStatus[i] = false;
         if (startStatus[i] == true) {
           var currentTimer = document.getElementsByClassName('timer');
-          currentTimer[i+1].style.border = '3px solid #E94A35';
+          currentTimer[i].style.border = '3px solid #E94A35';
         } else {
           var currentTimer = document.getElementsByClassName('timer');
-          currentTimer[i+1].style.border = 'none';
+          currentTimer[i].style.border = 'none';
         }
-        if (i == 8) {
+        document.getElementById(i + 'end').innerHTML = hh + ':' + mm + ':' + ss;
 
           var supposed = new Date().setHours(startTimes[0].substring(0, 2), startTimes[0].substring(3, 5), 0);
 
@@ -225,12 +218,8 @@ function setSchedule() {
 
           var schoolDayProgressLabel = document.getElementById('dayProgressLabel');
           schoolDayProgressLabel.innerHTML = percent + '%';
-
-        } else {
-          document.getElementById(i + 'end').innerHTML = hh + ':' + mm + ':' + ss;
-        }
-      }
     }
+  }
 
     setTimeout(tick2, 10);
   }
