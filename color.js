@@ -6,16 +6,16 @@ function changeColors (theme) {
     case 'default':
     customBackground = '#ededed';
 
-    customAccent = '#C52233';
+    customAccent = '#ff2b40';
 
     customMainTexts = '#575757';
     customTimerTextActive = '#575757';
     customTimerTextDeactive = '#bfbfbf';
 
     customLightShadowDim = '-6px -6px 10px ';
-    customLightShadow = 'rgba(255, 255, 255, 0.8)';
+    customLightShadow = LightenColor(customBackground, 5);
     customDarkShadowDim = '6px 6px 10px ';
-    customDarkShadow = 'rgba(0,0,0,0.2)';
+    customDarkShadow = LightenColor(customBackground, -7);
       break;
     case 'dark':
     customBackground = '#151517';
@@ -26,10 +26,24 @@ function changeColors (theme) {
     customTimerTextActive = '#cfcfcf';
     customTimerTextDeactive = '#575757';
 
-    customLightShadowDim = '-6px -6px 10px ';
+    customLightShadowDim = '-3px -6px 7px ';
     customLightShadow = LightenColor(customBackground, 4);
     customDarkShadowDim = '6px 6px 10px ';
     customDarkShadow = LightenColor(customBackground, -2);
+      break;
+    case 'beach':
+    customBackground = '#FFF7EB';
+
+    customAccent = '#55DDE0';
+
+    customMainTexts = '#575757'
+    customTimerTextActive = '#575757';
+    customTimerTextDeactive = '#bfbfbf';
+
+    customLightShadowDim = '-6px -6px 10px ';
+    customLightShadow = LightenColor(customBackground, 2);
+    customDarkShadowDim = '6px 6px 10px ';
+    customDarkShadow = LightenColor(customBackground, -5);
       break;
     case 'eww':
     customBackground = '#050064';
@@ -77,6 +91,11 @@ function setMainText() {
   for (var i = 0; i < h1s.length; i++) {
     h1s[i].style.color = customMainTexts;
   }
+
+  var radioLabels = document.getElementsByClassName('radioInner');
+  for (var i = 0; i < radioLabels.length; i++) {
+    radioLabels[0].style.backgroundColor = customMainTexts;
+  }
 }
 
 function setAccent() {
@@ -84,6 +103,9 @@ function setAccent() {
   for (var i = 0; i < lines.length; i++) {
     lines[i].style.borderColor = customAccent;
   }
+  document.getElementById('progressInner').style.backgroundColor = customAccent;
+  document.getElementById('summerInner').style.backgroundColor = customAccent;
+  localStorage.setItem('customAccent', customAccent);
 }
 
 function setShadows() {

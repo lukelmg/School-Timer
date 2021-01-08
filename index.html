@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Yantramanav:wght@100&display=swap" rel="stylesheet">
 </head>
 
-<body onload="changeColors('default')">
+<body onload="changeColors('dark')">
   <div class="popup" id="colorDiv">
     <div class="x" onclick="closeColor()">&#215;</div>
     <h1 class="popupheader">Color Picker</h1>
@@ -21,6 +21,7 @@
     <select oninput="changeColors(this.value)" name="cars" id="cars">
       <option value="default">Default</option>
       <option value="dark">Dark</option>
+      <option value="beach">Beach</option>
       <option value="eww">Eww</option>
     </select>
   </input>

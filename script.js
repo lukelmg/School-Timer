@@ -188,15 +188,15 @@ function setSchedule() {
         document.getElementById(i + 'end').innerHTML = '------------';
         var currentTimer = document.getElementsByClassName('timer');
         currentTimer[i].style.color = localStorage.getItem('customTimerTextDeactive');
-        currentTimer[i].style.border = 'none';
+        currentTimer[i].style.border = '7px solid transparent';
       } else {
         if (startStatus[i] == true) {
           var currentTimer = document.getElementsByClassName('timer');
-          currentTimer[i].style.border = '3px solid #E94A35';
+          currentTimer[i].style.border = '5px solid ' + localStorage.getItem('customAccent', customAccent);
           currentTimer[i].style.color = localStorage.getItem('customTimerTextActive');
         } else {
           var currentTimer = document.getElementsByClassName('timer');
-          currentTimer[i].style.border = 'none';
+          currentTimer[i].style.border = '7px solid transparent';
           currentTimer[i].style.color = localStorage.getItem('customTimerTextActive');
         }
         document.getElementById(i + 'end').innerHTML = hh + ':' + mm + ':' + ss;
