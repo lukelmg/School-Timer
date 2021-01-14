@@ -24,7 +24,6 @@ function create() {
 
     if (i == 0) {
       var box = document.createElement('div');
-      box.className = 'timer';
       box.id = 'firstContainer';
 
       var schoolTitle = document.createElement('div');
@@ -37,7 +36,7 @@ function create() {
     } else {
 
       var box = document.createElement('div');
-      box.className = 'timer';
+      box.className = 'timer  shadows';
 
       if (i == 1) {
         box.id = 'secondContainer'
@@ -186,52 +185,45 @@ function setSchedule() {
       }
 
       if (hh >= 11) {
-        endStatus[i] = true;
         document.getElementById(i + 'end').innerHTML = '------------';
-        if (startStatus[i+1] == true && i+1 != 0) {
-          var currentTimer = document.getElementsByClassName('timer');
-          currentTimer[i+1].style.color = '#bfbfbf';
-          currentTimer[i+1].style.border = 'none';
-        } else {
-
-        }
+        var currentTimer = document.getElementsByClassName('timer');
+        currentTimer[i].style.color = localStorage.getItem('customTimerTextDeactive');
+        currentTimer[i].style.border = '7px solid transparent';
       } else {
-        endStatus[i] = false;
         if (startStatus[i] == true) {
           var currentTimer = document.getElementsByClassName('timer');
-          currentTimer[i+1].style.border = '3px solid #E94A35';
+          currentTimer[i].style.border = '5px solid ' + localStorage.getItem('customAccent');
+          currentTimer[i].style.color = localStorage.getItem('customTimerTextActive');
+          document.title = hh + ':' + mm + ':' + ss;
         } else {
           var currentTimer = document.getElementsByClassName('timer');
-          currentTimer[i+1].style.border = 'none';
+          currentTimer[i].style.border = '7px solid transparent';
+          currentTimer[i].style.color = localStorage.getItem('customTimerTextActive');
         }
-        if (i == 8) {
-          
+        document.getElementById(i + 'end').innerHTML = hh + ':' + mm + ':' + ss;
+
           var supposed = new Date().setHours(startTimes[0].substring(0, 2), startTimes[0].substring(3, 5), 0);
-          
+
           var nownow = new Date();
           var endSchool = new Date().setHours(endTimes[8].substring(0, 2), endTimes[8].substring(3, 5), 0);
           var diffMs = (endSchool - nownow);
-          
+
           var supposedVal = endSchool - supposed;
-  
+
           var percent = (((diffMs / supposedVal * 100)-100)*-1).toFixed(2);
-          
+
           if (percent == undefined || percent == '' || percent == null) {
             percent = 0;
           }
-          
+
           var schoolDayProgress = document.getElementById('progressInner');
           schoolDayProgress.style.width = percent + '%';
-          
+
           var schoolDayProgressLabel = document.getElementById('dayProgressLabel');
           schoolDayProgressLabel.innerHTML = percent + '%';
-  
-        } else {
-          document.getElementById(i + 'end').innerHTML = hh + ':' + mm + ':' + ss;
-        }
-      }
     }
-    
+  }
+
     setTimeout(tick2, 10);
   }
 
@@ -281,16 +273,16 @@ function isOdd(num) { return num % 2;}
     document.getElementById('currentDay').innerHTML = days[testDate.getDay()];
 })();
 
-(function foo() { 
+(function foo() {
   var today = new Date();
   var endSchool = new Date("2021-6-11");
   var diffMs = (endSchool - today); // milliseconds between now & Christmas
-  
+
   var percent = (((diffMs / 24192000000 * 100)-100)*-1).toFixed(2);
-  
+
   var yearProgress = document.getElementById('summerInner');
   yearProgress.style.width = percent + '%';
-  
+
   var yearNumber = document.getElementById('summerNumber');
   yearNumber.innerHTML = percent + '%';
 

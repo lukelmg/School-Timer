@@ -49,7 +49,7 @@ body {
 h6 {
   text-align:center;
   margin:0;
-  color:#575757;
+  color:blue;
   font-size:3vh;
   padding:5%;
   font-weight:100;
@@ -85,10 +85,10 @@ h2 {
   display:inline-block;
   vertical-align: middle;
   margin-right: 30px;
-  
+
   padding-bottom:0;
   margin-bottom:0;
-  
+
   font-weight:10;
 }
 
@@ -108,7 +108,7 @@ th, td, tr
   font-weight:500;
 }
 
-.thatEndThing {
+.thatEndThing {d
   margin-left: 18%;
 }
 
@@ -122,13 +122,13 @@ th, td, tr
   text-align:center;
   border-radius:7%/70%;
   height: var(--newHeight);
-  
+
   vertical-align:center;
   vertical-align:middle;
-  
+
   margin-top:2.5vh;
   width: var(--timerWidth);
-  
+
   margin-left: 2vh;
 }
 
@@ -236,7 +236,7 @@ h4 {
   text-align:center;
 }
 
-h5 {
+.radioLabels {
   display:inline-block;
   vertical-align:middle;
   color:#575757;
@@ -360,7 +360,7 @@ button:hover {
 }
 
 #progressInner, #summerInner {
-  background-color: red;
+  background-color: #E94A35;
   width:10%;
   height:100%;
   z-index:-1;
@@ -374,7 +374,7 @@ button:hover {
   position:absolute;
   float:bottom;
   bottom:5%;
-  
+
   left: 50%;
   transform: translate(-50%, 0%);
 }
