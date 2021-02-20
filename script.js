@@ -6,11 +6,14 @@ var scheduleArray = ['startTimesA', 'startTimesB', 'startTimesC', 'startTimesD']
 var startTimesA = ['' + '07:40', '08:30', '09:15', '10:00', '10:45', '11:30', '12:15', '13:00', '13:50'];
 var endTimesA =   ['' + '08:24', '09:09', '09:54', '10:39', '11:24', '12:09', '12:54', '13:44', '14:30'];
 
-var startTimesC = [];
-var endTimesC = [];
+var startTimesE = ['' + '09:17', '09:52', '10:30', '11:08', '11:46', '12:24', '13:02', '13:40', '14:17'];
+var endTimesE =   ['' + '09:47', '10:25', '11:03', '11:41', '12:19', '12:57', '13:35', '14:12', '14:30'];
 
-var startTimesD = [];
-var endTimesD = [];
+var startTimesC = ['' + '07:40', '08:18', '08:54', '09:30', '10:06', '10:42', '11:18', '11:54', '12:30'];
+var endTimesC =   ['' + '08:12', '08:48', '09:24', '10:00', '10:36', '11:12', '11:48', '12:24', '13:00'];
+
+var startTimesD = ['' + '09:40', '10:12', '10:42', '11:12', '11:48', '12:24', '13:00', '13:36', '14:06'];
+var endTimesD =   ['' + '10:06', '10:36', '11:06', '11:42', '12:18', '12:54', '13:30', '14:00', '14:30'];
 
 create();
 
@@ -101,6 +104,11 @@ var startStatus = [];
 var endStatus = [];
 
 setSchedule();
+
+function setNew(sched) {
+  currentScheduleSelected = sched;
+  setSchedule();
+}
 
 function setSchedule() {
   switch (currentScheduleSelected) {
@@ -213,6 +221,10 @@ function setSchedule() {
           var percent = (((diffMs / supposedVal * 100)-100)*-1).toFixed(2);
 
           if (percent == undefined || percent == '' || percent == null) {
+            percent = 0;
+          } else if (percent > 100) {
+            percent = 100;
+          } else if (percent < 0) {
             percent = 0;
           }
 
