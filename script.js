@@ -111,14 +111,16 @@ function setNew(sched) {
 }
 
 function setSchedule() {
+  var order = ['A', 'E', 'C', 'D'];
+
   switch (currentScheduleSelected) {
   case 'A':
     startTimes = startTimesA;
     endTimes = endTimesA;
     break;
-  case 'B':
-    startTimes = startTimesB;
-    endTimes = endTimesB;
+  case 'E':
+    startTimes = startTimesE;
+    endTimes = endTimesE;
     break;
   case 'C':
      startTimes = startTimesC;
@@ -127,6 +129,12 @@ function setSchedule() {
   case 'D':
     startTimes = startTimesD;
     endTimes = endTimesD;
+  }
+  document.getElementById(currentScheduleSelected + 'in').style.display = 'block';
+  for (var i = 0; i < order.length; i++) {
+    if (order[i] !== currentScheduleSelected) {
+      document.getElementById(order[i] + 'in').style.display = 'none';
+    }
   }
 }
 
