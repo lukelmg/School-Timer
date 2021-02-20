@@ -111,6 +111,7 @@ function setNew(sched) {
 }
 
 function setSchedule() {
+  selectorSound();
   var order = ['A', 'E', 'C', 'D'];
 
   switch (currentScheduleSelected) {

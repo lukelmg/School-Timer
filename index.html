@@ -24,7 +24,12 @@
       <option value="beach">Beach</option>
       <option value="eww">Eww</option>
     </select>
-  </input>
+  </div>
+  <div class="popup" id="soundDiv">
+    <div class="x" onclick="closeSoundPanel()">&#215;</div>
+    <h1 class="popupheader">Sound Effects</h1>
+    <hr>
+    <h1 class="popuplabel">User Interface Sounds</h1>
   </div>
   <div id="everythingElse">
     <div class="sidebar right">
@@ -97,7 +102,7 @@
       </div>
       <div class="sidebarSquare" id="settingsDiv">
         <center>
-          <button class="shadows">Sound Effects</button>
+          <button class="shadows" onclick="openSoundPanel();">Sound Effects</button>
           <button class="rightButtons shadows" onclick="openColor();">Color Picker</button>
           <button class="shadows">More Stats</button>
           <button class="rightButtons shadows">More Stuff</button>
@@ -108,5 +113,7 @@
   </div>
 </body>
 </html>
+<script src="sounds.js"></script>
 <script src="script.js"></script>
 <script src="color.js"></script>
+<script src="soundPopup.js"></script>
