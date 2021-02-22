@@ -7,5 +7,5 @@ function openSoundPanel() {
 function closeSoundPanel() {
   document.getElementById('soundDiv').style.left = '-50%';
   document.getElementById('everythingElse').style.filter = 'blur(0px)';
-  closeSound();
+  boop();
 }

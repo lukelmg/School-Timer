@@ -111,6 +111,25 @@ function setNew(sched) {
 }
 
 function setSchedule() {
+  var remSchedual = localStorage.getItem('currentScheduleSelected');
+
+  /*
+
+  var startTimes = [];
+  var endTimes = [];
+
+  var startStatus = [];
+  var endStatus = [];
+
+  var remSchedual = localStorage.getItem('currentScheduleSelected');
+  if (remSchedual == null || remSchedual == '' || remSchedual == undefined) {
+    setNew('A');
+  } else {
+    currentScheduleSelected = remSchedual;
+  }
+
+
+  */
   selectorSound();
   var order = ['A', 'E', 'C', 'D'];
 
@@ -137,6 +156,8 @@ function setSchedule() {
       document.getElementById(order[i] + 'in').style.display = 'none';
     }
   }
+
+  localStorage.setItem('currentScheduleSelected', currentScheduleSelected);
 }
 
 (function() {
@@ -177,6 +198,7 @@ function setSchedule() {
     setTimeout(tick, 10);
   }
 
+var doTitle = [];
 
   function tick2() {
 
@@ -206,17 +228,39 @@ function setSchedule() {
         var currentTimer = document.getElementsByClassName('timer');
         currentTimer[i].style.color = localStorage.getItem('customTimerTextDeactive');
         currentTimer[i].style.border = '7px solid transparent';
+
+        var schoolDayProgress = document.getElementById('progressInner');
+        schoolDayProgress.style.width = 100 + '%';
+
+        var schoolDayProgressLabel = document.getElementById('dayProgressLabel');
+        schoolDayProgressLabel.innerHTML = 100 + '%';
+        endStatus[i] = true;
+        doTitle[i] = true;
       } else {
-        if (startStatus[i] == true) {
+        endStatus[i] = false;
+        if (startStatus[i] == true && endStatus[i] == false) {
           var currentTimer = document.getElementsByClassName('timer');
           currentTimer[i].style.border = '5px solid ' + localStorage.getItem('customAccent');
           currentTimer[i].style.color = localStorage.getItem('customTimerTextActive');
-          document.title = hh + ':' + mm + ':' + ss;
+          if ((hh + ':' + mm + ':' + ss) == '00:00:00') {
+            document.title = 'School Timer';
+          } else {
+            document.title = hh + ':' + mm + ':' + ss;
+          }
+          doTitle[i] = false;
         } else {
           var currentTimer = document.getElementsByClassName('timer');
           currentTimer[i].style.border = '7px solid transparent';
           currentTimer[i].style.color = localStorage.getItem('customTimerTextActive');
+          doTitle[i] = true;
         }
+
+        if ((doTitle.every( (val, i, arr) => val === arr[0]) ) == true) {
+          document.title = 'School Timer'
+        }
+
+        console.log(startStatus);
+        //console.log(endStatus);
         document.getElementById(i + 'end').innerHTML = hh + ':' + mm + ':' + ss;
 
           var supposed = new Date().setHours(startTimes[0].substring(0, 2), startTimes[0].substring(3, 5), 0);
@@ -276,9 +320,16 @@ function suffix(i) {
 function isOdd(num) { return num % 2;}
 
 (function grrrr() {
-    var d = new Date();
-    var n = d.toLocaleString([], { hour: '2-digit', minute: '2-digit', second: '2-digit'});
-    document.getElementById("currentTime").innerHTML = n;
+    var date = new Date();
+    var hours = date.getHours() < 10 ? "0" + date.getHours() : date.getHours();
+    var minutes = date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
+    var seconds = date.getSeconds() < 10 ? "0" + date.getSeconds() : date.getSeconds();
+    time = hours + ":" + minutes;
+    document.getElementById("topTime").innerHTML = time;
+
+    bottomTime = ':' + seconds + ' AM';
+    document.getElementById('bottomTime').innerHTML = bottomTime;
+
     setTimeout(grrrr, 10);
 
     var today = new Date();
@@ -286,7 +337,7 @@ function isOdd(num) { return num % 2;}
     var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
     var yyyy = today.getFullYear();
 
-    today = mm + '/' + dd + '/' + yyyy;
+    today = mm + '/' + dd + ' <br>' + yyyy;
     document.getElementById('currentDate').innerHTML = today;
 
     var testDate = new Date();

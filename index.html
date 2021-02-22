@@ -30,6 +30,7 @@
     <h1 class="popupheader">Sound Effects</h1>
     <hr>
     <h1 class="popuplabel">User Interface Sounds</h1>
+    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
   </div>
   <div id="everythingElse">
     <div class="sidebar right">
@@ -49,14 +50,15 @@
       </div>
       <div class="sidebarSquare shadows">
         <center>
-          <h6> Current Time </h6>
-          <h6 id="currentTime" class="shadows">00:00:00 PM</h6>
+          <h6 id="timeLabel"> Current Time </h6>
+          <h6 id="topTime">00:00:00 PM</h6>
+          <h6 id="bottomTime">00:00:00 PM</h6>
         </center>
       </div>
       <div class="sidebarSquare shadows">
         <center>
-          <h6> Current Date </h6>
-          <div id="currentDateAndDay" class="shadows">
+        <!--  <h6> Current Date </h6> -->
+          <div id="currentDateAndDay">
             <h6 id="currentDay">Sunday</h6>
             <h6 id="currentDate">00/00/0000</h6>
           </div>

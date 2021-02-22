@@ -17,3 +17,8 @@ function higherSound() {
   var audio = new Audio('sounds/higher.mp3');
   audio.play();
 }
+
+function boop() {
+  var audio = new Audio('sounds/boop.mp3');
+  audio.play();
+}
