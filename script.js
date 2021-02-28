@@ -227,7 +227,7 @@ var doTitle = [];
         document.getElementById(i + 'end').innerHTML = '------------';
         var currentTimer = document.getElementsByClassName('timer');
         currentTimer[i].style.color = localStorage.getItem('customTimerTextDeactive');
-        currentTimer[i].style.border = '7px solid transparent';
+        currentTimer[i].style.border = '0.5vh solid transparent';
 
         var schoolDayProgress = document.getElementById('progressInner');
         schoolDayProgress.style.width = 100 + '%';
@@ -240,7 +240,7 @@ var doTitle = [];
         endStatus[i] = false;
         if (startStatus[i] == true && endStatus[i] == false) {
           var currentTimer = document.getElementsByClassName('timer');
-          currentTimer[i].style.border = '5px solid ' + localStorage.getItem('customAccent');
+          currentTimer[i].style.border = '0.5vh solid ' + localStorage.getItem('customAccent');
           currentTimer[i].style.color = localStorage.getItem('customTimerTextActive');
           if ((hh + ':' + mm + ':' + ss) == '00:00:00') {
             document.title = 'School Timer';
@@ -250,7 +250,7 @@ var doTitle = [];
           doTitle[i] = false;
         } else {
           var currentTimer = document.getElementsByClassName('timer');
-          currentTimer[i].style.border = '7px solid transparent';
+          currentTimer[i].style.border = '0.5vh solid transparent';
           currentTimer[i].style.color = localStorage.getItem('customTimerTextActive');
           doTitle[i] = true;
         }
