@@ -1,6 +1,6 @@
 :root {
   --newHeight: 8.3vh;
-  --timerWidth: 75vh;
+  --timerWidth: 62vw;
 }
 
 
@@ -12,6 +12,8 @@ body {
   /* background: linear-gradient(270deg, #354965, #26272F); */
   background-size: 400% 400%;
   animation: AnimationName 0s ease infinite;
+  margin:0;
+  padding:0;
 }
 
 #firstContainer {
@@ -21,29 +23,7 @@ body {
   text-align: center;
   float:right;
   width:30%;
-  display:none;
-}
-
-.timerknockoff {
-  box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8), 6px 6px 10px rgba(0, 0, 0, 0.2);
-  font-family: "Open Sans Condensed", sans-serif;
-  font-weight: 10;
-  background-color: transparent;
-  display: inline-block;
-  vertical-align: middle;
-  padding-right:0px;
-  color:#575757;
-  box-sizing: border-box;
-  width:var(--timerWidth);
-  text-align:center;
-  padding-right:0;
-  padding-left:15px;
-  margin-top:1%;
-  padding:0.84%;
-  margin-left:2vh;
-  border-radius:10%/80%;
-  height: var(--newHeight);
-
+  display:none;timer
 }
 
 h6 {
@@ -99,27 +79,35 @@ h2 {
   padding-bottom:0;
   margin-bottom:0;
 
-  font-weight:10;
+  font-weight:600;
 }
 
 table {
   display:inline-block;
   text-align: left;
   vertical-align: middle;
+  margin-left:2vw;
 }
 
 th, td, tr
  {
-   padding-right: 40px;
+   padding-right: 0px;
    font-size: 2.5vh;
+}
+
+td {
+  font-size:5vh;
 }
 
 .thatLabelThing {
   font-weight:500;
+  font-size:75%;
+  margin-left:0;
 }
 
-.thatEndThing {d
-  margin-left: 18%;
+.thatEndThing {
+  padding-left: 5vw;
+  font-size:3vh;
 }
 
 .timer {
@@ -130,13 +118,13 @@ th, td, tr
   color:#575757;
   box-sizing: border-box;
   text-align:center;
-  border-radius:7%/70%;
-  height: var(--newHeight);
+  border-radius:5%/75%;
+/*  height: var(--newHeight); */
 
   vertical-align:center;
   vertical-align:middle;
 
-  margin-top:2.5vh;
+ /* margin-top:10vh; */
   width: var(--timerWidth);
 
   margin-left: 2vh;
@@ -333,7 +321,7 @@ h4 {
 #cycleDayOutput {
   color: #575757;
   text-align:center;
-  font-size:12vh;
+  font-size:16vh;
   margin:0;
   margin-top:0;
   padding-top:0;
@@ -462,4 +450,9 @@ transform: translate(0px, -25px);
 
 .scheduleHeader {
   padding-top:2vh;
+}
+
+
+.timerText {
+  font-size:6vh;
 }

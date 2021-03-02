@@ -48,6 +48,7 @@ function create() {
       var header = document.createElement('h2');
 
       header.innerHTML = suffix(i) + ' Period';
+      header.className = 'timerText';
 
       var table = document.createElement('table');
 
@@ -56,14 +57,11 @@ function create() {
       var startLabel = document.createElement('th');
       var endLabel = document.createElement('th');
 
-      startLabel.innerHTML = 'Start';
-      startLabel.className = 'thatLabelThing'
+      startLabel.innerHTML = 'Start: ';
+      startLabel.className = 'thatLabelThing thatStartThing timerText';
 
-      endLabel.innerHTML = 'End';
-      endLabel.className = 'thatLabelThing thatEndThing'
-
-      row1.appendChild(startLabel);
-      row1.appendChild(endLabel);
+      endLabel.innerHTML = 'End: ';
+      endLabel.className = 'thatLabelThing thatEndThing timerText';
 
       var row2 = document.createElement('tr');
 
@@ -72,12 +70,16 @@ function create() {
 
       start.innerHTML = '00:54:31';
       start.id = i-1 + 'start';
+      start.className = 'timerText';
 
       end.innerHTML = '00:32:31';
       end.id = i-1 + 'end';
-
-      row2.appendChild(start);
-      row2.appendChild(end);
+      end.className = 'timerText';
+      
+      row1.appendChild(startLabel);
+      row1.appendChild(start);
+      row1.appendChild(endLabel);
+      row1.appendChild(end)
 
       table.appendChild(row1);
       table.appendChild(row2);
@@ -103,6 +105,9 @@ var endTimes = [];
 var startStatus = [];
 var endStatus = [];
 
+var activeTimers = [];
+var filteredActive = [];
+
 setSchedule();
 
 function setNew(sched) {
@@ -112,7 +117,7 @@ function setNew(sched) {
 
 function setSchedule() {
   var remSchedual = localStorage.getItem('currentScheduleSelected');
-
+  activeTimers = [];
   /*
 
   var startTimes = [];
@@ -222,13 +227,25 @@ var doTitle = [];
       if (hh < 10) {
         hh = '0' + hh;
       }
+      
+      var currentTimer = document.getElementsByClassName('timer');
+      
+      var theHeight = window.innerHeight;
+      
+      var startHeight = 0;
+      
+   // alert(theHeight / 9)
 
+      //currentTimer[i].style.height = (theHeight / 9) + 'px';
+      
+      startHeight = 0;
+      
       if (hh >= 11) {
-        document.getElementById(i + 'end').innerHTML = '------------';
-        var currentTimer = document.getElementsByClassName('timer');
+        document.getElementById(i + 'end').innerHTML = '------------'
         currentTimer[i].style.color = localStorage.getItem('customTimerTextDeactive');
         currentTimer[i].style.border = '0.5vh solid transparent';
-
+        currentTimer[i].style.display = 'none';
+            
         var schoolDayProgress = document.getElementById('progressInner');
         schoolDayProgress.style.width = 100 + '%';
 
@@ -237,11 +254,14 @@ var doTitle = [];
         endStatus[i] = true;
         doTitle[i] = true;
       } else {
+        activeTimers[i] = true;
         endStatus[i] = false;
         if (startStatus[i] == true && endStatus[i] == false) {
           var currentTimer = document.getElementsByClassName('timer');
           currentTimer[i].style.border = '0.5vh solid ' + localStorage.getItem('customAccent');
           currentTimer[i].style.color = localStorage.getItem('customTimerTextActive');
+          currentTimer[i].style.boxShadow = 'none';
+          currentTimer[i].style.display = 'inline-block';
           if ((hh + ':' + mm + ':' + ss) == '00:00:00') {
             document.title = 'School Timer';
           } else {
@@ -252,6 +272,7 @@ var doTitle = [];
           var currentTimer = document.getElementsByClassName('timer');
           currentTimer[i].style.border = '0.5vh solid transparent';
           currentTimer[i].style.color = localStorage.getItem('customTimerTextActive');
+          currentTimer[i].style.display = 'inline-block';
           doTitle[i] = true;
         }
 
@@ -259,9 +280,18 @@ var doTitle = [];
           document.title = 'School Timer'
         }
 
-        console.log(startStatus);
-        //console.log(endStatus);
         document.getElementById(i + 'end').innerHTML = hh + ':' + mm + ':' + ss;
+        
+        
+        filteredActive = activeTimers.filter(function () { return true });
+        
+        if ((theHeight / filteredActive.length) > (theHeight / 4)) {
+        currentTimer[i].style.height = (theHeight / 4) + 'px';
+        } else {
+          currentTimer[i].style.height = (theHeight / filteredActive.length) + 'px';
+        }
+        currentTimer[i].style.borderRadius = (theHeight / filteredActive.length) + 'px';
+      
 
           var supposed = new Date().setHours(startTimes[0].substring(0, 2), startTimes[0].substring(3, 5), 0);
 
@@ -271,7 +301,7 @@ var doTitle = [];
 
           var supposedVal = endSchool - supposed;
 
-          var percent = (((diffMs / supposedVal * 100)-100)*-1).toFixed(2);
+          var percent = (((diffMs / supposedVal * 100)-100)*-1).toFixed(1);
 
           if (percent == undefined || percent == '' || percent == null) {
             percent = 0;
@@ -288,7 +318,7 @@ var doTitle = [];
           schoolDayProgressLabel.innerHTML = percent + '%';
     }
   }
-
+    
     setTimeout(tick2, 10);
   }
 
@@ -324,7 +354,13 @@ function isOdd(num) { return num % 2;}
     var hours = date.getHours() < 10 ? "0" + date.getHours() : date.getHours();
     var minutes = date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
     var seconds = date.getSeconds() < 10 ? "0" + date.getSeconds() : date.getSeconds();
-    time = hours + ":" + minutes;
+  
+    var ampm
+  
+    if (hours > 12)
+ {
+   hours = hours - 12;
+ }    time = hours + ":" + minutes;
     document.getElementById("topTime").innerHTML = time;
 
     bottomTime = ':' + seconds + ' AM';
@@ -350,7 +386,7 @@ function isOdd(num) { return num % 2;}
   var endSchool = new Date("2021-6-11");
   var diffMs = (endSchool - today); // milliseconds between now & Christmas
 
-  var percent = (((diffMs / 24192000000 * 100)-100)*-1).toFixed(2);
+  var percent = (((diffMs / 24192000000 * 100)-100)*-1).toFixed(0);
 
   var yearProgress = document.getElementById('summerInner');
   yearProgress.style.width = percent + '%';
