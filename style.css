@@ -6,6 +6,11 @@
 
 html, body {margin: 0; height: 100%; overflow: hidden}
 
+br {
+  margin:0;
+  padding:0;
+}
+
 body {
   font-family: "Open Sans", sans-serif;
   background-color: #ededed;
@@ -23,7 +28,7 @@ body {
   text-align: center;
   float:right;
   width:30%;
-  display:none;timer
+  display:none;
 }
 
 h6 {
@@ -80,6 +85,8 @@ h2 {
   margin-bottom:0;
 
   font-weight:600;
+
+  left:5%;
 }
 
 table {
@@ -108,6 +115,19 @@ td {
 .thatEndThing {
   padding-left: 5vw;
   font-size:3vh;
+  right:24%;
+}
+
+.thatStartThing {
+  left: 32%;
+}
+
+.startActual {
+  left:43%;
+}
+
+.endActual {
+  right:7%;
 }
 
 .timer {
@@ -127,7 +147,8 @@ td {
  /* margin-top:10vh; */
   width: var(--timerWidth);
 
-  margin-left: 2vh;
+  margin-top:0;
+  position: relative;
 }
 
 @keyframes AnimationName {
@@ -329,7 +350,7 @@ h4 {
 }
 
 div {
-  transition: 0.1s;
+  transition: 0.85s;
 }
 
 button {
@@ -343,7 +364,7 @@ button {
   box-shadow: -2px -6px 7px #212121, 6px 6px 10px #0f0f0f;
   box-shadow: -6px -6px 10px #212121,  6px 6px 10px rgba(0, 0, 0, 0.2);
   border-radius: 12px;
-  transition: 0.1s;
+  transition: 0s;
   width: calc(var(--thatHeight) / 2.22);
   height: calc(var(--thatHeight) / 2.22);
   margin-left:0;
@@ -413,7 +434,7 @@ button:hover {
   background-color: #E94A35;
   color:white;
   z-index: 10;
-  transition:0.5s;
+  transition:0s;
   display: block;
   z-index: 5;
   position: relative;
@@ -454,5 +475,11 @@ transform: translate(0px, -25px);
 
 
 .timerText {
-  font-size:6vh;
+  font-size:5vh;
+  text-align: center;
+  vertical-align: middle;
+
+  position: absolute;
+  top: 50%;
+  transform: translate(0%, -50%);
 }

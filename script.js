@@ -15,6 +15,10 @@ var endTimesC =   ['' + '08:12', '08:48', '09:24', '10:00', '10:36', '11:12', '1
 var startTimesD = ['' + '09:40', '10:12', '10:42', '11:12', '11:48', '12:24', '13:00', '13:36', '14:06'];
 var endTimesD =   ['' + '10:06', '10:36', '11:06', '11:42', '12:18', '12:54', '13:30', '14:00', '14:30'];
 
+
+var activeTimers = [];
+var filteredActive = [];
+
 create();
 
 function create() {
@@ -70,12 +74,12 @@ function create() {
 
       start.innerHTML = '00:54:31';
       start.id = i-1 + 'start';
-      start.className = 'timerText';
+      start.className = 'startActual timerText';
 
       end.innerHTML = '00:32:31';
       end.id = i-1 + 'end';
-      end.className = 'timerText';
-      
+      end.className = 'endActual timerText';
+
       row1.appendChild(startLabel);
       row1.appendChild(start);
       row1.appendChild(endLabel);
@@ -90,13 +94,15 @@ function create() {
 
       container.appendChild(box);
 
-        var theBreak = document.createElement('br');
-        container.appendChild(theBreak);
+      //  var theBreak = document.createElement('br');
+      //  container.appendChild(theBreak);
 
 
       $("#firstContainer").css("height", $("#secondContainer").height() + 20);
     }
   }
+
+  console.log(filteredActive.length);
 }
 
 var startTimes = [];
@@ -104,9 +110,6 @@ var endTimes = [];
 
 var startStatus = [];
 var endStatus = [];
-
-var activeTimers = [];
-var filteredActive = [];
 
 setSchedule();
 
@@ -119,7 +122,6 @@ function setSchedule() {
   var remSchedual = localStorage.getItem('currentScheduleSelected');
   activeTimers = [];
   /*
-
   var startTimes = [];
   var endTimes = [];
 
@@ -132,8 +134,6 @@ function setSchedule() {
   } else {
     currentScheduleSelected = remSchedual;
   }
-
-
   */
   selectorSound();
   var order = ['A', 'E', 'C', 'D'];
@@ -161,6 +161,8 @@ function setSchedule() {
       document.getElementById(order[i] + 'in').style.display = 'none';
     }
   }
+
+  console.log(filteredActive.length);
 
   localStorage.setItem('currentScheduleSelected', currentScheduleSelected);
 }
@@ -227,25 +229,26 @@ var doTitle = [];
       if (hh < 10) {
         hh = '0' + hh;
       }
-      
+
       var currentTimer = document.getElementsByClassName('timer');
-      
+
       var theHeight = window.innerHeight;
-      
+
       var startHeight = 0;
-      
+
    // alert(theHeight / 9)
 
       //currentTimer[i].style.height = (theHeight / 9) + 'px';
-      
+
       startHeight = 0;
-      
+
       if (hh >= 11) {
         document.getElementById(i + 'end').innerHTML = '------------'
         currentTimer[i].style.color = localStorage.getItem('customTimerTextDeactive');
         currentTimer[i].style.border = '0.5vh solid transparent';
         currentTimer[i].style.display = 'none';
-            
+        //currentTimer[i].style.position = 'absolute';
+
         var schoolDayProgress = document.getElementById('progressInner');
         schoolDayProgress.style.width = 100 + '%';
 
@@ -260,7 +263,7 @@ var doTitle = [];
           var currentTimer = document.getElementsByClassName('timer');
           currentTimer[i].style.border = '0.5vh solid ' + localStorage.getItem('customAccent');
           currentTimer[i].style.color = localStorage.getItem('customTimerTextActive');
-          currentTimer[i].style.boxShadow = 'none';
+          //currentTimer[i].style.boxShadow = 'none';
           currentTimer[i].style.display = 'inline-block';
           if ((hh + ':' + mm + ':' + ss) == '00:00:00') {
             document.title = 'School Timer';
@@ -281,17 +284,6 @@ var doTitle = [];
         }
 
         document.getElementById(i + 'end').innerHTML = hh + ':' + mm + ':' + ss;
-        
-        
-        filteredActive = activeTimers.filter(function () { return true });
-        
-        if ((theHeight / filteredActive.length) > (theHeight / 4)) {
-        currentTimer[i].style.height = (theHeight / 4) + 'px';
-        } else {
-          currentTimer[i].style.height = (theHeight / filteredActive.length) + 'px';
-        }
-        currentTimer[i].style.borderRadius = (theHeight / filteredActive.length) + 'px';
-      
 
           var supposed = new Date().setHours(startTimes[0].substring(0, 2), startTimes[0].substring(3, 5), 0);
 
@@ -318,7 +310,7 @@ var doTitle = [];
           schoolDayProgressLabel.innerHTML = percent + '%';
     }
   }
-    
+
     setTimeout(tick2, 10);
   }
 
@@ -326,10 +318,38 @@ var doTitle = [];
   document.addEventListener('DOMContentLoaded', tick2);
 })();
 
-
 function pad(num) {
   return ('0' + parseInt(num)).substr(-2);
 }
+
+(function myLoop(i) {
+  setTimeout(function() {
+    var currentTimer = document.getElementsByClassName('timer');
+
+    var theHeight = window.innerHeight;
+    filteredActive = activeTimers.filter(function () { return true });
+  //  alert(activeTimers);
+
+    var timersHeight = document.getElementById('timers').offsetHeight;
+
+    for (var i = 0; i < currentTimer.length; i++) {
+
+      if (activeTimers[i] == true) {
+
+    if ((theHeight / filteredActive.length) > (theHeight / 4)) {
+      currentTimer[i].style.height = (theHeight / 4) + 'px';
+    } else {
+      currentTimer[i].style.height = (theHeight / filteredActive.length) - (theHeight / filteredActive.length * 0.25) + 'px';
+
+      currentTimer[i].style.marginTop = (theHeight - timersHeight) + 'px';
+    }
+      currentTimer[i].style.borderRadius = (theHeight / filteredActive.length) + 'px';
+    }
+  }
+
+    if (--i) myLoop(i);   //  decrement i and call myLoop again if i > 0
+  }, 0)
+})(10);                   //  pass the number of iterations as an argument
 
 
 function suffix(i) {
@@ -354,9 +374,9 @@ function isOdd(num) { return num % 2;}
     var hours = date.getHours() < 10 ? "0" + date.getHours() : date.getHours();
     var minutes = date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
     var seconds = date.getSeconds() < 10 ? "0" + date.getSeconds() : date.getSeconds();
-  
+
     var ampm
-  
+
     if (hours > 12)
  {
    hours = hours - 12;
