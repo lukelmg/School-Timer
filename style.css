@@ -124,10 +124,12 @@ td {
 
 .startActual {
   left:43%;
+  font-family: 'Lato', sans-serif;
 }
 
 .endActual {
-  right:7%;
+  right:6.5%;
+  font-family: 'Lato', sans-serif;
 }
 
 .timer {
@@ -350,7 +352,7 @@ h4 {
 }
 
 div {
-  transition: 0.85s;
+  transition: 0.5s;
 }
 
 button {

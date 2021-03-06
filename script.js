@@ -322,35 +322,33 @@ function pad(num) {
   return ('0' + parseInt(num)).substr(-2);
 }
 
-(function myLoop(i) {
-  setTimeout(function() {
-    var currentTimer = document.getElementsByClassName('timer');
 
-    var theHeight = window.innerHeight;
-    filteredActive = activeTimers.filter(function () { return true });
-  //  alert(activeTimers);
+function refreshData()
+{
+  var timersHeight = document.getElementById('timers').offsetHeight;
+  var currentTimer = document.getElementsByClassName('timer');
+  var theHeight = window.innerHeight;
 
-    var timersHeight = document.getElementById('timers').offsetHeight;
+  filteredActive = activeTimers.filter(function () { return true });
 
-    for (var i = 0; i < currentTimer.length; i++) {
+  var newHeight = (theHeight / filteredActive.length) - (theHeight / filteredActive.length * 0.25);
+  var newMargin = (theHeight - timersHeight);
+  var newRadius = (theHeight / filteredActive.length);
 
-      if (activeTimers[i] == true) {
+  console.log(newHeight);
 
-    if ((theHeight / filteredActive.length) > (theHeight / 4)) {
-      currentTimer[i].style.height = (theHeight / 4) + 'px';
-    } else {
-      currentTimer[i].style.height = (theHeight / filteredActive.length) - (theHeight / filteredActive.length * 0.25) + 'px';
-
-      currentTimer[i].style.marginTop = (theHeight - timersHeight) + 'px';
-    }
-      currentTimer[i].style.borderRadius = (theHeight / filteredActive.length) + 'px';
+  for (var i = 0; i < currentTimer.length; i++) {
+    if (activeTimers[i] == true) {
+      currentTimer[i].style.height = newHeight + 'px';
+      currentTimer[i].style.marginTop = newMargin + 'px';
+      currentTimer[i].style.borderRadius = newRadius + 'px';
     }
   }
+    setTimeout(refreshData, 0);
+}
 
-    if (--i) myLoop(i);   //  decrement i and call myLoop again if i > 0
-  }, 0)
-})(10);                   //  pass the number of iterations as an argument
 
+refreshData(); // execute function
 
 function suffix(i) {
   var j = i % 10,
@@ -365,6 +363,10 @@ function suffix(i) {
     return i + 'rd';
   }
   return i + 'th';
+}
+
+function round(number) {
+  return Math.round(number / 40) * 40;
 }
 
 function isOdd(num) { return num % 2;}
