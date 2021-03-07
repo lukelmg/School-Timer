@@ -7,6 +7,8 @@
   <title>School Timer</title>
   <link rel="stylesheet" type="text/css" href="styles/popup.css">
   <link rel="stylesheet" type="text/css" href="styles/style.css">
+  <link rel="stylesheet" type="text/css" href="styles/cycle.css">
+  <link rel="stylesheet" type="text/css" href="styles/sidebar.css">
   <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Yantramanav:wght@100&display=swap" rel="stylesheet">
@@ -34,6 +36,25 @@
     <hr>
     <h1 class="popuplabel">User Interface Sounds</h1>
     <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+  </div>
+  <div class="popup" id="cycleDiv">
+    <div class="x" onclick="closeCyclePanel()">&#215;</div>
+    <h1 class="popupheader">Cycle Days</h1>
+    <hr>
+    <center>
+      <div class="sidebarSquare cycleDivs">
+        <h6>Today</h6>
+        <h2 id="cycleDayToday" class="cycleOutputs"/>
+      </div>
+      <div class="sidebarSquare cycleDivs">
+        <h6>Tomorrow</h6>
+        <h2 id="cycleDayTomorrow" class="cycleOutputs"/>
+      </div>
+      <div class="sidebarSquare cycleDivs">
+        <h6>The Next Day</h6>
+        <h2 id="cycleDayNextDay" class="cycleOutputs"/>
+      </div>
+    </center>
   </div>
   <div id="everythingElse">
     <div class="sidebar right">
@@ -101,8 +122,8 @@
           </center>
         </div>
       </div>
-      <div class="sidebarSquare shadows" id="cycle">
-        <h6> Cycle Day </h6>
+      <div class="sidebarSquare shadows" id="cycle" onclick="openCyclePanel();">
+        <h6 id="cycleLabel"> Cycle Day </h6>
         <h6 id="cycleDayOutput">5</h6>
       </div>
       <div class="sidebarSquare" id="settingsDiv">
@@ -114,8 +135,8 @@
         </center>
       </div>
     </div>
+    <center><div id="timers"></div></center>
   </div>
-  <center><div id="timers"></div></center>
 </body>
 </html>
 <script src="other/soundPopup.js"></script>

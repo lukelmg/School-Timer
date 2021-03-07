@@ -74,42 +74,53 @@ var combined = [];
 
   // detecting the current day to see what day it is today
 
-  var TodayDate = new Date();
-  var d = (TodayDate.getDate()+0).toString();
-  var m = mL[TodayDate.getMonth()];
-
-  var filtered;
   var noMonthDay = [];
 
-  // more filtering that figures what is is today
+  var forcast = [];
+  var filteredArray = [];
 
-  for (var e = 0; e < combined.length; e++) {
-    noMonthDay[e] = combined[e].slice(2).substring(0, combined[e].length - 3);
-    if (combined[e].charAt(0) == ' '){
-      combined[e] = combined[e].substring(1);
-      if (combined[e].substring(0,1) == d && noMonthDay[e] == m.toString()){
-        filtered = combined[e];
+  var combinedTest = [];
+
+  // more filtering that figures what is is today
+  for (var i = 0; i < 3; i++) {
+
+    var TodayDate = new Date();
+    var d = (TodayDate.getDate()+i).toString();
+    var m = mL[TodayDate.getMonth()];
+
+    var filtered;
+
+    for (var e = 0; e < combined.length; e++) {
+      noMonthDay[e] = combined[e].slice(2).substring(0, combined[e].length - 3);
+      if (combined[e].charAt(0) == ' '){
+        combinedTest[e] = combined[e].substring(1);
+        if (combinedTest[e].substring(0,1) == d && noMonthDay[e] == m.toString()){
+          filtered = combinedTest[e];
+        }
+      } else {
+        if (combined[e].substring(0,2) == d && noMonthDay[e] == m.toString()){
+          filtered = combined[e];
+          console.log(filtered);
+        }
       }
+    }
+    filteredArray[i] = filtered;
+    filtered = [];
+  }
+
+  for (var i = 0; i < filteredArray.length; i++) {
+    if (filteredArray[i] == undefined || filteredArray[i] == '') {
+      filteredArray[i] = 'N/A';
     } else {
-      if (combined[e].substring(0,2) == d && noMonthDay[e] == m.toString()){
-        filtered = combined[e];
-      }
+      filteredArray[i] = filteredArray[i].slice(-1);
     }
   }
 
-  // finally log what exactly it is today
+  jsonString = '{"today":"' + filteredArray[0] + '",'
+  jsonString = jsonString + '"tomorrow":"' + filteredArray[1] + '",'
+  jsonString = jsonString + '"nextDay":"' + filteredArray[2] + '"}'
 
-  if (filtered == undefined) {
-    console.log('No Cycle Day Today');
-    finalDay = 'No Cycle Day Today';
-    jsonString = 'N/A';
-  } else {
-    console.log('Today is Day ' + filtered.slice(-1));
-    finalDay = 'Today is Day ' + filtered.slice(-1);
-    jsonString = filtered.slice(-1);
-  }
-
-  jsonString = '{"day":"' + jsonString + '"}'
+  console.log(jsonString);
   fs.writeFile('./cycle.json', jsonString, err=> {
     if (err) {
       console.log(err);
@@ -117,7 +128,7 @@ var combined = [];
   });
 
   await browser.close();
-  setTimeout(test, 60000); // refreshes every minute
+  setTimeout(test, 10000); // refreshes every minute
 })();
 
 
