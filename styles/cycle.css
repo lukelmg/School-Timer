@@ -17,3 +17,12 @@
 #cycleDiv {
   height: 45vh;
 }
+
+#cycle {
+  transition:0.1s
+}
+
+#cycle:hover {
+  transform: scale(1.03, 1.03);
+  cursor:pointer;
+}

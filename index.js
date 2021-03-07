@@ -128,7 +128,7 @@ var combined = [];
   });
 
   await browser.close();
-  setTimeout(test, 10000); // refreshes every minute
+  setTimeout(test, 5*60*1000); // refreshes every minute
 })();
 
 
