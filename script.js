@@ -89,14 +89,9 @@ function create() {
       table.appendChild(row2);
 
       box.appendChild(header);
-    //  box.appendChild(breakTest);
       box.appendChild(table);
 
       container.appendChild(box);
-
-      //  var theBreak = document.createElement('br');
-      //  container.appendChild(theBreak);
-
 
       $("#firstContainer").css("height", $("#secondContainer").height() + 20);
     }
@@ -236,10 +231,6 @@ var doTitle = [];
 
       var startHeight = 0;
 
-   // alert(theHeight / 9)
-
-      //currentTimer[i].style.height = (theHeight / 9) + 'px';
-
       startHeight = 0;
 
       if (hh >= 11) {
@@ -247,7 +238,6 @@ var doTitle = [];
         currentTimer[i].style.color = localStorage.getItem('customTimerTextDeactive');
         currentTimer[i].style.border = '0.5vh solid transparent';
         currentTimer[i].style.display = 'none';
-        //currentTimer[i].style.position = 'absolute';
 
         var schoolDayProgress = document.getElementById('progressInner');
         schoolDayProgress.style.width = 100 + '%';
@@ -263,7 +253,6 @@ var doTitle = [];
           var currentTimer = document.getElementsByClassName('timer');
           currentTimer[i].style.border = '0.5vh solid ' + localStorage.getItem('customAccent');
           currentTimer[i].style.color = localStorage.getItem('customTimerTextActive');
-          //currentTimer[i].style.boxShadow = 'none';
           currentTimer[i].style.display = 'inline-block';
           if ((hh + ':' + mm + ':' + ss) == '00:00:00') {
             document.title = 'School Timer';
@@ -322,8 +311,9 @@ function pad(num) {
   return ('0' + parseInt(num)).substr(-2);
 }
 
+var prev;
 
-function refreshData()
+function setTimerHeights()
 {
   var timersHeight = document.getElementById('timers').offsetHeight;
   var currentTimer = document.getElementsByClassName('timer');
@@ -335,7 +325,9 @@ function refreshData()
   var newMargin = (theHeight - timersHeight);
   var newRadius = (theHeight / filteredActive.length);
 
-  console.log(newHeight);
+  console.log('prev:' + prev + '  filt:' + filteredActive.length);
+
+  //if (prev != filteredActive.length) {
 
   for (var i = 0; i < currentTimer.length; i++) {
     if (activeTimers[i] == true) {
@@ -344,11 +336,17 @@ function refreshData()
       currentTimer[i].style.borderRadius = newRadius + 'px';
     }
   }
-    setTimeout(refreshData, 0);
+//  }
+
+  prev = filteredActive.length;
+    setTimeout(setTimerHeights, 100);
 }
 
+function round(number) {
+  return Math.round(number / 40) * 40;
+}
 
-refreshData(); // execute function
+setTimerHeights(); // execute function
 
 function suffix(i) {
   var j = i % 10,
@@ -365,56 +363,4 @@ function suffix(i) {
   return i + 'th';
 }
 
-function round(number) {
-  return Math.round(number / 40) * 40;
-}
-
 function isOdd(num) { return num % 2;}
-
-(function grrrr() {
-    var date = new Date();
-    var hours = date.getHours() < 10 ? "0" + date.getHours() : date.getHours();
-    var minutes = date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
-    var seconds = date.getSeconds() < 10 ? "0" + date.getSeconds() : date.getSeconds();
-
-    var ampm
-
-    if (hours > 12)
- {
-   hours = hours - 12;
- }    time = hours + ":" + minutes;
-    document.getElementById("topTime").innerHTML = time;
-
-    bottomTime = ':' + seconds + ' AM';
-    document.getElementById('bottomTime').innerHTML = bottomTime;
-
-    setTimeout(grrrr, 10);
-
-    var today = new Date();
-    var dd = String(today.getDate()).padStart(2, '0');
-    var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-    var yyyy = today.getFullYear();
-
-    today = mm + '/' + dd + ' <br>' + yyyy;
-    document.getElementById('currentDate').innerHTML = today;
-
-    var testDate = new Date();
-    var days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
-    document.getElementById('currentDay').innerHTML = days[testDate.getDay()];
-})();
-
-(function foo() {
-  var today = new Date();
-  var endSchool = new Date("2021-6-11");
-  var diffMs = (endSchool - today); // milliseconds between now & Christmas
-
-  var percent = (((diffMs / 24192000000 * 100)-100)*-1).toFixed(0);
-
-  var yearProgress = document.getElementById('summerInner');
-  yearProgress.style.width = percent + '%';
-
-  var yearNumber = document.getElementById('summerNumber');
-  yearNumber.innerHTML = percent + '%';
-
-  setTimeout(foo, 1000);
-})();
