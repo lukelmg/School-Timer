@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+  <meta content="utf-8" http-equiv="encoding">
+  <title>School Timer</title>
+  <link rel="stylesheet" type="text/css" href="styles/popup.css">
+  <link rel="stylesheet" type="text/css" href="styles/style.css">
+  <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Yantramanav:wght@100&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="color-picker-main/dist/color-picker.min.css"/>
+  <script type="text/javascript" src="dist/color-picker.min.js"></script>
+</head>
+
+<body onload="changeColors('default')">
+  <div class="popup" id="colorDiv">
+    <div class="x" onclick="closeColor()">&#215;</div>
+    <h1 class="popupheader">Color Picker</h1>
+    <hr>
+    <h1 class="popuplabel">Preset Themes</h1>
+    <select oninput="changeColors(this.value)">
+      <option value="default">Default</option>
+      <option value="dark">Dark</option>
+      <option value="beach">Beach</option>
+      <option value="eww">Eww</option>
+    </select>
+  </div>
+  <div class="popup" id="soundDiv">
+    <div class="x" onclick="closeSoundPanel()">&#215;</div>
+    <h1 class="popupheader">Sound Effects</h1>
+    <hr>
+    <h1 class="popuplabel">User Interface Sounds</h1>
+    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+  </div>
+  <div id="everythingElse">
+    <div class="sidebar right">
+      <div class="sidebarSquare shadows" id="progress">
+        <h6> School Day <br> Progress </h6>
+        <div id="progressOuter" class="shadows">
+          <div id="progressInner"></div>
+        </div>
+        <h6 id="dayProgressLabel"></h6>
+      </div>
+      <div class="sidebarSquare shadows" id="year">
+        <h6> School Year<br> Progress </h6>
+        <div id="summerOuter" class="shadows">
+          <div id="summerInner"></div>
+        </div>
+        <h6 id="summerNumber">asdfasdf</h6>
+      </div>
+      <div class="sidebarSquare shadows">
+        <center>
+          <h6 id="timeLabel"> Current Time </h6>
+          <h6 id="topTime">00:00:00 PM</h6>
+          <h6 id="bottomTime">00:00:00 PM</h6>
+        </center>
+      </div>
+      <div class="sidebarSquare shadows">
+        <center>
+        <!--  <h6> Current Date </h6> -->
+          <div id="currentDateAndDay">
+            <h6 id="currentDay">Sunday</h6>
+            <h6 id="currentDate">00/00/0000</h6>
+          </div>
+        </center>
+      </div>
+    </div>
+    <div class="sidebar left">
+      <div class="sidebarRectangle shadows" id="time">
+        <h6 class="scheduleHeader"> Schedule </h6>
+        <div id="radioDiv">
+          <center>
+            <div class="singleRadio">
+              <div class="radioTooltip">Normal Schedule</div>
+              <h6 class="radioLabels">A</h6>
+              <div class="radioOuter shadows" onclick="setNew('A')">
+                <div class="radioInner" id="Ain"></div>
+              </div>
+            </div>
+            <div class="singleRadio">
+              <h6 class="radioLabels">E</h5>
+              <div class="radioOuter shadows" onclick="setNew('E')">
+                <div class="radioInner" id="Ein"></div>
+              </div>
+            </div>
+            <div class="singleRadio">
+              <h6 class="radioLabels">C</h5>
+              <div class="radioOuter shadows" onclick="setNew('C')">
+                <div class="radioInner" id="Cin"></div>
+              </div>
+            </div>
+            <div class="singleRadio">
+              <h6 class="radioLabels">D</h6 class="radioLabels">
+              <div class="radioOuter shadows" onclick="setNew('D')">
+                <div class="radioInner" id="Din"></div>
+              </div>
+            </div>
+          </center>
+        </div>
+      </div>
+      <div class="sidebarSquare shadows" id="cycle">
+        <h6> Cycle Day </h6>
+        <h6 id="cycleDayOutput">5</h6>
+      </div>
+      <div class="sidebarSquare" id="settingsDiv">
+        <center>
+          <button class="shadows" onclick="openSoundPanel();">Sound Effects</button>
+          <button class="rightButtons shadows" onclick="openColor();">Color Picker</button>
+          <button class="shadows">More Stats</button>
+          <button class="rightButtons shadows">More Stuff</button>
+        </center>
+      </div>
+    </div>
+  </div>
+  <center><div id="timers"></div></center>
+</body>
+</html>
+<script src="other/soundPopup.js"></script>
+<script src="other/otherTimers.js"></script>
+<script src="other/sounds.js"></script>
+<script src="other/color.js"></script>
+<script src="other/customColors.js"></script>
+<script src="other/readCycle.js"></script>
+<script src="script.js"></script>
