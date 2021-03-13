@@ -7,12 +7,13 @@
   <title>School Timer</title>
   <link rel="stylesheet" type="text/css" href="styles/popup.css">
   <link rel="stylesheet" type="text/css" href="styles/style.css">
+  <link rel="stylesheet" type="text/css" href="styles/cycle.css">
+  <link rel="stylesheet" type="text/css" href="styles/other.css">
+  <link rel="stylesheet" type="text/css" href="styles/sidebar.css">
   <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Yantramanav:wght@100&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="color-picker-main/dist/color-picker.min.css"/>
-  <script type="text/javascript" src="dist/color-picker.min.js"></script>
 </head>
 
 <body onload="changeColors('default')">
@@ -27,6 +28,13 @@
       <option value="beach">Beach</option>
       <option value="eww">Eww</option>
     </select>
+    <h1 class="popuplabel">Custom Colors</h1>
+    <select oninput="customColors(this.value)">
+      <option value="customBackground">Background</option>
+      <option value="customAccent">Accent</option>
+      <option value="customMainText">Text</option>
+    </select>
+    <input type="color" id="colorPicker">
   </div>
   <div class="popup" id="soundDiv">
     <div class="x" onclick="closeSoundPanel()">&#215;</div>
@@ -34,6 +42,25 @@
     <hr>
     <h1 class="popuplabel">User Interface Sounds</h1>
     <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+  </div>
+  <div class="popup" id="cycleDiv">
+    <div class="x" onclick="closeCyclePanel()">&#215;</div>
+    <h1 class="popupheader">Cycle Days</h1>
+    <hr>
+    <center>
+      <div class="sidebarSquare cycleDivs">
+        <h6>Today</h6>
+        <h2 id="cycleDayToday" class="cycleOutputs"/>
+      </div>
+      <div class="sidebarSquare cycleDivs">
+        <h6>Tomorrow</h6>
+        <h2 id="cycleDayTomorrow" class="cycleOutputs"/>
+      </div>
+      <div class="sidebarSquare cycleDivs">
+        <h6>The Next Day</h6>
+        <h2 id="cycleDayNextDay" class="cycleOutputs"/>
+      </div>
+    </center>
   </div>
   <div id="everythingElse">
     <div class="sidebar right">
@@ -101,8 +128,8 @@
           </center>
         </div>
       </div>
-      <div class="sidebarSquare shadows" id="cycle">
-        <h6> Cycle Day </h6>
+      <div class="sidebarSquare shadows" id="cycle" onclick="openCyclePanel();">
+        <h6 id="cycleLabel"> Cycle Day </h6>
         <h6 id="cycleDayOutput">5</h6>
       </div>
       <div class="sidebarSquare" id="settingsDiv">
@@ -114,8 +141,9 @@
         </center>
       </div>
     </div>
+    <center><div id="timers"></div></center>
+    <h1 id="schoolOver">School Is <br> Over<h1>
   </div>
-  <center><div id="timers"></div></center>
 </body>
 </html>
 <script src="other/soundPopup.js"></script>
@@ -123,4 +151,5 @@
 <script src="other/sounds.js"></script>
 <script src="other/color.js"></script>
 <script src="other/customColors.js"></script>
+<script src="other/readCycle.js"></script>
 <script src="script.js"></script>

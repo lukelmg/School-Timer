@@ -67,6 +67,13 @@ function changeColors (theme) {
   setOtherTexts();
 }
 
+
+function customColors(element) {
+  var currentColor = document.getElementById('colorPicker').value;
+  
+}
+
+
 function setBackgrounds() {
   document.body.style.backgroundColor = customBackground;
 
