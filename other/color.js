@@ -12,9 +12,8 @@ var customBackground, customTimerTextActive, customTimerTextDeactive, customAcce
     };
 
 var selectedTheme;
-var currentColors;
 
-var defaultColors = {
+var currentColors = {
   background: '#ededed',
   accent: '#ff2b40',
   maintext: '#575757',
@@ -29,7 +28,6 @@ var defaultColors = {
     return LightenColor(this.background, -6);
   }
 };
-
 
 
 
@@ -52,7 +50,6 @@ function changeColors (theme) {
     case 'stealth':
     currentColors = stealthTheme;
   }
-
   setAllElementColors();
 }
 
@@ -62,7 +59,7 @@ function setBackgrounds() {
 
   var popups = document.getElementsByClassName('popup');
   for (var i = 0; i < popups.length; i++) {
-    popups[i].style.backgroundColor = LightenColor(currentColors.background, 3);
+    popups[i].style.backgroundColor = LightenColor(currentColors.background, 0);
   }
 }
 
@@ -86,6 +83,17 @@ function setMainText() {
   for (var i = 0; i < radioLabels.length; i++) {
     radioLabels[0].style.backgroundColor = currentColors.maintext;
   }
+
+  var radioLabels = document.getElementsByTagName('select');
+  for (var i = 0; i < radioLabels.length; i++) {
+    radioLabels[i].style.color = currentColors.maintext;
+    radioLabels[i].style.borderColor = currentColors.maintext;
+  }
+
+  var active = document.getElementsByClassName('timerText');
+  for (var i = 0; i < active.length; i++) {
+    active[i].style.color = currentColors.maintext;
+  }
 }
 
 function setAccent() {
@@ -95,7 +103,6 @@ function setAccent() {
   }
   document.getElementById('progressInner').style.backgroundColor = currentColors.accent;
   document.getElementById('summerInner').style.backgroundColor = currentColors.accent;
-  localStorage.setItem('customAccent', currentColors.accent);
 }
 
 function setShadows() {
@@ -105,19 +112,41 @@ function setShadows() {
   }
 }
 
-function setOtherTexts() {
-  localStorage.setItem('customTimerTextActive', customTimerTextActive);
-  localStorage.setItem('customTimerTextDeactive', customTimerTextDeactive);
-}
-
 function setAllElementColors() {
+//  alert(currentColors.background);
   setBackgrounds();
   setMainText();
   setAccent();
   setShadows();
-  setOtherTexts();
+  localStorage.setItem('background', currentColors.background);
+  localStorage.setItem('accent', currentColors.accent);
+  localStorage.setItem('maintext', currentColors.maintext);
+  localStorage.setItem('timertextactive', currentColors.timertextactive);
+  localStorage.setItem('timertextdeactive', currentColors.timertextdeactive);
+  localStorage.setItem('lightshadowdim', currentColors.lightshadowdim);
+  localStorage.setItem('lightshadow', currentColors.lightshadow());
+  localStorage.setItem('darkshadowdim', currentColors.darkshadowdim);
+  localStorage.setItem('darkshadow', currentColors.darkshadow());
 }
 
+getItems();
+
+function getItems() {
+  currentColors.background = localStorage.getItem('background');
+  currentColors.accent = localStorage.getItem('accent');
+  currentColors.maintext = localStorage.getItem('maintext');
+  currentColors.timertextactive = localStorage.getItem('timertextactive');
+  currentColors.timertextdeactive = localStorage.getItem('timertextdeactive');
+  currentColors.lightshadowdim = localStorage.getItem('lightshadowdim');
+  //currentColors.lightshadow() = 'return' + localStorage.getItem('lightshadow')';
+  currentColors.darkshadowdim = localStorage.getItem('darkshadowdim');
+  //currentColors.darkshadow() = localStorage.getItem('darkshadow');
+
+
+  //currentColors.lightshadow() = localStorage.getItem('lightshadow');
+
+  setAllElementColors();
+}
 
 
 
@@ -149,3 +178,20 @@ function closeColor() {
   document.getElementById('everythingElse').style.filter = 'blur(0px)';
   closeSound();
 }
+
+
+var currentColors = {
+  background: '#ededed',
+  accent: '#ff2b40',
+  maintext: '#575757',
+  timertextactive: '#575757',
+  timertextdeactive: '#bfbfbf',
+  lightshadowdim: '-6px -6px 10px ',
+  lightshadow: function() {
+    return LightenColor(this.background, 5);
+  },
+  darkshadowdim: '6px 6px 10px ',
+  darkshadow: function() {
+    return LightenColor(this.background, -6);
+  }
+};

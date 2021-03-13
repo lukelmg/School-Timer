@@ -9,6 +9,7 @@
   <link rel="stylesheet" type="text/css" href="styles/style.css">
   <link rel="stylesheet" type="text/css" href="styles/cycle.css">
   <link rel="stylesheet" type="text/css" href="styles/other.css">
+  <link rel="stylesheet" type="text/css" href="styles/colorpicker.css">
   <link rel="stylesheet" type="text/css" href="styles/sidebar.css">
   <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
   <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -16,27 +17,27 @@
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300&display=swap" rel="stylesheet">
 </head>
 
-<body onload="changeColors('default')">
+<body>
   <div class="popup" id="colorDiv">
     <div class="x" onclick="closeColor()">&#215;</div>
     <h1 class="popupheader">Color Picker</h1>
     <hr>
-    <h1 class="popuplabel">Preset Themes</h1>
-    <select oninput="changeColors(this.value)">
-      <option value="default">Default</option>
-      <option value="dark">Dark</option>
-      <option value="beach">Beach</option>
-      <option value="stealth">Stealth</option>
-      <option value="eww">Eww</option>
-    </select>
+      <h1 class="popuplabel">Preset Themes</h1>
+      <select oninput="changeColors(this.value)">
+        <option value="default">Default</option>
+        <option value="dark">Dark</option>
+        <option value="beach">Beach</option>
+        <option value="stealth">Stealth</option>
+        <option value="eww">Eww</option>
+      </select>
     <h1 class="popuplabel">Custom Colors</h1>
+    <input type="color" value="#ff2b40" id="colorPicker" oninput="customColors(this.value)">
     <select id="custonElement">
-      <option value="background">Background</option>
       <option value="accent">Accent</option>
+      <option value="background">Background</option>
       <option value="maintext">Text</option>
     </select>
-    <input type="color" id="colorPicker" oninput="customColors(this.value)">
-  </div>
+</div>
   <div class="popup" id="soundDiv">
     <div class="x" onclick="closeSoundPanel()">&#215;</div>
     <h1 class="popupheader">Sound Effects</h1>
@@ -49,15 +50,15 @@
     <h1 class="popupheader">Cycle Days</h1>
     <hr>
     <center>
-      <div class="sidebarSquare cycleDivs">
+      <div class="sidebarSquare cycleDivs shadows">
         <h6>Today</h6>
         <h2 id="cycleDayToday" class="cycleOutputs"/>
       </div>
-      <div class="sidebarSquare cycleDivs">
+      <div class="sidebarSquare cycleDivs shadows">
         <h6>Tomorrow</h6>
         <h2 id="cycleDayTomorrow" class="cycleOutputs"/>
       </div>
-      <div class="sidebarSquare cycleDivs">
+      <div class="sidebarSquare cycleDivs shadows">
         <h6>The Next Day</h6>
         <h2 id="cycleDayNextDay" class="cycleOutputs"/>
       </div>

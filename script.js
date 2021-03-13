@@ -21,6 +21,7 @@ var filteredActive = [];
 
 create();
 
+
 function create() {
   var container = document.getElementById('timers');
   while (container.hasChildNodes()) {

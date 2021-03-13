@@ -141,16 +141,12 @@ td {
   box-sizing: border-box;
   text-align:center;
   border-radius:5%/75%;
-/*  height: var(--newHeight); */
-
   vertical-align:center;
   vertical-align:middle;
-
- /* margin-top:10vh; */
   width: var(--timerWidth);
-
   margin-top:0;
   position: relative;
+  transition: 1s;
 }
 
 @keyframes AnimationName {
@@ -169,7 +165,7 @@ td {
 input {
   font-size: 30px;
   margin-top: 40px;
-  width: 90%;
+  width: 10vh;
 }
 
 .sidebar {
@@ -349,10 +345,6 @@ h4 {
   margin-top:2.5vh;
   padding-top:0;
   font-weight:400;
-}
-
-div {
-  transition: 1s;
 }
 
 button {

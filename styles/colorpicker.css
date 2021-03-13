@@ -1,0 +1,32 @@
+input[type=color] {
+  display: inline-block;
+  width: 8.5vh;
+  height:8.5vh;
+  vertical-align: middle;
+  clear: none;
+  margin:0;
+  border:none;
+  padding:none;
+  background-color:transparent;
+}
+
+input[type=color]:focus {
+  outline:none;
+}
+
+input[type=color]:hover {
+  cursor:pointer;
+}
+
+
+select {
+  display: inline-block;
+  height:8vh;
+  vertical-align: middle;
+  clear: none;
+  margin:0;
+}
+
+select:hover {
+  cursor:pointer;
+}
