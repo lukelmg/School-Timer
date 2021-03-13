@@ -4,15 +4,19 @@
     var minutes = date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
     var seconds = date.getSeconds() < 10 ? "0" + date.getSeconds() : date.getSeconds();
 
-    var ampm
+    var ampm;
+    var suffix;
 
-    if (hours > 12)
- {
-   hours = hours - 12;
- }    time = hours + ":" + minutes;
+    if (hours > 12) {
+      hours = hours - 12;
+      suffix = 'PM';
+    } else {
+      suffix = 'AM';
+    }
+    time = hours + ":" + minutes;
     document.getElementById("topTime").innerHTML = time;
 
-    bottomTime = ':' + seconds + ' AM';
+    bottomTime = ':' + seconds + ' ' + suffix;
     document.getElementById('bottomTime').innerHTML = bottomTime;
 
     setTimeout(actualTime, 10);

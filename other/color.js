@@ -1,130 +1,121 @@
 var customBackground, customTimerTextActive, customTimerTextDeactive, customAccent, customMainTexts,
     customLightShadow, customDarkShadow, customLightShadowDim, customDarkShadowDim;
 
+    var LightenColor = function(color, percent) {
+        var num = parseInt(color.replace("#",""), 16),
+    		amt = Math.round(2.55 * percent),
+    		R = (num >> 16) + amt,
+    		B = (num >> 8 & 0x00FF) + amt,
+    		G = (num & 0x0000FF) + amt;
+
+    		return '#' + (0x1000000 + (R<255?R<1?0:R:255)*0x10000 + (B<255?B<1?0:B:255)*0x100 + (G<255?G<1?0:G:255)).toString(16).slice(1);
+    };
+
+var selectedTheme;
+var currentColors;
+
+var defaultColors = {
+  background: '#ededed',
+  accent: '#ff2b40',
+  maintext: '#575757',
+  timertextactive: '#575757',
+  timertextdeactive: '#bfbfbf',
+  lightshadowdim: '-6px -6px 10px ',
+  lightshadow: function() {
+    return LightenColor(this.background, 5);
+  },
+  darkshadowdim: '6px 6px 10px ',
+  darkshadow: function() {
+    return LightenColor(this.background, -6);
+  }
+};
+
+
+
+
+
+
 function changeColors (theme) {
   switch (theme) {
     case 'default':
-    customBackground = '#ededed';
-
-    customAccent = '#ff2b40';
-
-    customMainTexts = '#575757';
-    customTimerTextActive = '#575757';
-    customTimerTextDeactive = '#bfbfbf';
-
-    customLightShadowDim = '-6px -6px 10px ';
-    customLightShadow = LightenColor(customBackground, 5);
-    customDarkShadowDim = '6px 6px 10px ';
-    customDarkShadow = LightenColor(customBackground, -7);
+    currentColors = defaultTheme;
       break;
     case 'dark':
-    customBackground = '#232324';
-
-    customAccent = '#C52233';
-
-    customMainTexts = '#cfcfcf'
-    customTimerTextActive = '#cfcfcf';
-    customTimerTextDeactive = '#575757';
-
-    customLightShadowDim = '-3px -6px 7px ';
-    customLightShadow = LightenColor(customBackground, 3);
-    customDarkShadowDim = '6px 6px 10px ';
-    customDarkShadow = LightenColor(customBackground, -2);
+    currentColors = darkTheme;
       break;
     case 'beach':
-    customBackground = '#FFF7EB';
-
-    customAccent = '#55DDE0';
-
-    customMainTexts = '#575757'
-    customTimerTextActive = '#575757';
-    customTimerTextDeactive = '#bfbfbf';
-
-    customLightShadowDim = '-6px -6px 10px ';
-    customLightShadow = LightenColor(customBackground, 2);
-    customDarkShadowDim = '6px 6px 10px ';
-    customDarkShadow = LightenColor(customBackground, -5);
+    currentColors = beachTheme;
       break;
     case 'eww':
-    customBackground = '#050064';
-
-    customAccent = '#feff33';
-
-    customMainTexts = '#ff2afc'
-    customTimerTextActive = '#bfbfbf';
-    customTimerTextDeactive = '#575757';
-
-    customLightShadowDim = '-6px -6px 10px ';
-    customLightShadow = LightenColor(customBackground, 6);
-    customDarkShadowDim = '6px 6px 10px ';
-    customDarkShadow = LightenColor(customBackground, -6);
+    currentColors = ewwTheme;
+      break;
+    case 'stealth':
+    currentColors = stealthTheme;
   }
 
-  setBackgrounds();
-  setMainText();
-  setAccent();
-  setShadows();
-  setOtherTexts();
-}
-
-
-function customColors(element) {
-  var currentColor = document.getElementById('colorPicker').value;
-  
+  setAllElementColors();
 }
 
 
 function setBackgrounds() {
-  document.body.style.backgroundColor = customBackground;
+  document.body.style.backgroundColor = currentColors.background;
 
   var popups = document.getElementsByClassName('popup');
   for (var i = 0; i < popups.length; i++) {
-    popups[i].style.backgroundColor = LightenColor(customBackground, 3);
+    popups[i].style.backgroundColor = LightenColor(currentColors.background, 3);
   }
 }
 
 function setMainText() {
   var mainTexts = document.getElementsByTagName('h6');
   for (var i = 0; i < mainTexts.length; i++) {
-    mainTexts[i].style.color = customMainTexts;
+    mainTexts[i].style.color = currentColors.maintext;
   }
 
   var buttons = document.getElementsByTagName('button');
   for (var i = 0; i < buttons.length; i++) {
-    buttons[i].style.color = customMainTexts;
+    buttons[i].style.color = currentColors.maintext;
   }
 
   var h1s = document.getElementsByTagName('h1');
   for (var i = 0; i < h1s.length; i++) {
-    h1s[i].style.color = customMainTexts;
+    h1s[i].style.color = currentColors.maintext;
   }
 
   var radioLabels = document.getElementsByClassName('radioInner');
   for (var i = 0; i < radioLabels.length; i++) {
-    radioLabels[0].style.backgroundColor = customMainTexts;
+    radioLabels[0].style.backgroundColor = currentColors.maintext;
   }
 }
 
 function setAccent() {
   var lines = document.getElementsByTagName('hr');
   for (var i = 0; i < lines.length; i++) {
-    lines[i].style.borderColor = customAccent;
+    lines[i].style.borderColor = currentColors.accent;
   }
-  document.getElementById('progressInner').style.backgroundColor = customAccent;
-  document.getElementById('summerInner').style.backgroundColor = customAccent;
-  localStorage.setItem('customAccent', customAccent);
+  document.getElementById('progressInner').style.backgroundColor = currentColors.accent;
+  document.getElementById('summerInner').style.backgroundColor = currentColors.accent;
+  localStorage.setItem('customAccent', currentColors.accent);
 }
 
 function setShadows() {
   var timers = document.getElementsByClassName('shadows');
   for (var i = 0; i < timers.length; i++) {
-    timers[i].style.boxShadow = customLightShadowDim + customLightShadow + ', ' + customDarkShadowDim + customDarkShadow;
+    timers[i].style.boxShadow = currentColors.lightshadowdim + currentColors.lightshadow() + ', ' + currentColors.darkshadowdim + currentColors.darkshadow();
   }
 }
 
 function setOtherTexts() {
   localStorage.setItem('customTimerTextActive', customTimerTextActive);
   localStorage.setItem('customTimerTextDeactive', customTimerTextDeactive);
+}
+
+function setAllElementColors() {
+  setBackgrounds();
+  setMainText();
+  setAccent();
+  setShadows();
+  setOtherTexts();
 }
 
 
@@ -158,16 +149,3 @@ function closeColor() {
   document.getElementById('everythingElse').style.filter = 'blur(0px)';
   closeSound();
 }
-
-
-
-
-var LightenColor = function(color, percent) {
-    var num = parseInt(color.replace("#",""), 16),
-		amt = Math.round(2.55 * percent),
-		R = (num >> 16) + amt,
-		B = (num >> 8 & 0x00FF) + amt,
-		G = (num & 0x0000FF) + amt;
-
-		return '#' + (0x1000000 + (R<255?R<1?0:R:255)*0x10000 + (B<255?B<1?0:B:255)*0x100 + (G<255?G<1?0:G:255)).toString(16).slice(1);
-};

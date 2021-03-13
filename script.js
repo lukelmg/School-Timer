@@ -128,7 +128,6 @@ function setSchedule() {
     currentScheduleSelected = remSchedual;
   }
   */
-  selectorSound();
   var order = ['A', 'E', 'C', 'D'];
 
   switch (currentScheduleSelected) {

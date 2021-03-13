@@ -8,8 +8,6 @@ fetch("cycle.json", {cache: "reload"})
       document.getElementById("cycleDayToday").innerHTML = data.today;
       document.getElementById("cycleDayTomorrow").innerHTML = data.tomorrow;
       document.getElementById("cycleDayNextDay").innerHTML = data.nextDay;
-
-      console.log(data.today);
     })
   setTimeout(readJsonData, 1000);
 }
