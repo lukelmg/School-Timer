@@ -6,7 +6,7 @@
   z-index: 100;
   display:block;
   height:70vh;
-  width:90vh;
+  width:60vw;
   background-color:white;
   padding:3vh;
   text-align: left;
@@ -84,4 +84,8 @@ select:focus {
   margin: 3vh;
   text-align: center;
   padding: 3vh;
+}
+
+.themes {
+
 }

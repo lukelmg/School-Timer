@@ -23,7 +23,8 @@
     <h1 class="popupheader">Color Picker</h1>
     <hr>
       <h1 class="popuplabel">Preset Themes</h1>
-      <select oninput="changeColors(this.value)">
+      <select id="themeSelector" class="shadows" oninput="changeColors(this.value)">
+        <option value="custom" disabled></option>
         <option value="default">Default</option>
         <option value="dark">Dark</option>
         <option value="beach">Beach</option>
@@ -31,12 +32,18 @@
         <option value="eww">Eww</option>
       </select>
     <h1 class="popuplabel">Custom Colors</h1>
-    <input type="color" value="#ff2b40" id="colorPicker" oninput="customColors(this.value)">
-    <select id="custonElement">
-      <option value="accent">Accent</option>
-      <option value="background">Background</option>
-      <option value="maintext">Text</option>
-    </select>
+    <div class="colorElement shadows">
+      <input type="color" value="#ff2b40" id="accent" oninput="customColors(this.value, this.id)">
+      <p class=>Accent</p>
+    </div>
+    <div class="colorElement shadows">
+      <input type="color" value="#ff2b40" id="background" oninput="customColors(this.value, this.id)">
+      <p>Background</p>
+    </div>
+    <div class="colorElement shadows">
+      <input type="color" value="#ff2b40" id="maintext" oninput="customColors(this.value, this.id)">
+      <p>Text</p>
+    </div>
 </div>
   <div class="popup" id="soundDiv">
     <div class="x" onclick="closeSoundPanel()">&#215;</div>

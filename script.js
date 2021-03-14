@@ -360,7 +360,6 @@ if (count == 50) {
   doMargin = true;
   count = 0;
 }
-    console.log(newMargin);
     setTimeout(setTimerHeights, 100);
 }
 

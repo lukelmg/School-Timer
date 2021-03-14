@@ -13,23 +13,7 @@ var customBackground, customTimerTextActive, customTimerTextDeactive, customAcce
 
 var selectedTheme;
 
-var currentColors = {
-  background: '#ededed',
-  accent: '#ff2b40',
-  maintext: '#575757',
-  timertextactive: '#575757',
-  timertextdeactive: '#bfbfbf',
-  lightshadowdim: '-6px -6px 10px ',
-  lightshadow: function() {
-    return LightenColor(this.background, 5);
-  },
-  darkshadowdim: '6px 6px 10px ',
-  darkshadow: function() {
-    return LightenColor(this.background, -6);
-  }
-};
-
-
+var currentColors = {};
 
 
 
@@ -56,6 +40,7 @@ function changeColors (theme) {
 
 function setBackgrounds() {
   document.body.style.backgroundColor = currentColors.background;
+  document.getElementById('background').value = currentColors.background;
 
   var popups = document.getElementsByClassName('popup');
   for (var i = 0; i < popups.length; i++) {
@@ -64,6 +49,9 @@ function setBackgrounds() {
 }
 
 function setMainText() {
+
+  document.getElementById('maintext').value = currentColors.maintext;
+
   var mainTexts = document.getElementsByTagName('h6');
   for (var i = 0; i < mainTexts.length; i++) {
     mainTexts[i].style.color = currentColors.maintext;
@@ -90,6 +78,12 @@ function setMainText() {
     radioLabels[i].style.borderColor = currentColors.maintext;
   }
 
+  var radioLabels = document.getElementsByTagName('p');
+  for (var i = 0; i < radioLabels.length; i++) {
+    radioLabels[i].style.color = currentColors.maintext;
+    radioLabels[i].style.borderColor = currentColors.maintext;
+  }
+
   var active = document.getElementsByClassName('timerText');
   for (var i = 0; i < active.length; i++) {
     active[i].style.color = currentColors.maintext;
@@ -97,6 +91,9 @@ function setMainText() {
 }
 
 function setAccent() {
+
+  document.getElementById('accent').value = currentColors.accent;
+
   var lines = document.getElementsByTagName('hr');
   for (var i = 0; i < lines.length; i++) {
     lines[i].style.borderColor = currentColors.accent;
@@ -138,12 +135,15 @@ function getItems() {
   currentColors.timertextactive = localStorage.getItem('timertextactive');
   currentColors.timertextdeactive = localStorage.getItem('timertextdeactive');
   currentColors.lightshadowdim = localStorage.getItem('lightshadowdim');
-  //currentColors.lightshadow() = 'return' + localStorage.getItem('lightshadow')';
   currentColors.darkshadowdim = localStorage.getItem('darkshadowdim');
-  //currentColors.darkshadow() = localStorage.getItem('darkshadow');
 
+  currentColors.lightshadow = function () {
+    return localStorage.getItem('lightshadow');;
+  };
 
-  //currentColors.lightshadow() = localStorage.getItem('lightshadow');
+  currentColors.darkshadow = function () {
+    return localStorage.getItem('darkshadow');;
+  };
 
   setAllElementColors();
 }
@@ -178,20 +178,3 @@ function closeColor() {
   document.getElementById('everythingElse').style.filter = 'blur(0px)';
   closeSound();
 }
-
-
-var currentColors = {
-  background: '#ededed',
-  accent: '#ff2b40',
-  maintext: '#575757',
-  timertextactive: '#575757',
-  timertextdeactive: '#bfbfbf',
-  lightshadowdim: '-6px -6px 10px ',
-  lightshadow: function() {
-    return LightenColor(this.background, 5);
-  },
-  darkshadowdim: '6px 6px 10px ',
-  darkshadow: function() {
-    return LightenColor(this.background, -6);
-  }
-};
