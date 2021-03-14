@@ -1,5 +1,6 @@
 function customColors(currentColor, id) {
-  document.getElementById('themeSelector').value = 'custom'
+  document.getElementById('themeSelector').value = 'custom';
+  localStorage.setItem('edited', true);
   currentColors[id] = currentColor;
   setAllElementColors();
 }

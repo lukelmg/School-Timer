@@ -15,7 +15,7 @@ var selectedTheme;
 
 var currentColors = {};
 
-
+getItems();
 
 function changeColors (theme) {
   switch (theme) {
@@ -110,7 +110,6 @@ function setShadows() {
 }
 
 function setAllElementColors() {
-//  alert(currentColors.background);
   setBackgrounds();
   setMainText();
   setAccent();
@@ -126,9 +125,11 @@ function setAllElementColors() {
   localStorage.setItem('darkshadow', currentColors.darkshadow());
 }
 
-getItems();
-
 function getItems() {
+  if(localStorage.getItem('edited') == 'true') {
+    document.getElementById('themeSelector').value = 'custom';
+  }
+
   currentColors.background = localStorage.getItem('background');
   currentColors.accent = localStorage.getItem('accent');
   currentColors.maintext = localStorage.getItem('maintext');
@@ -144,6 +145,10 @@ function getItems() {
   currentColors.darkshadow = function () {
     return localStorage.getItem('darkshadow');;
   };
+
+  if (localStorage.getItem('background') == null) {
+    currentColors = defaultTheme;
+  }
 
   setAllElementColors();
 }
