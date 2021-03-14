@@ -356,7 +356,7 @@ function setTimerHeights()
       currentTimer[i].style.borderRadius = newRadius + 'px';
   }
 }
-if (count == 100) {
+if (count == 50) {
   doMargin = true;
   count = 0;
 }
