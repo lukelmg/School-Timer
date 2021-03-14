@@ -19,6 +19,9 @@ var endTimesD =   ['' + '10:06', '10:36', '11:06', '11:42', '12:18', '12:54', '1
 var activeTimers = [];
 var filteredActive = [];
 
+var prevMargin, newMargin;
+var doMargin = true;
+
 create();
 
 
@@ -115,6 +118,7 @@ function setNew(sched) {
 function setSchedule() {
   var remSchedual = localStorage.getItem('currentScheduleSelected');
   activeTimers = [];
+  doMargin = true;
   /*
   var startTimes = [];
   var endTimes = [];
@@ -251,7 +255,7 @@ var doTitle = [];
         endStatus[i] = false;
         if (startStatus[i] == true && endStatus[i] == false) {
           var currentTimer = document.getElementsByClassName('timer');
-          currentTimer[i].style.border = '0.5vh solid ' + localStorage.getItem('customAccent');
+          currentTimer[i].style.border = '0.5vh solid ' + localStorage.getItem('accent');
           currentTimer[i].style.color = localStorage.getItem('customTimerTextActive');
           currentTimer[i].style.display = 'inline-block';
           if ((hh + ':' + mm + ':' + ss) == '00:00:00') {
@@ -311,34 +315,52 @@ function pad(num) {
   return ('0' + parseInt(num)).substr(-2);
 }
 
-var prev;
+var count = 0;
 
 function setTimerHeights()
 {
+  count++;
+  prevMargin = newMargin;
+
   var timersHeight = document.getElementById('timers').offsetHeight;
   var currentTimer = document.getElementsByClassName('timer');
   var theHeight = window.innerHeight;
 
   filteredActive = activeTimers.filter(function () { return true });
 
-  var newHeight = (theHeight / filteredActive.length) - (theHeight / filteredActive.length * 0.25);
-  var newMargin = (theHeight - timersHeight);
-  var newRadius = (theHeight / filteredActive.length);
+  if (filteredActive.length <= 4) {
+    var newHeight = (theHeight / 4) - (theHeight / 4 * 0.25);
+    var newRadius = (theHeight / 4);
+  } else {
+    var newHeight = (theHeight / filteredActive.length) - (theHeight / filteredActive.length * 0.25);
+    var newRadius = (theHeight / filteredActive.length);
+  }
 
-  //console.log('prev:' + prev + '  filt:' + filteredActive.length);
-
-  //if (prev != filteredActive.length) {
+  if (doMargin == true) {
+    newMargin = (theHeight - timersHeight);
+  } else {
+    newMargin = prevMargin
+  }
 
   for (var i = 0; i < currentTimer.length; i++) {
     if (activeTimers[i] == true) {
+      if (Math.abs(prevMargin-newMargin) <= 1) {
+        currentTimer[i].style.marginTop = newMargin + 'px';
+        doMargin = false;
+      } else {
+        //console.log('nos');
+        currentTimer[i].style.marginTop = newMargin + 'px';
+        doMargin = true;
+      }
       currentTimer[i].style.height = newHeight + 'px';
-      currentTimer[i].style.marginTop = newMargin + 'px';
       currentTimer[i].style.borderRadius = newRadius + 'px';
-    }
   }
-//  }
-
-  prev = filteredActive.length;
+}
+if (count == 100) {
+  doMargin = true;
+  count = 0;
+}
+    console.log(newMargin);
     setTimeout(setTimerHeights, 100);
 }
 

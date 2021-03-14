@@ -9,7 +9,7 @@ fetch("cycle.json", {cache: "reload"})
       document.getElementById("cycleDayTomorrow").innerHTML = data.tomorrow;
       document.getElementById("cycleDayNextDay").innerHTML = data.nextDay;
     })
-  setTimeout(readJsonData, 1000);
+  setTimeout(readJsonData, 60000);
 }
 
 readJsonData();

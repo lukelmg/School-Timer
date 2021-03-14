@@ -1,6 +1,6 @@
 :root {
   --newHeight: 8.3vh;
-  --timerWidth: 62vw;
+  --timerWidth: 55vw;
 }
 
 
@@ -469,7 +469,7 @@ transform: translate(0px, -25px);
 
 
 .timerText {
-  font-size:5vh;
+  font-size:2.5vw;
   text-align: center;
   vertical-align: middle;
 
