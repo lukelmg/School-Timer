@@ -316,15 +316,18 @@ function pad(num) {
 }
 
 var count = 0;
+var prevTimers = 0;
+var prevHeight = 0;
+var prevWidth = 0;
 
 function setTimerHeights()
 {
-  count++;
   prevMargin = newMargin;
 
   var timersHeight = document.getElementById('timers').offsetHeight;
   var currentTimer = document.getElementsByClassName('timer');
   var theHeight = window.innerHeight;
+  var theWidth = window.innerWidth;
 
   filteredActive = activeTimers.filter(function () { return true });
 
@@ -346,21 +349,34 @@ function setTimerHeights()
     if (activeTimers[i] == true) {
       if (Math.abs(prevMargin-newMargin) <= 1) {
         currentTimer[i].style.marginTop = newMargin + 'px';
-        doMargin = false;
+        //doMargin = false;
       } else {
-        //console.log('nos');
         currentTimer[i].style.marginTop = newMargin + 'px';
-        doMargin = true;
+        //doMargin = true;
       }
       currentTimer[i].style.height = newHeight + 'px';
       currentTimer[i].style.borderRadius = newRadius + 'px';
   }
 }
-if (count == 50) {
-  doMargin = true;
+  
+  
+if (prevTimers == filteredActive.length && prevWidth == theWidth && prevHeight == theHeight) {
+  count++;
+  if (count >= 250) {
+    doMargin = false;
+  } else {
+    doMargin = true;
+  }
+} else {
   count = 0;
 }
-    setTimeout(setTimerHeights, 100);
+  
+  //alert(count);
+  
+  prevTimers = filteredActive.length;
+  prevWidth = window.innerWidth;
+  prevHeight = window.innerHeight
+    setTimeout(setTimerHeights, 10);
 }
 
 function round(number) {
