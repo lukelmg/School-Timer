@@ -358,8 +358,8 @@ function setTimerHeights()
       currentTimer[i].style.borderRadius = newRadius + 'px';
   }
 }
-  
-  
+
+
 if (prevTimers == filteredActive.length && prevWidth == theWidth && prevHeight == theHeight) {
   count++;
   if (count >= 250) {
@@ -370,9 +370,9 @@ if (prevTimers == filteredActive.length && prevWidth == theWidth && prevHeight =
 } else {
   count = 0;
 }
-  
+
   //alert(count);
-  
+
   prevTimers = filteredActive.length;
   prevWidth = window.innerWidth;
   prevHeight = window.innerHeight
@@ -405,11 +405,11 @@ function isOdd(num) { return num % 2;}
 function openCyclePanel() {
   document.getElementById('cycleDiv').style.left = '50%';
   document.getElementById('everythingElse').style.filter = 'blur(2px)';
-  higherSound();
+  uisounds('boop');
 }
 
 function closeCyclePanel() {
   document.getElementById('cycleDiv').style.left = '-50%';
   document.getElementById('everythingElse').style.filter = 'blur(0px)';
-  boop();
+  uisounds('boop');
 }

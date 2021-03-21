@@ -50,7 +50,7 @@
     <h1 class="popupheader">Sound Effects</h1>
     <hr>
     <h1 class="popuplabel">User Interface Sounds</h1>
-    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" onclick="switchUISounds()">
   </div>
   <div class="popup" id="cycleDiv">
     <div class="x" onclick="closeCyclePanel()">&#215;</div>
@@ -113,25 +113,25 @@
             <div class="singleRadio">
               <div class="radioTooltip">Normal Schedule</div>
               <h6 class="radioLabels">A</h6>
-              <div class="radioOuter shadows" onclick="setNew('A'); selectorSound();">
+              <div class="radioOuter shadows" onclick="setNew('A'); uisounds('selector');">
                 <div class="radioInner" id="Ain"></div>
               </div>
             </div>
             <div class="singleRadio">
               <h6 class="radioLabels">E</h5>
-              <div class="radioOuter shadows" onclick="setNew('E'); selectorSound();">
+              <div class="radioOuter shadows" onclick="setNew('E'); uisounds('selector');">
                 <div class="radioInner" id="Ein"></div>
               </div>
             </div>
             <div class="singleRadio">
               <h6 class="radioLabels">C</h5>
-              <div class="radioOuter shadows" onclick="setNew('C'); selectorSound();">
+              <div class="radioOuter shadows" onclick="setNew('C'); uisounds('selector');">
                 <div class="radioInner" id="Cin"></div>
               </div>
             </div>
             <div class="singleRadio">
               <h6 class="radioLabels">D</h6 class="radioLabels">
-              <div class="radioOuter shadows" onclick="setNew('D'); selectorSound();">
+              <div class="radioOuter shadows" onclick="setNew('D'); uisounds('selector');">
                 <div class="radioInner" id="Din"></div>
               </div>
             </div>
@@ -152,6 +152,7 @@
       </div>
     </div>
   </div>
+        <div id="sidebarShow" class="shadows"><</div>
     <center><div id="timers"></div></center>
     <h1 id="schoolOver">School Is <br> Over<h1>
   </div>
