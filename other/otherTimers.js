@@ -1,4 +1,10 @@
+
 function actualTime() {
+
+var curHour;
+var curMin;
+
+(function actualTime() {
     var date = new Date();
     var hours = date.getHours() < 10 ? "0" + date.getHours() : date.getHours();
     var minutes = date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
@@ -6,6 +12,9 @@ function actualTime() {
 
     var ampm;
     var suffix;
+
+    curHour = hours;
+    curMin = minutes;
 
     if (hours > 12) {
       hours = hours - 12;

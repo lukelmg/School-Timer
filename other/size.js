@@ -1,4 +1,4 @@
-setSidebar();
+//setSidebar();
 
 function setSidebar() {
   var screenX =  window.innerWidth;
