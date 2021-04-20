@@ -1,4 +1,4 @@
-setSidebar();
+//setSidebar();
 
 var itsOkToOpen = false;
 

@@ -166,7 +166,7 @@ function setSchedule() {
   var start = new Date;
 
   function tick() {
-
+    getItems();
     for (var i = 0; i < numberOfPeriods; i++) {
       start.setHours(startTimes[i].substring(0, 2), startTimes[i].substring(3, 5), 0);
 
@@ -232,7 +232,8 @@ var doTitle = [];
 
       startHeight = 0;
 
-      if (hh >= 11) {
+      if (hh >= 11 || (curMin / 60)+curHour >= 7) {
+        console.log(curMin / 60 + curHour)
         document.getElementById(i + 'end').innerHTML = '------------'
         currentTimer[i].style.color = localStorage.getItem('customTimerTextDeactive');
         currentTimer[i].style.border = '0.5vh solid transparent';
