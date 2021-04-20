@@ -33,6 +33,9 @@ function changeColors (theme) {
       break;
     case 'stealth':
     currentColors = stealthTheme;
+      break;
+    case 'hacker':
+    currentColors = hackerTheme;
   }
   setAllElementColors();
 }

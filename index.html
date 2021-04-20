@@ -30,6 +30,7 @@
         <option value="beach">Beach</option>
         <option value="stealth">Stealth</option>
         <option value="eww">Eww</option>
+        <option value="hacker">Hacker</option>
       </select>
     <h1 class="popuplabel">Custom Colors</h1>
     <div class="colorElement shadows">
@@ -49,9 +50,13 @@
     <div class="x" onclick="closeStuffPanel()">&#215;</div>
     <h1 class="popupheader">More Stuff</h1>
     <hr>
-    <h4>
-      &copy Copyright Luke Gutman, 2021
-    </h4>
+    <div class="requestButton shadows" onclick="bugReport();">Bug Report</div>
+    <div class="requestButton shadows" onclick="requestFeature();">Feature Request</div>
+    <div class="requestButton shadows" onclick="window.open('https://github.com/lukelmg')">Github</div>
+    <div class="requestButton shadows" onclick="window.open('mailto:lukegutman14@gmail.com');">Contact Me</div>
+    <h5>
+      Copyright &copy Luke Gutman, 2021
+    </h5>
   </div>
   <div class="popup" id="moreStats">
     <div class="x" onclick="closeStatsPanel()">&#215;</div>
@@ -180,4 +185,5 @@
 <script src="other/size.js"></script>
 <script src="other/customColors.js"></script>
 <script src="other/readCycle.js"></script>
+<script src="other/stuff.js"></script>
 <script src="script.js"></script>

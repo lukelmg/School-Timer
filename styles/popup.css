@@ -86,6 +86,24 @@ select:focus {
   padding: 3vh;
 }
 
-.themes {
+.requestButton {
+  width: 30%;
+  text-align:center;
+  border-radius:2vh;
+  font-size:4vh;
+  color:#575757;
+  padding-top:2vh;
+  padding-bottom:2vh;
+  margin-bottom:4vh;
+  box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8), 6px 6px 10px rgba(0, 0, 0, 0.2);
+}
 
+.requestButton:hover {
+  cursor:pointer;
+}
+
+h5 {
+  color: #575757;
+  font-weight:thin;
+  font-family:Arial;
 }

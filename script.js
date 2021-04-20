@@ -415,15 +415,3 @@ function closeCyclePanel() {
   document.getElementById('everythingElse').style.filter = 'blur(0px)';
   boop();
 }
-
-function openStuffPanel() {
-  document.getElementById('moreStuff').style.left = '50%';
-  document.getElementById('everythingElse').style.filter = 'blur(2px)';
-  higherSound();
-}
-
-function closeStuffPanel() {
-  document.getElementById('moreStuff').style.left = '-50%';
-  document.getElementById('everythingElse').style.filter = 'blur(0px)';
-  boop();
-}

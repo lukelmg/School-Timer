@@ -77,3 +77,20 @@ var ewwTheme = {
     return LightenColor(this.background, -6);
   }
 };
+
+var hackerTheme = {
+  background: 'black',
+  accent: '#00ff33',
+  maintext: '#00ff33',
+  timertextactive: '#00ff33',
+  timertextdeactive: '#00ff33',
+  lightshadowdim: '-6px -6px 10px ',
+  lightshadow: function() {
+    return LightenColor(this.background, 6);
+  },
+  darkshadowdim: '6px 6px 10px ',
+  darkshadow: function() {
+    return LightenColor(this.background, -6);
+  }
+};
+
