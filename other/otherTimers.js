@@ -1,4 +1,4 @@
-(function actualTime() {
+function actualTime() {
     var date = new Date();
     var hours = date.getHours() < 10 ? "0" + date.getHours() : date.getHours();
     var minutes = date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
@@ -13,10 +13,10 @@
     } else {
       suffix = 'AM';
     }
-    time = hours + ":" + minutes;
+    var time = hours + ":" + minutes;
     document.getElementById("topTime").innerHTML = time;
 
-    bottomTime = ':' + seconds + ' ' + suffix;
+    var bottomTime = ':' + seconds + ' ' + suffix;
     document.getElementById('bottomTime').innerHTML = bottomTime;
 
     setTimeout(actualTime, 10);
@@ -32,7 +32,7 @@
     var testDate = new Date();
     var days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
     document.getElementById('currentDay').innerHTML = days[testDate.getDay()];
-})();
+}
 
 (function foo() {
   var today = new Date();

@@ -46,11 +46,6 @@ function setBackgrounds() {
   for (var i = 0; i < popups.length; i++) {
     popups[i].style.backgroundColor = LightenColor(currentColors.background, 0);
   }
-
-  var shadows = document.getElementsByClassName('shadows');
-  for (var i = 0; i < shadows.length; i++) {
-    shadows[i].style.backgroundColor = LightenColor(currentColors.background, 0);
-  }
 }
 
 function setMainText() {
@@ -180,11 +175,11 @@ function getItems() {
 function openColor() {
   document.getElementById('colorDiv').style.left = '50%';
   document.getElementById('everythingElse').style.filter = 'blur(2px)';
-  uisounds('deep');
+  deepSound();
 }
 
 function closeColor() {
   document.getElementById('colorDiv').style.left = '-50%';
   document.getElementById('everythingElse').style.filter = 'blur(0px)';
-  uisounds('close');
+  closeSound();
 }

@@ -21,21 +21,6 @@ body {
   padding:0;
 }
 
-#sidebarShow {
-  float:right;
-  height:100vh;
-  width: 3vh;
-  background-color:gray;
-  text-align: center;
-  margin-right:10px;
-  color:gray;
-  padding-top: 10vh;
-}
-
-#sidebarShow:hover {
-  cursor:pointer;
-}
-
 #firstContainer {
   color: #575757;
   background-color: #E94A35;

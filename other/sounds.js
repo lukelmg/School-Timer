@@ -1,18 +1,24 @@
-var ui;
-
-function switchUISounds() {
-  if(ui == true) {
-    ui = false;
-  } else {
-    ui = true;
-  }
-}
-
-function uisounds(name) {
-  var audio = new Audio('sounds/' + name + '.mp3');
+function selectorSound() {
+  var audio = new Audio('sounds/selector.mp3');
   audio.play();
 }
 
-function alarmsounds() {
-  
+function deepSound() {
+  var audio = new Audio('sounds/deep.mp3');
+  audio.play();
+}
+
+function closeSound() {
+  var audio = new Audio('sounds/close.mp3');
+  audio.play();
+}
+
+function higherSound() {
+  var audio = new Audio('sounds/higher.mp3');
+  audio.play();
+}
+
+function boop() {
+  var audio = new Audio('sounds/boop.mp3');
+  audio.play();
 }

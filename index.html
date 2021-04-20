@@ -45,12 +45,26 @@
       <p>Text</p>
     </div>
 </div>
+  <div class="popup" id="moreStuff">
+    <div class="x" onclick="closeStuffPanel()">&#215;</div>
+    <h1 class="popupheader">More Stuff</h1>
+    <hr>
+    <h4>
+      &copy Copyright Luke Gutman, 2021
+    </h4>
+  </div>
+  <div class="popup" id="moreStats">
+    <div class="x" onclick="closeStatsPanel()">&#215;</div>
+    <h1 class="popupheader">More Stats</h1>
+    <hr>
+    <div id="statsDiv"></div>
+  </div>
   <div class="popup" id="soundDiv">
     <div class="x" onclick="closeSoundPanel()">&#215;</div>
     <h1 class="popupheader">Sound Effects</h1>
     <hr>
     <h1 class="popuplabel">User Interface Sounds</h1>
-    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" onclick="switchUISounds()">
+    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
   </div>
   <div class="popup" id="cycleDiv">
     <div class="x" onclick="closeCyclePanel()">&#215;</div>
@@ -113,25 +127,25 @@
             <div class="singleRadio">
               <div class="radioTooltip">Normal Schedule</div>
               <h6 class="radioLabels">A</h6>
-              <div class="radioOuter shadows" onclick="setNew('A'); uisounds('selector');">
+              <div class="radioOuter shadows" onclick="setNew('A'); selectorSound();">
                 <div class="radioInner" id="Ain"></div>
               </div>
             </div>
             <div class="singleRadio">
               <h6 class="radioLabels">E</h5>
-              <div class="radioOuter shadows" onclick="setNew('E'); uisounds('selector');">
+              <div class="radioOuter shadows" onclick="setNew('E'); selectorSound();">
                 <div class="radioInner" id="Ein"></div>
               </div>
             </div>
             <div class="singleRadio">
               <h6 class="radioLabels">C</h5>
-              <div class="radioOuter shadows" onclick="setNew('C'); uisounds('selector');">
+              <div class="radioOuter shadows" onclick="setNew('C'); selectorSound();">
                 <div class="radioInner" id="Cin"></div>
               </div>
             </div>
             <div class="singleRadio">
               <h6 class="radioLabels">D</h6 class="radioLabels">
-              <div class="radioOuter shadows" onclick="setNew('D'); uisounds('selector');">
+              <div class="radioOuter shadows" onclick="setNew('D'); selectorSound();">
                 <div class="radioInner" id="Din"></div>
               </div>
             </div>
@@ -146,19 +160,19 @@
         <center>
           <button class="shadows" onclick="openSoundPanel();">Sound Effects</button>
           <button class="rightButtons shadows" onclick="openColor();">Color Picker</button>
-          <button class="shadows">More Stats</button>
-          <button class="rightButtons shadows">More Stuff</button>
+          <button class="shadows" onclick="openStatsPanel();">More Stats</button>
+          <button class="rightButtons shadows" onclick="openStuffPanel();">More Stuff</button>
         </center>
       </div>
     </div>
   </div>
-        <div id="sidebarShow" class="shadows"><</div>
     <center><div id="timers"></div></center>
     <h1 id="schoolOver">School Is <br> Over<h1>
   </div>
 </body>
 </html>
 <script src="other/colorValues.js"></script>
+<script src="other/stats.js"></script>
 <script src="other/soundPopup.js"></script>
 <script src="other/otherTimers.js"></script>
 <script src="other/sounds.js"></script>
