@@ -1,6 +1,3 @@
-
-function actualTime() {
-
 var curHour;
 var curMin;
 
@@ -41,7 +38,7 @@ var curMin;
     var testDate = new Date();
     var days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
     document.getElementById('currentDay').innerHTML = days[testDate.getDay()];
-}
+})();
 
 (function foo() {
   var today = new Date();
