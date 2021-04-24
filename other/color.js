@@ -75,10 +75,10 @@ function setMainText() {
     buttons[i].style.color = currentColors.maintext;
   }
 
-  var h1s = document.getElementsByTagName('h1');
+  /*var h1s = document.getElementsByTagName('h1');
   for (var i = 0; i < h1s.length; i++) {
     h1s[i].style.color = currentColors.maintext;
-  }
+  } */
 
   var radioLabels = document.getElementsByClassName('radioInner');
   for (var i = 0; i < radioLabels.length; i++) {
