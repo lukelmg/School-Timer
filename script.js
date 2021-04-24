@@ -232,8 +232,8 @@ var doTitle = [];
 
       startHeight = 0;
 
-      if (hh >= 11 || (curMin / 60)+curHour >= 7) {
-        console.log(curMin / 60 + curHour)
+      if (hh >= 11) {
+      //  console.log(curMin / 60 + curHour)
         document.getElementById(i + 'end').innerHTML = '------------'
         currentTimer[i].style.color = localStorage.getItem('customTimerTextDeactive');
         currentTimer[i].style.border = '0.5vh solid transparent';
@@ -250,6 +250,7 @@ var doTitle = [];
         schoolDayProgressLabel.innerHTML = 100 + '%';
         endStatus[i] = true;
         doTitle[i] = true;
+        activeTimers[i] = null;
       } else {
         document.getElementById('schoolOver').style.display = 'none';
         activeTimers[i] = true;
@@ -311,7 +312,6 @@ var doTitle = [];
   document.addEventListener('DOMContentLoaded', tick);
   document.addEventListener('DOMContentLoaded', tick2);
   document.addEventListener('DOMContentLoaded', statsHandler);
-  document.addEventListener('DOMContentLoaded', actualTime);
 })();
 
 function pad(num) {
@@ -333,6 +333,12 @@ function setTimerHeights()
   var theWidth = window.innerWidth;
 
   filteredActive = activeTimers.filter(function () { return true });
+
+  filteredActive = filteredActive.filter(function (el) {
+    return el != null;
+  });
+
+  console.log(filteredActive);
 
   if (filteredActive.length <= 4) {
     var newHeight = (theHeight / 4) - (theHeight / 4 * 0.25);
@@ -361,8 +367,9 @@ function setTimerHeights()
       currentTimer[i].style.borderRadius = newRadius + 'px';
   }
 }
-  
-  
+
+//console.log(filteredActive.length);
+
 if (prevTimers == filteredActive.length && prevWidth == theWidth && prevHeight == theHeight) {
   count++;
   if (count >= 250) {
@@ -373,9 +380,9 @@ if (prevTimers == filteredActive.length && prevWidth == theWidth && prevHeight =
 } else {
   count = 0;
 }
-  
+
   //alert(count);
-  
+
   prevTimers = filteredActive.length;
   prevWidth = window.innerWidth;
   prevHeight = window.innerHeight

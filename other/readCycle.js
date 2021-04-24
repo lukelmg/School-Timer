@@ -13,3 +13,16 @@ fetch("cycle.json", {cache: "reload"})
 }
 
 readJsonData();
+
+
+testRead();
+function testRead() {
+  var request = new XMLHttpRequest();
+
+  request.addEventListener("load", function(evt){
+    console.log(evt);
+  }, false);
+
+  request.open('GET', 'http://phs.parklandsd.org', true),
+  request.send();
+}
