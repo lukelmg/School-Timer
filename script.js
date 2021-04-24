@@ -338,8 +338,6 @@ function setTimerHeights()
     return el != null;
   });
 
-  console.log(filteredActive);
-
   if (filteredActive.length <= 4) {
     var newHeight = (theHeight / 4) - (theHeight / 4 * 0.25);
     var newRadius = (theHeight / 4);

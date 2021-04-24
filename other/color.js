@@ -60,6 +60,16 @@ function setMainText() {
     mainTexts[i].style.color = currentColors.maintext;
   }
 
+  var h5s = document.getElementsByTagName('h5');
+  for (var i = 0; i < h5s.length; i++) {
+    h5s[i].style.color = currentColors.maintext;
+  }
+
+  var h4s = document.getElementsByTagName('h4');
+  for (var i = 0; i < h4s.length; i++) {
+    h4s[i].style.color = currentColors.maintext;
+  }
+
   var buttons = document.getElementsByTagName('button');
   for (var i = 0; i < buttons.length; i++) {
     buttons[i].style.color = currentColors.maintext;
@@ -73,6 +83,11 @@ function setMainText() {
   var radioLabels = document.getElementsByClassName('radioInner');
   for (var i = 0; i < radioLabels.length; i++) {
     radioLabels[0].style.backgroundColor = currentColors.maintext;
+  }
+
+  var requestButton = document.getElementsByClassName('requestButton');
+  for (var i = 0; i < requestButton.length; i++) {
+    requestButton[i].style.color = currentColors.maintext;
   }
 
   var radioLabels = document.getElementsByTagName('select');
