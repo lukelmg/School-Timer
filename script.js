@@ -184,7 +184,7 @@ function setSchedule() {
         hh = hh - 24;
       }
 
-      if (hh < 10) {
+      if (hh.toString().length == 1) {
         hh = '0' + hh;
       }
 
@@ -220,7 +220,7 @@ var doTitle = [];
         hh = hh - 24;
       }
 
-      if (hh < 10) {
+      if (hh.toString().length == 1) {
         hh = '0' + hh;
       }
 

@@ -2,6 +2,15 @@ function customColors(currentColor, id) {
   document.getElementById('themeSelector').value = 'custom';
   localStorage.setItem('edited', true);
   currentColors[id] = currentColor;
+
+  currentColors.lightshadow = function () {
+    return LightenColor(currentColors.background, 3);
+  };
+
+  currentColors.darkshadow = function () {
+    return LightenColor(currentColors.background, -1);
+  };
+
   setAllElementColors();
 }
 

@@ -15,10 +15,10 @@ var defaultTheme = {
 };
 
 var darkTheme = {
-  background: '#232324',
-  accent: '#C52233',
-  maintext: '#cfcfcf',
-  timertextactive: '#cfcfcf',
+  background: '#222226',
+  accent: '#d11f3a',
+  maintext: '#d4d4d4',
+  timertextactive: '#d4d4d4',
   timertextdeactive: '#575757',
   lightshadowdim: '-3px -6px 7px ',
   lightshadow: function() {
@@ -79,7 +79,7 @@ var ewwTheme = {
 };
 
 var hackerTheme = {
-  background: 'black',
+  background: '#000000',
   accent: '#00ff33',
   maintext: '#00ff33',
   timertextactive: '#00ff33',
@@ -93,4 +93,3 @@ var hackerTheme = {
     return LightenColor(this.background, -6);
   }
 };
-
