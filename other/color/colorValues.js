@@ -6,11 +6,11 @@ var defaultTheme = {
   timertextdeactive: '#bfbfbf',
   lightshadowdim: '-6px -6px 10px ',
   lightshadow: function() {
-    return LightenColor(this.background, 5);
+    return LightenColor(currentColors.background, 5);
   },
   darkshadowdim: '6px 6px 10px ',
   darkshadow: function() {
-    return LightenColor(this.background, -6);
+    return LightenColor(currentColors.background, -6);
   }
 };
 
@@ -22,11 +22,11 @@ var darkTheme = {
   timertextdeactive: '#575757',
   lightshadowdim: '-3px -6px 7px ',
   lightshadow: function() {
-    return LightenColor(this.background, 3);
+    return LightenColor(currentColors.background, 3);
   },
   darkshadowdim: '6px 6px 10px ',
   darkshadow: function() {
-    return LightenColor(this.background, -2);
+    return LightenColor(currentColors.background, -2);
   }
 };
 
@@ -38,11 +38,11 @@ var beachTheme = {
   timertextdeactive: '#bfbfbf',
   lightshadowdim: '-6px -6px 10px ',
   lightshadow: function() {
-    return LightenColor(this.background, 2);
+    return LightenColor(currentColors.background, 2);
   },
   darkshadowdim: '6px 6px 10px ',
   darkshadow: function() {
-    return LightenColor(this.background, -5);
+    return LightenColor(currentColors.background, -5);
   }
 };
 
@@ -54,11 +54,11 @@ var stealthTheme = {
   timertextdeactive: '#575757',
   lightshadowdim: '-3px -6px 7px ',
   lightshadow: function() {
-    return LightenColor(this.background, 3);
+    return LightenColor(currentColors.background, 3);
   },
   darkshadowdim: '6px 6px 10px ',
   darkshadow: function() {
-    return LightenColor(this.background, -2);
+    return LightenColor(currentColors.background, -2);
   }
 };
 
@@ -70,11 +70,11 @@ var ewwTheme = {
   timertextdeactive: '#575757',
   lightshadowdim: '-6px -6px 10px ',
   lightshadow: function() {
-    return LightenColor(this.background, 6);
+    return LightenColor(currentColors.background, 6);
   },
   darkshadowdim: '6px 6px 10px ',
   darkshadow: function() {
-    return LightenColor(this.background, -6);
+    return LightenColor(currentColors.background, -6);
   }
 };
 
@@ -86,10 +86,10 @@ var hackerTheme = {
   timertextdeactive: '#00ff33',
   lightshadowdim: '-6px -6px 10px ',
   lightshadow: function() {
-    return LightenColor(this.background, 6);
+    return LightenColor(currentColors.background, 6);
   },
   darkshadowdim: '6px 6px 10px ',
   darkshadow: function() {
-    return LightenColor(this.background, -6);
+    return LightenColor(currentColors.background, -6);
   }
 };

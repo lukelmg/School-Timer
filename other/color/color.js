@@ -36,6 +36,7 @@ function changeColors (theme) {
       break;
     case 'hacker':
     currentColors = hackerTheme;
+      break;
   }
   setAllElementColors();
 }
@@ -157,11 +158,11 @@ function getItems() {
   currentColors.darkshadowdim = localStorage.getItem('darkshadowdim');
 
   currentColors.lightshadow = function () {
-    return localStorage.getItem('lightshadow');;
+    var insta = localStorage.getItem('lightshadow');
+    return insta;
   };
-
   currentColors.darkshadow = function () {
-    return localStorage.getItem('darkshadow');;
+    return localStorage.getItem('darkshadow');
   };
 
   if (localStorage.getItem('background') == null) {
@@ -170,25 +171,6 @@ function getItems() {
 
   setAllElementColors();
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 function openColor() {
   document.getElementById('colorDiv').style.left = '50%';
