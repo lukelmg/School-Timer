@@ -1,24 +1,30 @@
-function selectorSound() {
-  var audio = new Audio('sounds/selector.mp3');
-  audio.play();
+var uisoundValue;
+
+if(localStorage.getItem('uisounds') == undefined || localStorage.getItem('uisounds') == null) {
+  console.log('und')
+  uisoundValue = true;
+  document.getElementById("uisounds").checked = true;
+} else {
+  console.log('else')
+  uisoundValue = localStorage.getItem('uisounds');
+  uisoundValue = (uisoundValue == 'true');
+  document.getElementById("uisounds").checked = uisoundValue;
 }
 
-function deepSound() {
-  var audio = new Audio('sounds/deep.mp3');
-  audio.play();
+function uisound() {
+  if (uisoundValue == 'true' || uisoundValue == true) {
+    higherSound();
+  }
 }
 
-function closeSound() {
-  var audio = new Audio('sounds/close.mp3');
-  audio.play();
+function soundHandler() {
+  var check = document.getElementById("uisounds").checked;
+  uisoundValue = check;
+
+  localStorage.setItem('uisounds', uisoundValue);
 }
 
 function higherSound() {
   var audio = new Audio('sounds/higher.mp3');
-  audio.play();
-}
-
-function boop() {
-  var audio = new Audio('sounds/boop.mp3');
   audio.play();
 }

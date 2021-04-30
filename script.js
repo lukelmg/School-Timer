@@ -374,11 +374,11 @@ function isOdd(num) {
 function openCyclePanel() {
   document.getElementById('cycleDiv').style.left = '50%';
   document.getElementById('everythingElse').style.filter = 'blur(2px)';
-  higherSound();
+  uisound();
 }
 
 function closeCyclePanel() {
   document.getElementById('cycleDiv').style.left = '-50%';
   document.getElementById('everythingElse').style.filter = 'blur(0px)';
-  boop();
+  uisound();
 }

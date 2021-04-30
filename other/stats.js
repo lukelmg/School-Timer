@@ -1,13 +1,13 @@
 function openStatsPanel() {
   document.getElementById('moreStats').style.left = '50%';
   document.getElementById('everythingElse').style.filter = 'blur(2px)';
-  higherSound();
+  uisound();
 }
 
 function closeStatsPanel() {
   document.getElementById('moreStats').style.left = '-50%';
   document.getElementById('everythingElse').style.filter = 'blur(0px)';
-  boop();
+  uisound();
 }
 
 var deadlines = [

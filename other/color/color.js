@@ -175,11 +175,11 @@ function getItems() {
 function openColor() {
   document.getElementById('colorDiv').style.left = '50%';
   document.getElementById('everythingElse').style.filter = 'blur(2px)';
-  deepSound();
+  uisound();
 }
 
 function closeColor() {
   document.getElementById('colorDiv').style.left = '-50%';
   document.getElementById('everythingElse').style.filter = 'blur(0px)';
-  closeSound();
+  uisound();
 }

@@ -146,7 +146,7 @@ td {
   width: var(--timerWidth);
   margin-top:0;
   position: relative;
-  transition: 0.45s;
+  transition: 0.75s;
 }
 
 @keyframes AnimationName {

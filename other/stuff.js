@@ -1,13 +1,13 @@
 function openStuffPanel() {
   document.getElementById("moreStuff").style.left = "50%";
   document.getElementById("everythingElse").style.filter = "blur(2px)";
-  higherSound();
+  uisound();
 }
 
 function closeStuffPanel() {
   document.getElementById("moreStuff").style.left = "-50%";
   document.getElementById("everythingElse").style.filter = "blur(0px)";
-  boop();
+  uisound();
 }
 
 function requestFeature() {

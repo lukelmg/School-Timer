@@ -69,7 +69,7 @@
     <div class="x" onclick="closeSoundPanel()">&#215;</div>
     <h1 class="popupheader">Sound Effects</h1>
     <hr>
-    <input type="checkbox" id="uisounds">
+    <input type="checkbox" id="uisounds" onclick="soundHandler()">
     <h1 class="popuplabel">User Interface Sounds</h1>
   </div>
   <div class="popup" id="cycleDiv">
@@ -133,25 +133,25 @@
             <div class="singleRadio">
               <div class="radioTooltip">Normal Schedule</div>
               <h6 class="radioLabels">A</h6>
-              <div class="radioOuter shadows" onclick="setNew('A'); selectorSound();">
+              <div class="radioOuter shadows" onclick="setNew('A'); uisound();">
                 <div class="radioInner" id="Ain"></div>
               </div>
             </div>
             <div class="singleRadio">
               <h6 class="radioLabels">E</h5>
-              <div class="radioOuter shadows" onclick="setNew('E'); selectorSound();">
+              <div class="radioOuter shadows" onclick="setNew('E'); uisound();">
                 <div class="radioInner" id="Ein"></div>
               </div>
             </div>
             <div class="singleRadio">
               <h6 class="radioLabels">C</h5>
-              <div class="radioOuter shadows" onclick="setNew('C'); selectorSound();">
+              <div class="radioOuter shadows" onclick="setNew('C'); uisound();">
                 <div class="radioInner" id="Cin"></div>
               </div>
             </div>
             <div class="singleRadio">
               <h6 class="radioLabels">D</h6 class="radioLabels">
-              <div class="radioOuter shadows" onclick="setNew('D'); selectorSound();">
+              <div class="radioOuter shadows" onclick="setNew('D'); uisound();">
                 <div class="radioInner" id="Din"></div>
               </div>
             </div>
