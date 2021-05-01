@@ -325,12 +325,12 @@ function setTimerHeights() {
   if (filteredActive.length <= 4) {
     var newHeight = (theHeight / 4) - (theHeight / 4 * 0.25);
     var newRadius = (theHeight / 4);
+    var newMargin = (theHeight - (newHeight*filteredActive.length)) / (filteredActive.length+1);
   } else {
     var newHeight = (theHeight / filteredActive.length) - (theHeight / filteredActive.length * 0.25);
     var newRadius = (theHeight / filteredActive.length);
+    var newMargin = newHeight / 3.5;
   }
-
-  var newMargin = newHeight / 3.5;
 
   for (var i = 0; i < currentTimer.length; i++) {
     currentTimer[i].style.height = newHeight + 'px';
@@ -338,11 +338,6 @@ function setTimerHeights() {
     currentTimer[i].style.marginTop = newMargin + 'px';
   }
 
-
-
-  prevTimers = filteredActive.length;
-  prevWidth = window.innerWidth;
-  prevHeight = window.innerHeight
   setTimeout(setTimerHeights, 100);
 }
 
