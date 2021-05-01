@@ -1,0 +1,53 @@
+input[type=color] {
+  display: inline-block;
+  width: 8.5vh;
+  height:8.5vh;
+  vertical-align: middle;
+  clear: none;
+  margin:0;
+  border:none;
+  padding:none;
+  background-color:transparent;
+}
+
+input[type=color]:focus {
+  outline:none;
+}
+
+input[type=color]:hover {
+  cursor:pointer;
+}
+
+
+select {
+  display: inline-block;
+  height:8vh;
+  vertical-align: middle;
+  clear: none;
+  margin:0;
+}
+
+select:hover {
+  cursor:pointer;
+}
+
+
+p {
+  display:inline-block;
+  font-size:5vh;
+  vertical-align: middle;
+
+  color:#575757;
+  font-size:3vh;
+  font-weight:100;
+  padding-bottom:0;
+  margin-left:20px;
+}
+
+.colorElement {
+  display: inline-block;
+  padding: 20px;
+  margin-top:1vh;
+  margin-right:1vh;
+  text-align: center;
+}
