@@ -377,3 +377,36 @@ function closeCyclePanel() {
   document.getElementById('everythingElse').style.filter = 'blur(0px)';
   uisound();
 }
+
+
+    var audio = new Audio(
+      "https://cdn.glitch.com/4e963f54-a031-4bc4-857e-650d43433316%2FMakeup%20And%20Vanity%20Set%20-%20Telescreen.mp3?v=1619978258391"
+    );
+
+    var vid = document.getElementById("theVideo");
+
+if (localStorage.getItem('reveal') != 'true') {
+setTimeout(function() {
+    document.getElementById("theVideo").style.opacity = "1";
+    document.getElementById("theVideo").style.width = "100vw";
+    var vid = document.getElementById("theVideo");
+    vid.play();
+    audio.play();
+    setTimeout(function() {
+      audio.pause();
+    }, 30000);
+  }, 1000);
+
+  setTimeout(function() {
+    document.getElementById("revealText").style.opacity = "1";
+  }, 4000);
+} else {
+  document.getElementById('back').style.display = 'none';
+}
+
+function revealContinue() {
+  document.getElementById('back').style.display = 'none';
+  audio.pause();
+  vid.pause();
+  localStorage.setItem('reveal', 'true');
+}

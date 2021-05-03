@@ -10,6 +10,7 @@
   <link rel="stylesheet" type="text/css" href="styles/cycle.css">
   <link rel="stylesheet" type="text/css" href="styles/other.css">
   <link rel="stylesheet" type="text/css" href="styles/sounds.css">
+  <link rel="stylesheet" type="text/css" href="styles/reveal.css">
   <link rel="stylesheet" type="text/css" href="styles/colorpicker.css">
   <link rel="stylesheet" type="text/css" href="styles/sidebar.css">
   <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
@@ -19,6 +20,17 @@
 </head>
 
 <body>
+  <div id="back">
+    <center>
+      <video id="theVideo" muted="muted" loop autoplay>
+        <source
+          src="https://cdn.glitch.com/4e963f54-a031-4bc4-857e-650d43433316%2Fab0001-0198.mov?v=1619977025967"
+        />
+      </video>
+      <br>
+      <a id="revealText" onclick="revealContinue();">Continue to the New School Timer</a>
+    </center>
+  </div>
   <div class="popup" id="colorDiv">
     <div class="x" onclick="closeColor()">&#215;</div>
     <h1 class="popupheader">Color Picker</h1>
