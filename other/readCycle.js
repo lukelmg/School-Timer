@@ -2,6 +2,9 @@ function readJsonData() {
   fetch("cycle.json", { cache: "reload" })
     .then(response => response.json())
     .then(data => {
+      if (data.today.slice(-1) == 'E') {
+        setNew('E');
+      }
       document.getElementById("cycleDayOutput").innerHTML = data.today;
 
       document.getElementById("cycleDayToday").innerHTML = data.today;

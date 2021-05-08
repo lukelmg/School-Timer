@@ -13,13 +13,11 @@ function closeStatsPanel() {
 var deadlines = [
                  new Date("June 11, 2021 9:20:00").getTime(),
                  new Date("June  1, 2021 14:30:00").getTime(),
-                 new Date("May 3, 2021 7:40:00").getTime()
                 ];
 
 var statNames = [
                  'Last Day of School',
                  'Seniors Last Day',
-                 'AP Tests Start'
                 ];
 
 const container = document.getElementById('statsDiv');
