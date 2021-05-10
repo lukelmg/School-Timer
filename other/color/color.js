@@ -172,7 +172,23 @@ function getItems() {
   setAllElementColors();
 }
 
+var colorCount = 0;
+
+function colorSpam() {
+  
+  if (colorCount >= 25) {
+    currentColors.background = '#'+ (Math.random() * 0xFFFFFF << 0).toString(16).padStart(6, '0');
+    console.log(currentColors.background);
+    setAllElementColors();
+  }
+  
+  setTimeout(colorSpam, 100);
+}
+
+colorSpam();
+
 function openColor() {
+  colorCount++;
   document.getElementById('colorDiv').style.left = '50%';
   document.getElementById('everythingElse').style.filter = 'blur(2px)';
   uisound();

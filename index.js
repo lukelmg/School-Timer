@@ -1,7 +1,6 @@
 const express = require('express');
 const app = express();
 
-
 // Make sure to put this directly after you define your app
 // dont change if you want http -> https
 // if you want https -> http change !req.secure to req.secure and https to http
