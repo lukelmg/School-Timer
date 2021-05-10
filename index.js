@@ -1,4 +1,21 @@
-const express = require('express');
+var http = require('http');
+const axios = require('axios');
+const cheerio = require('cheerio');
+const fs = require('fs');
+
+var finalhandler = require('finalhandler');
+var serveStatic = require('serve-static');
+
+var serve = serveStatic("./");
+
+var server = http.createServer(function(req, res) {
+  var done = finalhandler(req, res);
+  serve(req, res, done);
+});
+
+server.listen(8000);
+
+/*const express = require('express');
 const app = express();
 
 // Make sure to put this directly after you define your app
@@ -16,9 +33,8 @@ var listener = app.listen(process.env.PORT, function () {
   console.log('Demo app listening on ' + listener.address().port);
 });
 
+*/
 
-const axios = require('axios');
-const fs = require('fs');
 var jsonString;
 
 (function emit() {
