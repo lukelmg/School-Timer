@@ -5,14 +5,7 @@
   <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
   <meta content="utf-8" http-equiv="encoding">
   <title>School Timer</title>
-  <link rel="stylesheet" type="text/css" href="styles/popup.css">
   <link rel="stylesheet" type="text/css" href="styles/style.css">
-  <link rel="stylesheet" type="text/css" href="styles/cycle.css">
-  <link rel="stylesheet" type="text/css" href="styles/other.css">
-  <link rel="stylesheet" type="text/css" href="styles/sounds.css">
-  <link rel="stylesheet" type="text/css" href="styles/reveal.css">
-  <link rel="stylesheet" type="text/css" href="styles/colorpicker.css">
-  <link rel="stylesheet" type="text/css" href="styles/sidebar.css">
   <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Yantramanav:wght@100&display=swap" rel="stylesheet">
@@ -38,17 +31,6 @@
 </head>
 
 <body>
-  <div id="back">
-    <center>
-      <video id="theVideo" muted="muted" loop autoplay>
-        <source
-          src="https://cdn.glitch.com/4e963f54-a031-4bc4-857e-650d43433316%2Fab0001-0198.mov?v=1619977025967"
-        />
-      </video>
-      <br>
-      <a id="revealText" onclick="revealContinue();">Continue to the New School Timer</a>
-    </center>
-  </div>
   <div class="popup" id="colorDiv">
     <div class="x" onclick="closeColor()">&#215;</div>
     <h1 class="popupheader">Color Picker</h1>
@@ -190,13 +172,13 @@
           </center>
         </div>
       </div>
-      <div class="sidebarSquare shadows" id="cycle" onclick="openCyclePanel();">
-        <h6 id="cycleLabel"> Cycle Day </h6>
+      <div class="sidebarSquare shadows" id="cycle">
+        <center><h6 id="cycleLabel"> Cycle Day </h6><span id="refresh" onclick="readJsonData();" id="thatRefresh">&#8634;</span></center>
         <h6 id="cycleDayOutput">5</h6>
       </div>
       <div class="sidebarSquare" id="settingsDiv">
         <center>
-          <button class="shadows" onclick="window.open('https://schooltimer.glitch.me/app/', '_blank').focus()">Beta App</button>
+          <button class="shadows" onclick="openSoundPanel()">Sound Effects</button>
           <button class="rightButtons shadows" onclick="openColor();">Color Picker</button>
           <button class="shadows" onclick="openStatsPanel();">More Stats</button>
           <button class="rightButtons shadows" onclick="openStuffPanel();">More Stuff</button>
@@ -211,12 +193,7 @@
 </html>
 <script src="other/color/colorValues.js"></script>
 <script src="other/stats.js"></script>
-<script src="other/soundPopup.js"></script>
-<script src="other/otherTimers.js"></script>
 <script src="other/sounds.js"></script>
 <script src="other/color/color.js"></script>
-<script src="other/size.js"></script>
 <script src="other/color/customColors.js"></script>
-<script src="other/readCycle.js"></script>
-<script src="other/stuff.js"></script>
 <script src="script.js"></script>
