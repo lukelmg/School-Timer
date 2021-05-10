@@ -11,7 +11,7 @@ function readJsonData() {
       document.getElementById("cycleDayTomorrow").innerHTML = data.tomorrow;
       document.getElementById("cycleDayNextDay").innerHTML = data.nextDay;
     });
-  setTimeout(readJsonData, 10*60*1000);
+  setTimeout(readJsonData, 240*60*1000);
 }
 
 readJsonData();

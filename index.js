@@ -42,5 +42,5 @@ var jsonString;
     })
 
 
-  setTimeout(emit, 60000);
+  setTimeout(emit, 120*1000);
 })();
