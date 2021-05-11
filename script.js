@@ -183,7 +183,7 @@ function setSchedule() {
         startStatus[i] = false;
       }
     }
-    setTimeout(tick, 10);
+    setTimeout(tick, 100);
   }
 
   var doTitle = [];
@@ -243,7 +243,7 @@ function setSchedule() {
         activeTimers[i] = true;
         endStatus[i] = false;
         var myFilterArray = activeTimers.filter(Boolean);
-        if (i == (myFilterArray.length - 9)) {
+        if (i == (9 - myFilterArray.length)) {
           document.title = hh + ':' + mm + ':' + ss;
         }
         if (startStatus[i] == true && endStatus[i] == false) {
@@ -289,7 +289,7 @@ function setSchedule() {
       }
     }
 
-    setTimeout(tick2, 10);
+    setTimeout(tick2, 100);
   }
 
   document.addEventListener('DOMContentLoaded', tick);

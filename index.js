@@ -1,4 +1,4 @@
-var http = require('http');
+/*var http = require('http');
 const axios = require('axios');
 const cheerio = require('cheerio');
 const fs = require('fs');
@@ -13,7 +13,7 @@ var server = http.createServer(function(req, res) {
   serve(req, res, done);
 });
 
-server.listen(8000);
+server.listen(8000); */
 
 /*const express = require('express');
 const app = express();
@@ -34,7 +34,7 @@ var listener = app.listen(process.env.PORT, function () {
 });
 
 */
-
+/*
 var jsonString;
 
 (function emit() {
@@ -60,3 +60,4 @@ var jsonString;
 
   setTimeout(emit, 120*1000);
 })();
+*/

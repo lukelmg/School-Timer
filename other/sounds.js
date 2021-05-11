@@ -25,8 +25,8 @@ function soundHandler() {
 }
 
 function higherSound() {
-  var audio = new Audio('sounds/higher.mp3');
-  audio.play();
+ // var audio = new Audio('sounds/higher.mp3');
+ // audio.play();
 }
 
 function openSoundPanel() {
@@ -110,8 +110,15 @@ function readJsonData() {
   if (refreshCount <= 6) {
   document.getElementById("cycleDayOutput").innerHTML = '-';
   
-  fetch("cycle.json", { cache: "reload" })
-    .then(response => response.json())
+ // fetch("cycle.json", { cache: "reload" })
+    
+    var data = {
+      today: '1'
+    };
+    
+    document.getElementById("cycleDayOutput").innerHTML = data.today;
+    
+  /*  .then(response => response.json())
     .then(data => {
       if (data.today.slice(-1) == 'E') {
         setNew('E');
@@ -121,7 +128,7 @@ function readJsonData() {
       document.getElementById("cycleDayToday").innerHTML = data.today;
       document.getElementById("cycleDayTomorrow").innerHTML = data.tomorrow;
       document.getElementById("cycleDayNextDay").innerHTML = data.nextDay;
-    });
+    }); */
   } else {
     alert('you are sending too many requests. stop it. \n \nrefresh your browser if you would like to see an updated cycle day')
   }
