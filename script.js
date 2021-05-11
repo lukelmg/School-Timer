@@ -242,16 +242,15 @@ function setSchedule() {
         document.getElementById('schoolOver').style.display = 'none';
         activeTimers[i] = true;
         endStatus[i] = false;
+        if (i == (activeTimers.length - 9)) {
+          document.title = hh + ':' + mm + ':' + ss;
+        }
         if (startStatus[i] == true && endStatus[i] == false) {
           var currentTimer = document.getElementsByClassName('timer');
           currentTimer[i].style.border = '0.5vh solid ' + localStorage.getItem('accent');
           currentTimer[i].style.color = localStorage.getItem('customTimerTextActive');
           currentTimer[i].style.display = 'inline-block';
-          if ((hh + ':' + mm + ':' + ss) == '00:00:00') {
-            document.title = 'School Timer';
-          } else {
-            document.title = hh + ':' + mm + ':' + ss;
-          }
+
           doTitle[i] = false;
         } else {
           var currentTimer = document.getElementsByClassName('timer');
@@ -260,11 +259,7 @@ function setSchedule() {
           currentTimer[i].style.display = 'inline-block';
           doTitle[i] = true;
         }
-
-        if ((doTitle.every((val, i, arr) => val === arr[0])) == true) {
-          document.title = 'School Timer'
-        }
-
+        
         document.getElementById(i + 'end').innerHTML = hh + ':' + mm + ':' + ss;
 
         var supposed = new Date().setHours(startTimes[0].substring(0, 2), startTimes[0].substring(3, 5), 0);
