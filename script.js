@@ -242,7 +242,8 @@ function setSchedule() {
         document.getElementById('schoolOver').style.display = 'none';
         activeTimers[i] = true;
         endStatus[i] = false;
-        if (i == (activeTimers.length - 9)) {
+        var myFilterArray = activeTimers.filter(Boolean);
+        if (i == (myFilterArray.length - 9)) {
           document.title = hh + ':' + mm + ':' + ss;
         }
         if (startStatus[i] == true && endStatus[i] == false) {
