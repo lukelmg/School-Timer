@@ -55,16 +55,10 @@ function setBackgrounds() {
 function setMainText() {
 
   document.getElementById('maintext').value = currentColors.maintext;
-  //document.getElementById('thatRefresh').style.color = currentColors.maintext;
 
   var mainTexts = document.getElementsByTagName('h6');
   for (var i = 0; i < mainTexts.length; i++) {
     mainTexts[i].style.color = currentColors.maintext;
-  }
-  
-  var spana = document.getElementsByTagName('span');
-  for (var i = 0; i < spana.length; i++) {
-    spana[i].style.color = currentColors.maintext;
   }
 
   var h5s = document.getElementsByTagName('h5');

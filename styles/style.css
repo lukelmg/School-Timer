@@ -341,10 +341,20 @@ h4 {
   color: #575757;
   text-align:center;
   font-size:11vh;
-  margin:0;
-  margin-top:2.5vh;
+  margin-top:2vh;
   padding-top:0;
   font-weight:400;
+}
+
+#lastUpdated {
+  color: #575757;
+  text-align:center;
+  margin-top:1.0vh;
+  padding-top:0;
+  font-weight:400;
+  margin-bottom:0;
+
+  font-size:1.5vh;
 }
 
 button {
@@ -528,7 +538,7 @@ transform: translate(0px, -25px);
     transition: 5s;
     text-decoration: underline;
   }
-  
+
   a:hover{
     cursor:pointer;
   }
