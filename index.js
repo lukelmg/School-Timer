@@ -58,10 +58,17 @@ var jsonString;
     return el != null;
   });
 
+  var TodayDate = new Date();
+  var dddd = TodayDate.getDate()+1;
+
   for (var i = 0; i < elearnFilter.length; i++) {
     if (elearnFilter[i].includes("e-Learning Day") == true) {
-      var number = elearnFilter[i].slice(-1);
-      justElearn[i] = number;
+      for (var e = 0; e < 3; e++) {
+        if (elearnFilter[i].substring(0,2) == (dddd + i)) {
+          var number = elearnFilter[i].slice(-1);
+          justElearn[i] = number;
+        }
+      }
     }
   }
 
@@ -97,7 +104,6 @@ var jsonString;
   // more filtering that figures what is is today
   for (var i = 0; i < 3; i++) {
 
-    var TodayDate = new Date();
     var d = (TodayDate.getDate() + i).toString();
     var m = mL[TodayDate.getMonth()];
 
@@ -119,6 +125,9 @@ var jsonString;
     filteredArray[i] = filtered;
     filtered = [];
   }
+
+  console.log(filteredArray)
+  console.log(justElearn2)
 
   for (var i = 0; i < filteredArray.length; i++) {
     for (var e = 0; e < justElearn2.length; e++) {
