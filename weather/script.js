@@ -1,67 +1,75 @@
-const api = { 
-    key: "", 
-    base: "http://api.openweathermap.org/data/2.5/", 
-    city: "Allentown" 
-} 
+let key = '';
 
-let getWeather = fetch(`${api.base}weather?q=${api.city}&units=imperial&APPID=${api.key}`) ;
-    
-getWeather.then((response) => { 
-    return response.json(); 
-})
-.then((resData) => { 
-    let weatherNum = Math.round(`${resData.main.temp}`); 
-    
-    let desc = (`${resData.weather[0].main}`);
-    switch (desc) {
-        case 'Clouds':
-            document.getElementById("weather-icon").className = "fas fa-cloud";
-            break;
-        case 'Thunderstorm':
-            document.getElementById("weather-icon").className = "fas fa-bolt";
-            break;
-        case 'Drizzle':
-            document.getElementById("weather-icon").className = "fas fa-cloud-rain";
-            break;
-        case 'Rain':
-            document.getElementById("weather-icon").className = "fas fa-cloud-showers-heavy";
-            break;
-        case 'Snow':
-            document.getElementById("weather-icon").className = "far fa-snowflake";
-            break;
-        case 'Clear':
-            document.getElementById("weather-icon").className = "fas fa-sun";
-            break;
-        default:
-            document.getElementById("weather-icon").className = "fas fa-sun";
-    }
+const api = {
+    key: '',
+    base: "https://api.openweathermap.org/data/2.5/",
+    city: "Allentown"
+}
 
-    let weather = (`Temp: ${weatherNum} °F`); 
-    document.getElementById("weather").innerHTML = weather; 
+fetch("https://www.schooltimer.net/weather/api.json", { cache: "reload" })
+  .then(response => response.json())
+  .then(data => {
+    key = data.key.toString();
+    api.key = key;
+    console.log(api.key);
+    let getWeather = fetch(`${api.base}weather?q=${api.city}&units=imperial&APPID=${api.key}`) ;
+    getWeather.then((response) => {
+        return response.json();
+    })
+    .then((resData) => {
+        let weatherNum = Math.round(`${resData.main.temp}`);
 
-    let currentWeather = (`${weatherNum} °F`);
-    document.getElementById("currentTemp").innerHTML = currentWeather;
-    
-    let realfeelNum = Math.round(`${resData.main.feels_like}`);
-    let realfeel = (`${realfeelNum} °F`);
-    document.getElementById("realfeel").innerHTML = realfeel;
-    
-    let windspeedNum = Math.round(`${resData.wind.speed}`);
-    let windspeed = (`${windspeedNum} mph`);
-    document.getElementById("windspeed").innerHTML = windspeed;
+        let desc = (`${resData.weather[0].main}`);
+        switch (desc) {
+            case 'Clouds':
+                document.getElementById("weather-icon").className = "fas fa-cloud";
+                break;
+            case 'Thunderstorm':
+                document.getElementById("weather-icon").className = "fas fa-bolt";
+                break;
+            case 'Drizzle':
+                document.getElementById("weather-icon").className = "fas fa-cloud-rain";
+                break;
+            case 'Rain':
+                document.getElementById("weather-icon").className = "fas fa-cloud-showers-heavy";
+                break;
+            case 'Snow':
+                document.getElementById("weather-icon").className = "far fa-snowflake";
+                break;
+            case 'Clear':
+                document.getElementById("weather-icon").className = "fas fa-sun";
+                break;
+            default:
+                document.getElementById("weather-icon").className = "fas fa-sun";
+        }
 
-    let humidityNum = Math.round(`${resData.main.humidity}`);
-    let humidity = (`${humidityNum}%`);
-    document.getElementById("humidity").innerHTML = humidity;
+        let weather = (`Temp: ${weatherNum} °F`);
+        document.getElementById("weather").innerHTML = weather;
 
-    let condition = (`${resData.weather[0].description}`);
-    document.getElementById("condition").innerHTML = condition;
+        let currentWeather = (`${weatherNum} °F`);
+        document.getElementById("currentTemp").innerHTML = currentWeather;
 
-}) 
-.catch((error) => { 
-    document.getElementById("weather").innerHTML = "Error"; 
-    document.getElementById("weather-icon").className = "fas fa-times";
-    console.log("error"); 
-    console.log(error); 
-})
- 
+        let realfeelNum = Math.round(`${resData.main.feels_like}`);
+        let realfeel = (`${realfeelNum} °F`);
+        document.getElementById("realfeel").innerHTML = realfeel;
+
+        let windspeedNum = Math.round(`${resData.wind.speed}`);
+        let windspeed = (`${windspeedNum} mph`);
+        document.getElementById("windspeed").innerHTML = windspeed;
+
+        let humidityNum = Math.round(`${resData.main.humidity}`);
+        let humidity = (`${humidityNum}%`);
+        document.getElementById("humidity").innerHTML = humidity;
+
+        let condition = (`${resData.weather[0].description}`);
+        document.getElementById("condition").innerHTML = condition;
+
+    })
+    .catch((error) => {
+        document.getElementById("weather").innerHTML = "Error";
+        document.getElementById("weather-icon").className = "fas fa-times";
+        console.log("error");
+        console.log(error);
+    })
+
+});
