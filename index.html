@@ -13,6 +13,7 @@
   <link rel="stylesheet" type="text/css" href="styles/reveal.css">
   <link rel="stylesheet" type="text/css" href="styles/colorpicker.css">
   <link rel="stylesheet" type="text/css" href="styles/sidebar.css">
+  <link rel="stylesheet" type="text/css" href="weather/weatherIcon-color.css">
   <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Yantramanav:wght@100&display=swap" rel="stylesheet">
@@ -60,23 +61,53 @@
 </div>
   <div class="popup" id="moreStuff">
     <div class="x" onclick="closeStuffPanel()">&#215;</div>
+    <h1 class="popupheader">Weather</h1>
+    <hr>
+
+    <div class="section-left">
+      <div class="section shadows">
+        <p class="weatherMainText">Condition: </p><p class="weatherDataText" id="condition"></p><!-- Condition --><br>
+      </div>
+      <div class="section shadows">
+        <p class="weatherMainText">Current Temp: </p><p class="weatherDataText" id="currentTemp"></p><!-- Current Temp --><br>
+      </div>
+      <div class="section shadows">
+        <p class="weatherMainText">Real Feel: </p><p class="weatherDataText" id="realfeel"></p><!-- Real Feel Temp --><br>
+      </div>
+      <div class="section shadows">
+        <p class="weatherMainText">Wind Speed: </p><p class="weatherDataText" id="windspeed"></p> <!-- Wind Speed --><br>
+      </div>
+      <div class="section shadows">
+        <p class="weatherMainText">Humidity: </p> <p class="weatherDataText" id="humidity"></p> <!-- Humidity --><br>
+      </div>
+    </div>
+
+    <div class="section-right">
+      <i style="font-size: 20vw;" id="weather-icon"></i>
+    </div>
+
+    <p>Weather data made possible by Krushil Amrutiya</p>
+    
+  </div>
+
+
+  <div class="popup" id="moreStats">
+    <div class="x" onclick="closeStatsPanel()">&#215;</div>
     <h1 class="popupheader">More Stuff</h1>
     <hr>
+    <div id="statsDiv"></div>
     <div class="requestButton shadows" onclick="openSoundPanel();">Sounds</div>
     <div class="requestButton shadows" onclick="bugReport();">Bug Report</div>
     <div class="requestButton shadows" onclick="requestFeature();">Feature Request</div>
+
     <div class="requestButton shadows" onclick="window.open('https://github.com/lukelmg')">Github</div>
     <div class="requestButton shadows" onclick="alert(' Email: lukegutman14@gmail.com \n Instagram: @lg.gutman \n GitHub: @lukelmg')">Contact Me</div>
+
     <h5 class="copy">
       Copyright &copy Luke Gutman, 2021
     </h5>
   </div>
-  <div class="popup" id="moreStats">
-    <div class="x" onclick="closeStatsPanel()">&#215;</div>
-    <h1 class="popupheader">More Stats</h1>
-    <hr>
-    <div id="statsDiv"></div>
-  </div>
+  
   <div class="popup" id="soundDiv">
     <div class="x" onclick="closeSoundPanel()">&#215;</div>
     <h1 class="popupheader">Sound Effects</h1>
@@ -180,8 +211,8 @@
         <center>
           <button class="shadows" onclick="window.location.href='https://schooltimer.net/app/'">Beta App</button>
           <button class="rightButtons shadows" onclick="openColor();">Color Picker</button>
-          <button class="shadows" onclick="openStatsPanel();">More Stats</button>
-          <button class="rightButtons shadows" onclick="openStuffPanel();">More Stuff</button>
+          <button class="shadows" onclick="openStatsPanel();">More Stuff</button>
+          <button class="rightButtons shadows" id="weather" onclick="openStuffPanel();"></button><i id="weather-icon"></i>
         </center>
       </div>
     </div>
@@ -202,3 +233,5 @@
 <script src="other/readCycle.js"></script>
 <script src="other/stuff.js"></script>
 <script src="script.js"></script>
+<script src="weather/script.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" referrerpolicy="no-referrer" />
