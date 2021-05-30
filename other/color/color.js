@@ -106,7 +106,13 @@ function setMainText() {
   var active = document.getElementsByClassName('timerText');
   for (var i = 0; i < active.length; i++) {
     active[i].style.color = currentColors.maintext;
+  } 
+
+  var weather = document.getElementsByTagName('i');
+  for (var i = 0; i < weather.length; i++) {
+    weather[i].style.color = currentColors.maintext;
   }
+
 }
 
 function setAccent() {
