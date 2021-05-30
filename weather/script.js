@@ -11,24 +11,29 @@ getWeather.then((response) => {
 })
 .then((resData) => { 
     let weatherNum = Math.round(`${resData.main.temp}`); 
-
     
     let desc = (`${resData.weather[0].main}`);
-
-    if (desc == "Clouds") { 
-        document.getElementById("weather-icon").className = "fas fa-cloud";
-    } else if (desc == "Thunderstorm") {
-        document.getElementById("weather-icon").className = "fas fa-bolt"; 
-    } else if (desc == "Drizzle") {
-        document.getElementById("weather-icon").className = "fas fa-cloud-rain";
-    } else if (desc == "Rain") {
-        document.getElementById("weather-icon").className = "fas fa-cloud-showers-heavy";
-    } else if (desc == "Snow") {
-        document.getElementById("weather-icon").className = "far fa-snowflake";
-    } else if (desc == "Clear") {
-        document.getElementById("weather-icon").className = "fas fa-sun";
-    } else {
-        document.getElementById("weather-icon").className = "fas fa-times";
+    switch (desc) {
+        case 'Clouds':
+            document.getElementById("weather-icon").className = "fas fa-cloud";
+            break;
+        case 'Thunderstorm':
+            document.getElementById("weather-icon").className = "fas fa-bolt";
+            break;
+        case 'Drizzle':
+            document.getElementById("weather-icon").className = "fas fa-cloud-rain";
+            break;
+        case 'Rain':
+            document.getElementById("weather-icon").className = "fas fa-cloud-showers-heavy";
+            break;
+        case 'Snow':
+            document.getElementById("weather-icon").className = "far fa-snowflake";
+            break;
+        case 'Clear':
+            document.getElementById("weather-icon").className = "fas fa-sun";
+            break;
+        default:
+            document.getElementById("weather-icon").className = "fas fa-sun";
     }
 
     let weather = (`Temp: ${weatherNum} °F`); 
