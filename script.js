@@ -24,7 +24,6 @@ var doMargin = true;
 
 create();
 
-
 function create() {
   var container = document.getElementById('timers');
   while (container.hasChildNodes()) {
@@ -228,6 +227,7 @@ function setSchedule() {
 
         if (i == 8) {
           document.getElementById('schoolOver').style.display = 'block';
+          document.getElementById('timers').style.display = 'none';
         }
 
         var schoolDayProgress = document.getElementById('progressInner');
@@ -239,7 +239,10 @@ function setSchedule() {
         doTitle[i] = true;
         activeTimers[i] = null;
       } else {
-        document.getElementById('schoolOver').style.display = 'none';
+        if (i==8) {
+          document.getElementById('schoolOver').style.display = 'none';
+          document.getElementById('timers').style.display = 'block';
+        }
         activeTimers[i] = true;
         endStatus[i] = false;
         var myFilterArray = activeTimers.filter(Boolean);
@@ -288,7 +291,6 @@ function setSchedule() {
         schoolDayProgressLabel.innerHTML = percent + '%';
       }
     }
-
     setTimeout(tick2, 100);
   }
 
@@ -373,3 +375,26 @@ function closeCyclePanel() {
   document.getElementById('everythingElse').style.filter = 'blur(0px)';
   uisound();
 }
+
+var y = 0;
+var x = 0;
+
+var offset = 5;
+
+document.addEventListener("keypress", function(event) {
+  console.log(event.keyCode)
+  if (event.keyCode == 119) {
+    y-= offset;
+  }
+  if (event.keyCode == 115) {
+    y+= offset;
+  }
+  if (event.keyCode == 97) {
+    x-= offset;
+  }
+  if (event.keyCode == 100) {
+    x+= offset;
+  }
+  console.log(y);
+  document.body.style.transform = "translateX(" + x + "px) translateY("+ y + "px) scale("+ 1 + ") rotate(" + 0 + "deg)";
+});

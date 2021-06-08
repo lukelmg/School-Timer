@@ -11,7 +11,6 @@ fetch("https://www.schooltimer.net/weather/api.json", { cache: "reload" })
   .then(data => {
     key = data.key.toString();
     api.key = key;
-    console.log(api.key);
     let getWeather = fetch(`${api.base}weather?q=${api.city}&units=imperial&APPID=${api.key}`) ;
     getWeather.then((response) => {
         return response.json();
