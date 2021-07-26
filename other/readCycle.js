@@ -1,5 +1,5 @@
 function readJsonData() {
-  fetch("https://www.schooltimer.net/cycle.json", { cache: "reload" })
+  fetch("https://school-timer-design.vercel.app/cycle.json", { cache: "reload" })
     .then(response => response.json())
     .then(data => {
       if (data.today.slice(-1) == 'E') {
