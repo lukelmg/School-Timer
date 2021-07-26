@@ -151,7 +151,8 @@ var jsonString;
     }
   }
 
-  jsonString = '{"today":"' + filteredArray[0] + '",'
+  //jsonString = '{"today":"' + filteredArray[0] + '",'
+  jsonString = '{"today":"' + "testtestsetsteset" + '",'
   jsonString = jsonString + '"tomorrow":"' + filteredArray[1] + '",'
   jsonString = jsonString + '"nextDay":"' + filteredArray[2] + '"}'
 
