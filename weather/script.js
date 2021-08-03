@@ -1,23 +1,27 @@
 let key = '';
 
-const api = {
-    key: '',
-    base: "https://api.openweathermap.org/data/2.5/",
-    city: "Allentown"
-}
+const api = { 
+    key: '',  
+    base: "http://api.openweathermap.org/data/2.5/", 
+    city: "Allentown" 
+} 
 
-fetch("https://www.schooltimer.net/weather/api.json", { cache: "reload" })
+getWeatherData();
+
+async function getWeatherData() {
+
+fetch("/weather/api.json", { cache: "reload" })
   .then(response => response.json())
   .then(data => {
     key = data.key.toString();
     api.key = key;
     let getWeather = fetch(`${api.base}weather?q=${api.city}&units=imperial&APPID=${api.key}`) ;
-    getWeather.then((response) => {
-        return response.json();
+    getWeather.then((response) => { 
+        return response.json(); 
     })
-    .then((resData) => {
-        let weatherNum = Math.round(`${resData.main.temp}`);
-
+    .then((resData) => { 
+        let weatherNum = Math.round(`${resData.main.temp}`); 
+        console.log('hello')
         let desc = (`${resData.weather[0].main}`);
         switch (desc) {
             case 'Clouds':
@@ -42,8 +46,8 @@ fetch("https://www.schooltimer.net/weather/api.json", { cache: "reload" })
                 document.getElementById("weather-icon").className = "fas fa-sun";
         }
 
-        let weather = (`Temp: ${weatherNum} °F`);
-        document.getElementById("weather").innerHTML = weather;
+        let weather = (`Temp: ${weatherNum} °F`); 
+        document.getElementById("weather").innerHTML = weather; 
 
         let currentWeather = (`${weatherNum} °F`);
         document.getElementById("currentTemp").innerHTML = currentWeather;
@@ -63,12 +67,11 @@ fetch("https://www.schooltimer.net/weather/api.json", { cache: "reload" })
         let condition = (`${resData.weather[0].description}`);
         document.getElementById("condition").innerHTML = condition;
 
-    })
-    .catch((error) => {
-        document.getElementById("weather").innerHTML = "Error";
+    }).catch((error) => { 
+        document.getElementById("weather").innerHTML = "Error"; 
         document.getElementById("weather-icon").className = "fas fa-times";
-        console.log("error");
-        console.log(error);
-    })
+        console.log("error"); 
+        console.log(error); 
 
-});
+    })})};
+setInterval(getWeatherData, 900000); //refreshes the weather every 15 mins

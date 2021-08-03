@@ -5,6 +5,7 @@ function readJsonData() {
       if (data.today.slice(-1) == 'E') {
         setNew('E');
       }
+      console.log(data);
       document.getElementById("cycleDayOutput").innerHTML = data.today;
 
       document.getElementById("cycleDayToday").innerHTML = data.today;

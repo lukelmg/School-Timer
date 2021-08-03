@@ -57,7 +57,7 @@ function statsHandler() {
 
     document.getElementById('stat' + i).innerHTML = days + ' Days ' + hours + ' Hours ' + minutes + ' Minutes ' + seconds + ' Seconds';
     if (t < 0) {
-      document.getElementById('stat' + i) = 'Expired';
+      document.getElementById('stat' + i).innerHTML = 'Expired';
     }
 
   }
