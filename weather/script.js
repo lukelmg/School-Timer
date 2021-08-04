@@ -1,6 +1,6 @@
 const api = {
-    key: '',
-    base: "http://api.openweathermap.org/data/2.5/",
+    key: 'e46805f1e905b75fd69249b93b47a134',
+    base: "https://api.openweathermap.org/data/2.5/",
     city: "Allentown"
 }
 
