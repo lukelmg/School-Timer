@@ -19,7 +19,7 @@ var numberOfPeriods = 9;
 var scheduleArray = ['startTimesA', 'startTimesB', 'startTimesC', 'startTimesD']
 
 var startTimesA = ['' + '07:40', '08:32', '09:19', '10:06', '10:53', '11:40', '12:27', '13:14', '13:01'];
-var endTimesA = ['' + '08:28', '09:15', '09:02', '10:49', '11:36', '12:23', '12:10', '13:57', '14:44'];
+var endTimesA = ['' + '08:28', '09:15', '10:02', '10:49', '11:36', '12:23', '13:10', '13:57', '14:44'];
 
 var startTimesE = ['' + '07:54', '08:40', '09:26', '10:12', '10:58', '11:44', '12:30', '13:16', '14:02'];
 var endTimesE = ['' + '08:36', '09:22', '10:08', '10:54', '11:40', '12:26', '13:12', '13:58', '14:44'];
@@ -64,7 +64,7 @@ function create() {
       box.className = 'timer  shadows';
 
       if (i == 1) {
-        box.id = 'secondContainer'
+        box.id = 'secondContainer';
       }
 
       var header = document.createElement('h2');
@@ -227,13 +227,14 @@ function setSchedule() {
 
       var currentTimer = document.getElementsByClassName('timer');
 
-      var theHeight = window.innerHeight;
-
       var startHeight = 0;
 
       startHeight = 0;
 
       if (hh >= 11) {
+        if (i == 2) {
+          console.log(hh);
+        }
         //  console.log(curMin / 60 + curHour)
         document.getElementById(i + 'end').innerHTML = '------------'
         currentTimer[i].style.color = localStorage.getItem('customTimerTextDeactive');
