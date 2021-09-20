@@ -79,38 +79,42 @@
       <i style="font-size: 20vw;" id="weather-icon"></i>
     </div>
 
-    <p>Weather data made possible by Krushil Amrutiya</p>
+<!--     <p>Weather data made possible by Krushil Amrutiya</p> -->
 
   </div>
 
    <div class="popup" id="messagePanel">
      <div class="x" onclick="closeMessagePanel()">&#215;</div>
-     <h1 class="popupheader">Announcement</h1>
-    <hr>
-    <p>
-      Hey everyone, sorry for all of the problems with School Timer recently. I
-      just moved into college and I thought I had fixed all the issues before
-      I left but I wasn't able to test it on the parkland's WiFi. School WiFi is funny like that sometimes with all the blocking features. <br> <br> Anyway, I will try to have School Timer back and running at <u>schooltimer.net</u> hopefully within the next month with the cycle day tracking feature. For the time being, you will find it here. <br> <br>If you have
-      any more problems please email me at luke@schooltimer.net <br> <br>
-      -Luke Gutman
-      </p>
-    </div>
+     <h1 class="popupheader">New recent fixes!</h1>
+     <hr>
+     <p><b>09/15/2021 - </b> Period 3 and 7 countdowns are patched!</p><br>
+     <p><b>09/13/2021 - </b> Fixed the day cycle!</p>
+  </div> 
+
+
+
+
+
 
   <div class="popup" id="moreStats">
     <div class="x" onclick="closeStatsPanel()">&#215;</div>
     <h1 class="popupheader">More Stuff</h1>
     <hr>
     <div id="statsDiv"></div>
-    <div class="requestButton shadows" onclick="openSoundPanel();">Sounds</div>
-    <div class="requestButton shadows" onclick="bugReport();">Bug Report</div>
-    <div class="requestButton shadows" onclick="requestFeature();">Feature Request</div>
-
-    <div class="requestButton shadows" onclick="window.open('https://github.com/lukelmg')">Github</div>
-    <div class="requestButton shadows" onclick="alert(' Email: lukegutman14@gmail.com \n Instagram: @lg.gutman \n GitHub: @lukelmg')">Contact Me</div>
-
-    <h5 class="copy">
-      Copyright &copy Luke Gutman, 2021
-    </h5>
+    <br>
+    <div style="display: flex;">
+      <div class="requestButton shadows" onclick="openSoundPanel();">Sounds</div>
+      <div class="requestButton shadows" onclick="bugReport();">Bug Report</div>
+      <div class="requestButton shadows" onclick="requestFeature();">Feature Request</div>
+    </div>
+    <div style="display: flex;">
+      <div class="requestButton shadows" onclick="window.open('https://github.com/lukelmg')">Github</div>
+      <div class="requestButton shadows" onclick="alert(' Email: lukegutman14@gmail.com \n Instagram: @lg.gutman \n GitHub: @lukelmg')">Contact Luke</div>
+      <div class="requestButton shadows" onclick="alert(' Email: krushilamrutiya.com \n Instagram: @krushil.amrutiya \n Github: @krushil1 \n Twitter: @KrushilA__')">Contact Krushil</div>
+    </div>
+    
+    <h5 class="copy">Copyright &copy Luke Gutman, 2021</h5>
+    <h5>Some features added by Krushil in collab with Luke</h5>
   </div>
 
   <div class="popup" id="soundDiv">
@@ -164,10 +168,10 @@
           <h6 id="bottomTime">00:00:00 PM</h6>
         </center>
       </div>
+
       <div class="sidebarSquare shadows">
         <center>
-        <!--  <h6> Current Date </h6> -->
-          <div id="currentDateAndDay">
+          <div id="currentDateAndDay" >
             <h6 id="currentDay">Sunday</h6>
             <h6 id="currentDate">00/00/0000</h6>
           </div>
@@ -207,14 +211,17 @@
           </center>
         </div>
       </div>
-      <div class="sidebarSquare shadows" id="cycle" onclick="openCyclePanel();">
+      <div class="sidebarSquare shadows pointer" id="cycle" onclick="openCyclePanel();">
       <center>  <h6 id="cycleLabel"> Cycle Day </h6> </center>
       <center>  <h6 id="lastUpdated"></h6> </center>
         <h6 id="cycleDayOutput">-</h6>
-      </div>
+      </div> 
+      
+      
+      
       <div class="sidebarSquare" id="settingsDiv">
         <center>
-          <button class="shadows" onclick="openMessagePanel();">Read This </button>
+          <button class="shadows" onclick="openMessagePanel();">New fixes </button>
           <button class="rightButtons shadows" onclick="openColor();">Color Picker</button>
           <button class="shadows" onclick="openStatsPanel();">More Stuff</button>
           <button class="rightButtons shadows" id="weather" onclick="openStuffPanel();"></button><i id="weather-icon"></i>
