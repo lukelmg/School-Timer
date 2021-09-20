@@ -1,10 +1,8 @@
 function readJsonData() {
-  fetch("https://school-timer-design.vercel.app/cycle.json", { cache: "reload" })
+  fetch("https://613aad1a110e000017a45364.mockapi.io/dayCycle", { cache: "reload" })
     .then(response => response.json())
     .then(data => {
-      if (data.today.slice(-1) == 'E') {
-        setNew('E');
-      }
+      
       console.log(data);
       document.getElementById("cycleDayOutput").innerHTML = data.today;
 
@@ -14,7 +12,7 @@ function readJsonData() {
 
     //  document.getElementById('lastUpdated').innerHTML = 'Last Updated: ' + curHour + ':' + curMin;
     });
-  setTimeout(readJsonData, 60*1000);
+  setTimeout(readJsonData, 60*12*60*1000);
 }
 
 readJsonData();
