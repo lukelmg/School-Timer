@@ -11,6 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Yantramanav:wght@100&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300&display=swap" rel="stylesheet">
+  <audio id="septemba" src="sounds/september"></audio>
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-140137723-1"></script>
   <script>
@@ -83,6 +84,14 @@
 
   </div>
 
+   <div class="popup" id="messagePanel">
+     <div class="x" onclick="closeMessagePanel()">&#215;</div>
+     <h1 class="popupheader">Announcement</h1>
+    <hr>
+    <p>
+     Ok, thanks to Krushil, I think I fixed a few things on the site and it should be working a lot better. <br> <br> If you have any issues or see any bugs please email me at: <br><br> <u>luke@schooltimer.net</u>
+    </p>
+    </div>
 
   <div class="popup" id="moreStats">
     <div class="x" onclick="closeStatsPanel()">&#215;</div>
@@ -175,7 +184,7 @@
               </div>
             </div>
             <div class="singleRadio">
-              <h6 class="radioLabels">E</h5>
+              <h6 class="radioLabels">B</h5>
               <div class="radioOuter shadows" onclick="setNew('E'); uisound();">
                 <div class="radioInner" id="Ein"></div>
               </div>
@@ -202,7 +211,7 @@
       </div>
       <div class="sidebarSquare" id="settingsDiv">
         <center>
-          <button class="shadows" onclick="window.location.href='https://schooltimer.net/app/'">Beta App</button>
+          <button class="shadows" onclick="openMessagePanel();">Read This </button>
           <button class="rightButtons shadows" onclick="openColor();">Color Picker</button>
           <button class="shadows" onclick="openStatsPanel();">More Stuff</button>
           <button class="rightButtons shadows" id="weather" onclick="openStuffPanel();"></button><i id="weather-icon"></i>

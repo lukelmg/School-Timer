@@ -1,19 +1,35 @@
+openMessagePanel();
+
+function openMessagePanel() {
+  document.getElementById('messagePanel').style.left = '50%';
+  document.getElementById('everythingElse').style.filter = 'blur(2px)';
+  uisound();
+}
+
+function closeMessagePanel() {
+  document.getElementById('messagePanel').style.left = '-50%';
+  document.getElementById('everythingElse').style.filter = 'blur(0px)';
+  $('#septemba').html('<audio autoplay><source src="sounds/september.mp3"></audio>');
+  uisound();
+}
+
+
 var currentScheduleSelected = 'A';
 var numberOfPeriods = 9;
 
 var scheduleArray = ['startTimesA', 'startTimesB', 'startTimesC', 'startTimesD']
 
-var startTimesA = ['' + '07:40', '08:30', '09:15', '10:00', '10:45', '11:30', '12:15', '13:00', '13:50'];
-var endTimesA = ['' + '08:24', '09:09', '09:54', '10:39', '11:24', '12:09', '12:54', '13:44', '14:30'];
+var startTimesA = ['' + '07:40', '08:32', '09:19', '10:06', '10:53', '11:40', '12:27', '13:14', '13:01'];
+var endTimesA = ['' + '08:28', '09:15', '10:02', '10:49', '11:36', '12:23', '13:10', '13:57', '14:44'];
 
-var startTimesE = ['' + '09:17', '09:52', '10:30', '11:08', '11:46', '12:24', '13:02', '13:40', '14:17'];
-var endTimesE = ['' + '09:47', '10:25', '11:03', '11:41', '12:19', '12:57', '13:35', '14:12', '14:30'];
+var startTimesE = ['' + '07:54', '08:40', '09:26', '10:12', '10:58', '11:44', '12:30', '13:16', '14:02'];
+var endTimesE = ['' + '08:36', '09:22', '10:08', '10:54', '11:40', '12:26', '13:12', '13:58', '14:44'];
 
-var startTimesC = ['' + '07:40', '08:18', '08:54', '09:30', '10:06', '10:42', '11:18', '11:54', '12:30'];
-var endTimesC = ['' + '08:12', '08:48', '09:24', '10:00', '10:36', '11:12', '11:48', '12:24', '13:00'];
+var startTimesC = ['' + '07:40', '08:26', '09:08', '09:50', '10:24', '10:58', '11:32', '12:06', '12:35'];
+var endTimesC = ['' + '08:22', '09:04', '09:46', '10:20', '10:54', '11:28', '12:02', '12:31', '13:00'];
 
-var startTimesD = ['' + '09:40', '10:12', '10:42', '11:12', '11:48', '12:24', '13:00', '13:36', '14:06'];
-var endTimesD = ['' + '10:06', '10:36', '11:06', '11:42', '12:18', '12:54', '13:30', '14:00', '14:30'];
+var startTimesD = ['' + '09:40', '10:12', '10:41', '11:10', '11:43', '12:16', '12:46', '13:22', '14:05'];
+var endTimesD = ['' + '10:08', '10:37', '11:06', '11:39', '12:12', '12:45', '13:18', '14:01', '14:44'];
 
 
 var activeTimers = [];
@@ -49,7 +65,7 @@ function create() {
       box.className = 'timer  shadows';
 
       if (i == 1) {
-        box.id = 'secondContainer'
+        box.id = 'secondContainer';
       }
 
       var header = document.createElement('h2');
@@ -212,13 +228,14 @@ function setSchedule() {
 
       var currentTimer = document.getElementsByClassName('timer');
 
-      var theHeight = window.innerHeight;
-
       var startHeight = 0;
 
       startHeight = 0;
 
       if (hh >= 11) {
+        if (i == 2) {
+          console.log(hh);
+        }
         //  console.log(curMin / 60 + curHour)
         document.getElementById(i + 'end').innerHTML = '------------'
         currentTimer[i].style.color = localStorage.getItem('customTimerTextDeactive');
