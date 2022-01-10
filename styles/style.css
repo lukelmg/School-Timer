@@ -762,6 +762,25 @@ p {
 }
 
 
+
+#snow { /* SNOW EFFECT CSS   */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 1000;
+} 
+
+.pointer {
+  cursor: pointer;
+}
+
+.highlightColor:hover {
+  color: #71CB78;
+}
+
 /* scrollbar bg */
 ::-webkit-scrollbar-track { 
   background: transparent;
@@ -777,3 +796,4 @@ p {
 ::-webkit-scrollbar-thumb:hover {
   background: #bbbbbb; 
 }
+
