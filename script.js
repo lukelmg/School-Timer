@@ -1,4 +1,67 @@
-//openMessagePanel();
+document.addEventListener('DOMContentLoaded', function(){ //Snow effect JS
+  var script = document.createElement('script');
+  script.src = 'https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js';
+  script.onload = function(){
+      particlesJS("snow", {
+          "particles": {
+              "number": {
+                  "value": 60,
+                  "density": {
+                      "enable": true,
+                      "value_area": 900
+                  }
+              },
+              "color": {
+                  "value": "#ffffff"
+              },
+              "opacity": {
+                  "value": 0.7, 
+                  "random": false,
+                  "anim": {
+                      "enable": false
+                  }
+              },
+              "size": {
+                  "value": 5,
+                  "random": true,
+                  "anim": {
+                      "enable": false
+                  }
+              },
+              "line_linked": {
+                  "enable": false
+              },
+              "move": {
+                  "enable": true,
+                  "speed": 5,
+                  "direction": "bottom",
+                  "random": true,
+                  "straight": false,
+                  "out_mode": "out",
+                  "bounce": false,
+                  "attract": {
+                      "enable": true,
+                      "rotateX": 300,
+                      "rotateY": 1200
+                  }
+              }
+          },
+          "interactivity": {
+              "events": {
+                  "onhover": {
+                      "enable": false
+                  },
+                  "onclick": {
+                      "enable": false
+                  },
+                  "resize": false
+              }
+          },
+          "retina_detect": true
+      });
+  }
+  document.head.append(script);
+});
 
 function openMessagePanel() {
   document.getElementById('messagePanel').style.left = '50%';
@@ -9,17 +72,44 @@ function openMessagePanel() {
 function closeMessagePanel() {
   document.getElementById('messagePanel').style.left = '-50%';
   document.getElementById('everythingElse').style.filter = 'blur(0px)';
+  //$('#septemba').html('<audio autoplay><source src="sounds/september.mp3"></audio>');
   uisound();
 }
 
+// takes care of the quick update panel
+function openUpdatePanel() {
+  const check = localStorage.getItem('ReadMessage');
+  if (check == 'Yes') {
+    document.getElementById('UpdatePanel').style.left = '-50%';
+    document.getElementById('everythingElse').style.filter = 'blur(0px)';
+  } else {
+    document.getElementById('UpdatePanel').style.left = '50%';
+    document.getElementById('everythingElse').style.filter = 'blur(2px)';
+  // uisound();
+  }
+}
+
+function closeUpdatePannel() {
+  document.getElementById('UpdatePanel').style.left = '-50%';
+  document.getElementById('everythingElse').style.filter = 'blur(0px)';
+  //$('#septemba').html('<audio autoplay><source src="sounds/september.mp3"></audio>');
+  uisound();
+  localStorage.removeItem('ReadMessage');
+  localStorage.setItem('ReadMessage', 'Yes');
+}
 
 var currentScheduleSelected = 'A';
 var numberOfPeriods = 9;
 
 var scheduleArray = ['startTimesA', 'startTimesB', 'startTimesC', 'startTimesD']
 
-var startTimesA = ['' + '07:40', '08:32', '09:19', '10:06', '10:53', '11:40', '12:27', '13:14', '13:01'];
+var startTimesA = ['' + '07:40', '08:32', '09:19', '10:06', '10:53', '11:40', '12:27', '13:14', '14:01'];
 var endTimesA = ['' + '08:28', '09:15', '10:02', '10:49', '11:36', '12:23', '13:10', '13:57', '14:44'];
+
+/*
+var startTimesA = ['' + '07:40', '08:32', '09:19', '10:06', '10:49', '11:32', '12:15', '13:58', '14:02'];
+var endTimesA = ['' + '08:28', '09:15', '10:02', '10:45', '11:28', '12:11', '12:54', '13:58', '14:44'];
+*/
 
 var startTimesE = ['' + '07:54', '08:40', '09:26', '10:12', '10:58', '11:44', '12:30', '13:16', '14:02'];
 var endTimesE = ['' + '08:36', '09:22', '10:08', '10:54', '11:40', '12:26', '13:12', '13:58', '14:44'];
@@ -414,3 +504,8 @@ document.addEventListener("keypress", function(event) {
   console.log(y);
   document.body.style.transform = "translateX(" + x + "px) translateY("+ y + "px) scale("+ 1 + ") rotate(" + 0 + "deg)";
 });
+
+var playChristmasMusic = document.getElementById("playChristmasMusic"); //easter egg - plays christmas music
+function togglePlay() {
+  playChristmasMusic.play();
+};

@@ -11,6 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Yantramanav:wght@100&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300&display=swap" rel="stylesheet">
+  <audio id="septemba" src="sounds/september"></audio>
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-140137723-1"></script>
   <script>
@@ -23,7 +24,8 @@
 
 </head>
 
-<body>
+<body onload="openUpdatePanel()">
+  <div id="snow"></div>
   <div class="popup" id="colorDiv">
     <div class="x" onclick="closeColor()">&#215;</div>
     <h1 class="popupheader">Color Picker</h1>
@@ -85,15 +87,28 @@
 
    <div class="popup" id="messagePanel">
      <div class="x" onclick="closeMessagePanel()">&#215;</div>
-     <h1 class="popupheader">New recent fixes!</h1>
-     <hr>
-     <p><b>09/15/2021 - </b> Period 3 and 7 countdowns are patched!</p><br>
-     <p><b>09/13/2021 - </b> Fixed the day cycle!</p>
-  </div> 
 
-
-
-
+     <h1 class="popupheader">Recent Updates & Fixes</h1>
+    <hr>
+    <p><b>Day Cycle:</b> Updates everyday synchronously with the high school calendar.</p><br>
+    <!--<p><b>Snow Effect:</b> Snowing effect for winter :)</p><br>
+    <p><b>Day Cycle Letter:</b> Day cycle now displays the letter of the schedule next to the number! Ex: 2A or 3C</p>-->
+     <p><b onclick="togglePlay();" class="pointer highlightColor">Easter Eggs: </b> Discover the newly added easter egg! Keep the volume turned on to hear the easter egg!</p><br>
+    <p><b>Winter break is over ;)</b></p>
+    </div>
+    
+    <div class="popup" id="UpdatePanel">
+      <div class="x" onclick="closeUpdatePannel()">&#215;</div>
+      <h1 class="popupheader">Quick Update</h1>
+       <hr>
+       <p>The day cycle service
+      has been restored and will continue
+      to update automatically</p><br>
+      <p>Thanks for your patience,</p><br>
+      <p style="margin-top: -20px;">Krushil</p>
+      
+    </div>
+  
 
 
   <div class="popup" id="moreStats">
@@ -221,7 +236,8 @@
       
       <div class="sidebarSquare" id="settingsDiv">
         <center>
-          <button class="shadows" onclick="openMessagePanel();">New fixes </button>
+
+          <button class="shadows" onclick="openMessagePanel();">New Fixes </button>
           <button class="rightButtons shadows" onclick="openColor();">Color Picker</button>
           <button class="shadows" onclick="openStatsPanel();">More Stuff</button>
           <button class="rightButtons shadows" id="weather" onclick="openStuffPanel();"></button><i id="weather-icon"></i>
@@ -232,6 +248,7 @@
     <center><div id="timers"></div></center>
     <h1 id="schoolOver">School Is <br> Over</h1>
   </div>
+  <audio id="playChristmasMusic" src="https://cdn.glitch.me/36297f95-5deb-4791-aa18-9fa53485f7c0/christmas.mp3?v=1639586701903" preload="auto"></audio>
 </body>
 </html>
 <script src="other/color/colorValues.js"></script>
