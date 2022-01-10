@@ -577,6 +577,7 @@ transform: translate(0px, -25px);
   border-radius:20px;
   box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
   transition: left 550ms ease;
+  overflow: auto; /* add scrollbar when content goes outside of popup (smaller displays) */
 }
 
 .popupheader {
@@ -761,6 +762,7 @@ p {
 }
 
 
+
 #snow { /* SNOW EFFECT CSS   */
   position: fixed;
   top: 0;
@@ -778,3 +780,20 @@ p {
 .highlightColor:hover {
   color: #71CB78;
 }
+
+/* scrollbar bg */
+::-webkit-scrollbar-track { 
+  background: transparent;
+}
+/* scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: #d4d4d4;
+  border-radius: 20px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #bbbbbb; 
+}
+
