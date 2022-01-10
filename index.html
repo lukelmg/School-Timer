@@ -81,12 +81,13 @@
       <i style="font-size: 20vw;" id="weather-icon"></i>
     </div>
 
-    <p>Weather data made possible by Krushil Amrutiya</p>
+<!--     <p>Weather data made possible by Krushil Amrutiya</p> -->
 
   </div>
 
    <div class="popup" id="messagePanel">
      <div class="x" onclick="closeMessagePanel()">&#215;</div>
+
      <h1 class="popupheader">Recent Updates & Fixes</h1>
     <hr>
     <p><b>Day Cycle:</b> Updates everyday synchronously with the high school calendar.</p><br>
@@ -108,7 +109,6 @@
       
     </div>
   
-    
 
 
   <div class="popup" id="moreStats">
@@ -116,16 +116,20 @@
     <h1 class="popupheader">More Stuff</h1>
     <hr>
     <div id="statsDiv"></div>
-    <div class="requestButton shadows" onclick="openSoundPanel();">Sounds</div>
-    <div class="requestButton shadows" onclick="bugReport();">Bug Report</div>
-    <div class="requestButton shadows" onclick="requestFeature();">Feature Request</div>
-
-    <div class="requestButton shadows" onclick="window.open('https://github.com/lukelmg')">Github</div>
-    <div class="requestButton shadows" onclick="alert(' Email: lukegutman14@gmail.com \n Instagram: @lg.gutman \n GitHub: @lukelmg')">Contact Me</div>
-
-    <h5 class="copy">
-      Copyright &copy Luke Gutman, 2021
-    </h5>
+    <br>
+    <div style="display: flex;">
+      <div class="requestButton shadows" onclick="openSoundPanel();">Sounds</div>
+      <div class="requestButton shadows" onclick="bugReport();">Bug Report</div>
+      <div class="requestButton shadows" onclick="requestFeature();">Feature Request</div>
+    </div>
+    <div style="display: flex;">
+      <div class="requestButton shadows" onclick="window.open('https://github.com/lukelmg')">Github</div>
+      <div class="requestButton shadows" onclick="alert(' Email: lukegutman14@gmail.com \n Instagram: @lg.gutman \n GitHub: @lukelmg')">Contact Luke</div>
+      <div class="requestButton shadows" onclick="alert(' Email: krushilamrutiya.com \n Instagram: @krushil.amrutiya \n Github: @krushil1 \n Twitter: @KrushilA__')">Contact Krushil</div>
+    </div>
+    
+    <h5 class="copy">Copyright &copy Luke Gutman, 2021</h5>
+    <h5>Some features added by Krushil in collab with Luke</h5>
   </div>
 
   <div class="popup" id="soundDiv">
@@ -179,10 +183,10 @@
           <h6 id="bottomTime">00:00:00 PM</h6>
         </center>
       </div>
+
       <div class="sidebarSquare shadows">
         <center>
-        <!--  <h6> Current Date </h6> -->
-          <div id="currentDateAndDay">
+          <div id="currentDateAndDay" >
             <h6 id="currentDay">Sunday</h6>
             <h6 id="currentDate">00/00/0000</h6>
           </div>
@@ -222,13 +226,17 @@
           </center>
         </div>
       </div>
-      <div class="sidebarSquare shadows" id="cycle" onclick="openCyclePanel();">
+      <div class="sidebarSquare shadows pointer" id="cycle" onclick="openCyclePanel();">
       <center>  <h6 id="cycleLabel"> Cycle Day </h6> </center>
       <center>  <h6 id="lastUpdated"></h6> </center>
         <h6 id="cycleDayOutput">-</h6>
-      </div>
+      </div> 
+      
+      
+      
       <div class="sidebarSquare" id="settingsDiv">
         <center>
+
           <button class="shadows" onclick="openMessagePanel();">New Fixes </button>
           <button class="rightButtons shadows" onclick="openColor();">Color Picker</button>
           <button class="shadows" onclick="openStatsPanel();">More Stuff</button>
